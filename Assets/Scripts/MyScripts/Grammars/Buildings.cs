@@ -60,18 +60,20 @@ public class Buildings : Shape
             }
         }
         randomSquareInCorner();
-        for (int i = 0; i < width; i++)
-        {
-            for (int j = 0; j < depth; j++)
-            {
-                if (floorPlan[i, j] == 1) {
-                    var pref = SpawnPrefab(debugPrefab);
-                    pref.transform.localPosition = new Vector3(i, 9, j);
-                }
+
+        //Debug 
+        //for (int i = 0; i < width; i++)
+        //{
+        //    for (int j = 0; j < depth; j++)
+        //    {
+        //        if (floorPlan[i, j] == 1) {
+        //            var pref = SpawnPrefab(debugPrefab);
+        //            pref.transform.localPosition = new Vector3(i, 9, j);
+        //        }
 
              
-            }
-        }
+        //    }
+        //}
 
     }
 
@@ -114,8 +116,8 @@ public class Buildings : Shape
 
 
         
-        size.x = Random.Range(1, floorPlan.GetLength(0)-1); //Size Along x Axis
-        size.y = Random.Range(1, floorPlan.GetLength(1) - 1); //Size Along z Axis
+        size.x = Random.Range(0, floorPlan.GetLength(0)-1); //Size Along x Axis
+        size.y = Random.Range(0, floorPlan.GetLength(1) - 1); //Size Along z Axis
 
         if (corner == 0)
         {
