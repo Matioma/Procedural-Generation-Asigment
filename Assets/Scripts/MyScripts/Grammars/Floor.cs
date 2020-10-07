@@ -44,68 +44,15 @@ public class Floor : Shape
         GameObject wall;
 
 
+        //Building the walls
         do
         {
-
             wall = SpawnPrefab(wallPrefab);
             wall.transform.localPosition = new Vector3(index.x, 0, index.y);
             wall.transform.localRotation = Quaternion.Euler(0, mydirection.directionRotation, 0);
             wall.GetComponent<Wall>().WidthRemaining = computeWallWidth();
 
-            Debug.Log((index.x != 0) + " : " + index.y);
-
-
         } while (index.x != 0 || index.y != 0);
-
-        //wall = SpawnPrefab(wallPrefab);
-        //wall.transform.localPosition = new Vector3(index.x, 0, index.y);
-        //wall.transform.localRotation = Quaternion.Euler(0, mydirection.directionRotation, 0);
-        //wall.GetComponent<Wall>().WidthRemaining = computeWallWidth();
-
-
-        //wall = SpawnPrefab(wallPrefab);
-        //wall.transform.localPosition = new Vector3(index.x, 0, index.y);
-        //wall.transform.localRotation = Quaternion.Euler(0, mydirection.directionRotation, 0);
-        //wall.GetComponent<Wall>().WidthRemaining = computeWallWidth();
-
-        //wall = SpawnPrefab(wallPrefab);
-        //wall.transform.localPosition = new Vector3(index.x, 0, index.y);
-        //wall.transform.localRotation = Quaternion.Euler(0, mydirection.directionRotation, 0);
-        //wall.GetComponent<Wall>().WidthRemaining = computeWallWidth();
-
-        //wall = SpawnPrefab(wallPrefab);
-        //wall.transform.localPosition = new Vector3(index.x, 0, index.y);
-        //wall.transform.localRotation = Quaternion.Euler(0, mydirection.directionRotation, 0);
-        //wall.GetComponent<Wall>().WidthRemaining = computeWallWidth();
-
-        //wall = SpawnPrefab(wallPrefab);
-        //wall.transform.localPosition = new Vector3(index.x, 0, index.y);
-        //wall.transform.localRotation = Quaternion.Euler(0, mydirection.directionRotation, 0);
-        //wall.GetComponent<Wall>().WidthRemaining = computeWallWidth();
-
-        //wall = SpawnPrefab(wallPrefab);
-        //wall.transform.localPosition = new Vector3(index.x, 0, index.y);
-        //wall.transform.localRotation = Quaternion.Euler(0, mydirection.directionRotation, 0);
-        //wall.GetComponent<Wall>().WidthRemaining = computeWallWidth();
-
-
-
-
-        //wall = SpawnPrefab(wallPrefab);
-        //wall.transform.localPosition = new Vector3(0, 0, depth-1);
-        //wall.transform.localRotation = Quaternion.Euler(0, 90, 0);
-        //wall.GetComponent<Wall>().WidthRemaining = width;
-
-        //wall = SpawnPrefab(wallPrefab);
-        //wall.transform.localPosition = new Vector3(width-1, 0, depth - 1);
-        //wall.transform.localRotation = Quaternion.Euler(0, 180, 0);
-        //wall.GetComponent<Wall>().WidthRemaining = depth;
-
-
-        //wall = SpawnPrefab(wallPrefab);
-        //wall.transform.localPosition = new Vector3(width - 1, 0, 0);
-        //wall.transform.localRotation = Quaternion.Euler(0, 270, 0);
-        //wall.GetComponent<Wall>().WidthRemaining = width;
     }
 
     bool indexInBounds(Vector2Int index) {

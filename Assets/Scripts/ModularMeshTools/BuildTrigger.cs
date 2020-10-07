@@ -12,15 +12,16 @@ namespace Demo {
 			Root=GetComponent<Shape>();
 			random = GetComponent<RandomWithSeed>();
 			if (BuildOnStart) {
+				GetComponent<Buildings>()?.UpdateRandomValues();
 				Build();
+				
 			}
 		}
 
 		void Update() {
 			if (Input.GetKeyDown(BuildKey)) {
+				GetComponent<Buildings>()?.UpdateRandomValues();
 				Build();
-
-				GetComponent<Buildings>()?.resetFloorPlan();
 			}
 		}
 

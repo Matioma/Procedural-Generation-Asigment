@@ -100,6 +100,22 @@ namespace Demo {
 			}
 		}
 
+
+		protected int RandomInt(int minValue, int maxValue)
+		{
+			RandomGenerator rnd = Root.GetComponent<RandomGenerator>();
+			if (rnd != null)
+			{
+				Debug.Log("randomGenerator");
+				return rnd.Next(minValue, maxValue);
+			}
+			else
+			{ // use Unity's random
+				return Random.Range(minValue, maxValue);
+			}
+		}
+
+
 		/// <summary>
 		/// Returns a random float between 0 and 1. 
 		/// Uses The RandomGenerator attached to the root object, if that's there.

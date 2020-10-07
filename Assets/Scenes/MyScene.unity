@@ -412,10 +412,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 498854767353144572, guid: 4e2c422ddff90ed47b32fe6843acf243,
+    - target: {fileID: 0}
+      propertyPath: seed
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4795082505319799063, guid: 4e2c422ddff90ed47b32fe6843acf243,
         type: 3}
       propertyPath: seed
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7788002103011912713, guid: 4e2c422ddff90ed47b32fe6843acf243,
         type: 3}
@@ -486,22 +490,22 @@ PrefabInstance:
     - target: {fileID: 7788002103011912719, guid: 4e2c422ddff90ed47b32fe6843acf243,
         type: 3}
       propertyPath: minWidth
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7788002103011912719, guid: 4e2c422ddff90ed47b32fe6843acf243,
         type: 3}
       propertyPath: maxWidth
-      value: 9
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 7788002103011912719, guid: 4e2c422ddff90ed47b32fe6843acf243,
         type: 3}
       propertyPath: minDepth
-      value: 6
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7788002103011912719, guid: 4e2c422ddff90ed47b32fe6843acf243,
         type: 3}
       propertyPath: maxDepth
-      value: 8
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 7788002103011912719, guid: 4e2c422ddff90ed47b32fe6843acf243,
         type: 3}

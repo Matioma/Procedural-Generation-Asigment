@@ -24,6 +24,11 @@ public class RandomGenerator : MonoBehaviour {
 		return Rand.Next(maxValue);
 	}
 
+	public int Next(int minValue, int maxValue)
+	{
+		return Rand.Next(minValue, maxValue);
+	}
+
 	public System.Random Rand {
 		get {
 			if (rand==null) {
@@ -35,5 +40,6 @@ public class RandomGenerator : MonoBehaviour {
 
 	public void ResetRandom() {
 		rand = new System.Random(seed);
+
 	}
 }
