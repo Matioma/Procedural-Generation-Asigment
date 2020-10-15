@@ -54,9 +54,9 @@ MonoBehaviour:
   minHeight: 1
   maxHeight: 6
   minWidth: 2
-  maxWidth: 10
+  maxWidth: 4
   minDepth: 2
-  maxDepth: 3
+  maxDepth: 4
 --- !u!114 &7788002103011912718
 MonoBehaviour:
   m_ObjectHideFlags: 0

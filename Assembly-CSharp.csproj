@@ -80,12 +80,14 @@
     <Compile Include="Assets\Scripts\ModularMeshTools\ValueGrid.cs" />
     <Compile Include="Assets\Scripts\MyScripts\CityBuilder.cs" />
     <Compile Include="Assets\Scripts\MyScripts\ControlledRandom.cs" />
+    <Compile Include="Assets\Scripts\MyScripts\DataClass\Road.cs" />
     <Compile Include="Assets\Scripts\MyScripts\Grammars\Buildings.cs" />
     <Compile Include="Assets\Scripts\MyScripts\Grammars\Floor.cs" />
     <Compile Include="Assets\Scripts\MyScripts\Grammars\RoofTop.cs" />
     <Compile Include="Assets\Scripts\MyScripts\Grammars\Wall.cs" />
     <Compile Include="Assets\Scripts\MyScripts\GridInfo.cs" />
     <Compile Include="Assets\Scripts\MyScripts\RandomWithSeed.cs" />
+    <Compile Include="Assets\Scripts\MyScripts\RoadBuilder.cs" />
     <Compile Include="Assets\Scripts\MyScripts\WallParameters.cs" />
     <Reference Include="Unity.Timeline.Editor">
       <HintPath>D:/Documents/StudyDocs/Year2/Prcedural generation/Assigment/Procedural-Generation-Asigment/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
