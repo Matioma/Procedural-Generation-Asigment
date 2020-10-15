@@ -10,9 +10,8 @@ namespace Demo {
 
 		void Start() {
 			Root=GetComponent<Shape>();
-			random = GetComponent<RandomWithSeed>();
+			
 			if (BuildOnStart) {
-				GetComponent<Buildings>()?.UpdateRandomValues();
 				Build();
 				
 			}
@@ -20,18 +19,20 @@ namespace Demo {
 
 		void Update() {
 			if (Input.GetKeyDown(BuildKey)) {
-				GetComponent<Buildings>()?.UpdateRandomValues();
 				Build();
 			}
 		}
 
-		void Build() {
-			if (random != null) {
-				random.ResetRandom();
-			}
-			if (Root!=null) {
-				Root.Generate();
-			}
-		}
+		public void Build() {
+			GetComponent<Buildings>()?.Trigger();
+            if (random != null)
+            {
+                random.ResetRandom();
+            }
+            if (Root != null)
+            {
+                Root.Generate();
+            }
+        }
 	}
 }

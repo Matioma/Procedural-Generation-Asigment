@@ -12,9 +12,7 @@ public class GenerateBuilding : Editor
 
         base.OnInspectorGUI();
         if (GUILayout.Button("Generate")) {
-            //building.CallExecute();
-            //Debug.Log("Generating");
-
+            building.Trigger();
         }
     }
 }

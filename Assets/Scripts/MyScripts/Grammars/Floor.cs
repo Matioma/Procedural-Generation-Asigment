@@ -12,16 +12,12 @@ public class Floor : Shape
     public int width;
     public int depth;
 
-
     public int rotationsLeft = 3;
-
-
 
     public int[,] floorPlan;
 
     Vector2Int index = new Vector2Int(0, 0);
     MyDirection mydirection = new MyDirection(new Vector2Int(0, 1));
-
 
     public void Initialize(int pRotationsLeft, GameObject prefab)
     {

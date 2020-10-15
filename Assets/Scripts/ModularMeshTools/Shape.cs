@@ -106,7 +106,7 @@ namespace Demo {
 			RandomGenerator rnd = Root.GetComponent<RandomGenerator>();
 			if (rnd != null)
 			{
-				Debug.Log("randomGenerator");
+				//Debug.Log("randomGenerator");
 				return rnd.Next(minValue, maxValue);
 			}
 			else

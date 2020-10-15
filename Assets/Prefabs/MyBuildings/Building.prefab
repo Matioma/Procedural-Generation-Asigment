@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 7788002103011912716}
   - component: {fileID: 7788002103011912719}
   - component: {fileID: 7788002103011912718}
-  - component: {fileID: 4795082505319799063}
+  - component: {fileID: 8035809625655292637}
   m_Layer: 0
   m_Name: Building
   m_TagString: Untagged
@@ -51,11 +51,12 @@ MonoBehaviour:
     type: 3}
   debugPrefab: {fileID: -927199367670048503, guid: 07320f43aa78db04883b2055ead1d2fa,
     type: 3}
-  heightRemaining: 5
-  width: 2
-  depth: 2
-  minWidth: 0
-  maxWidth: 0
+  minHeight: 1
+  maxHeight: 6
+  minWidth: 2
+  maxWidth: 10
+  minDepth: 2
+  maxDepth: 3
 --- !u!114 &7788002103011912718
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -70,7 +71,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BuildKey: 32
   BuildOnStart: 1
---- !u!114 &4795082505319799063
+--- !u!114 &8035809625655292637
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -82,4 +83,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5fd24ab55c2f53c4c87fe962d45559ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  seed: 0
+  seed: 79

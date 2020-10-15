@@ -9,24 +9,31 @@ public class Buildings : Shape
     public GameObject RoofPrefab;
     public GameObject debugPrefab;
 
-    public int heightRemaining;
 
+    int heightRemaining;
+    int width;
+    int depth;
 
-    public int width;
-    public int depth;
-
-
-
-
+    [Header("Height Parameters")]
     [SerializeField, Range(1, 10)]
+    int minHeight =1;
+    [SerializeField, Range(1, 10)]
+    int maxHeight=1;
+
+
+    
+
+    [Header("Width Parameters")]
+    [SerializeField, Range(2, 10)]
     int minWidth;
-    [SerializeField, Range(1, 10)]
+    [SerializeField, Range(2, 10)]
     int maxWidth;
 
 
-    [SerializeField, Range(1, 10)]
+    [Header("Height Parameters")]
+    [SerializeField, Range(2, 10)]
     int minDepth;
-    [SerializeField, Range(1, 10)]
+    [SerializeField, Range(2, 10)]
     int maxDepth;
 
 
@@ -41,7 +48,11 @@ public class Buildings : Shape
     //void Initialize(int heightRemaining, GameObject prefab) {
     //    this.heightRemaining = heightRemaining;
     //    floorPrefab = prefab;
-        
+
+    //}
+    //private void Start()
+    //{
+    //    Trigger();
     //}
 
 
@@ -59,10 +70,30 @@ public class Buildings : Shape
     }
 
 
-    public void UpdateRandomValues()
+    /// <summary>
+    /// Trigger Building
+    /// </summary>
+    public void Trigger()
+    {
+        var random = GetComponent<RandomGenerator>(); 
+        UpdateRandomValues();
+        if (random != null)
+        {
+            random.ResetRandom();
+        }
+        if (Root != null)
+        {
+            Generate();
+        }
+        //GetComponent<BuildTrigger>()?.Build();
+    }
+
+
+    private void UpdateRandomValues()
     {
         width = RandomInt(minWidth, maxWidth+1);
         depth = RandomInt(minDepth, maxDepth+1);
+        heightRemaining = RandomInt(minHeight-1, maxHeight);
         resetFloorPlan();
     }
 

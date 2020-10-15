@@ -17,7 +17,21 @@ public class WallParameters : MonoBehaviour
             Debug.LogError("Wall types array is empty");
             return null;
         }
-        int randomIndex = Random.Range(0, walls.Length-1);
+
+        //RandomGenerator random = GetComponentInParent<RandomGenerator>();
+        int randomIndex =0;
+
+        //if (random != null)
+        //{
+        //    //Debug.Log("Yay");
+        //    randomIndex = random.Next(walls.Length);
+        //}
+        //else {
+            randomIndex = Random.Range(0, walls.Length);
+        //}
+        //GetComponentInParent<RandomGenerator>()?.Next(walls.Length - 1);
+
+        
         return walls[randomIndex];
     }
 }

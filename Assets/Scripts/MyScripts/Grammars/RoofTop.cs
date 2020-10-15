@@ -48,7 +48,8 @@ public class RoofTop : Shape
             case 14:
             case 13:
             case 11:
-                random = Random.Range(0, roofMeshes[0].groupPrefabs.Length);
+                random =RandomInt(0, roofMeshes[0].groupPrefabs.Length);
+                //random = Random.Range(0, roofMeshes[0].groupPrefabs.Length);
                 return roofMeshes[0].groupPrefabs[random];
                 break;
         }
