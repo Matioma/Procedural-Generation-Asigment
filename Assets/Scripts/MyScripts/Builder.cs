@@ -6,7 +6,7 @@ using UnityEngine;
 [RequireComponent(typeof(RandomGenerator))]
 public class Builder : MonoBehaviour
 {
-
+    [HideInInspector]
     public  RandomGenerator random;
 
     public void SetSeed(int seed) {

@@ -20,14 +20,17 @@ public class StreetParameters
     [SerializeField]
     public FloatRandomRange buildingDensity;
 
+    [HideInInspector]
+    public float streetLength;
+
 
     public StreetParameters(StreetParameters param)
     {
-        startPosition = param.startPosition;
-        endPosition = param.endPosition;
+        startPosition = new Vector3(param.startPosition.x, param.startPosition.y, param.startPosition.z);
+        endPosition = new Vector3(param.endPosition.x, param.endPosition.y, param.endPosition.z);
         curvitureDepth = param.curvitureDepth;
         roadWidth = param.roadWidth;
         buildingDensity = new FloatRandomRange(param.buildingDensity);
-
+        streetLength = param.streetLength;
     }
 }

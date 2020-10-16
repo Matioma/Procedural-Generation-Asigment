@@ -119,12 +119,12 @@ public class GridInfo : MonoBehaviour
     }
 
     public int getValue(int depthIndex, int widthIndex) {
-        //if (inRange(row, column))
-        //{
-           
-        //}
-        //return 0;
-        return array[depthIndex, widthIndex];
+        if (inRange(depthIndex, widthIndex))
+        {
+            return array[depthIndex, widthIndex];
+        }
+        return 0;
+        
     }
 
     //Checks if index of the cell is in range

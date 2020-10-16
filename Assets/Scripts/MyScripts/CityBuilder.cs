@@ -53,7 +53,7 @@ public class CityBuilder : Builder
 
     void BuildCity() {
         RemoveChildren();
-        for (int i = 0; i < 3; i++)
+        for (int i = 0; i < 1; i++)
         {
             buildRoad();
         }
@@ -76,6 +76,8 @@ public class CityBuilder : Builder
 
         streetParameters.startPosition = randPostionStart;
         streetParameters.endPosition = randPostionEnd;
+        streetParameters.streetLength = (randPostionStart - randPostionEnd).magnitude;
+
         GetComponent<RoadBuilder>()?.SpawnRoad(streetParameters);
     }
 }

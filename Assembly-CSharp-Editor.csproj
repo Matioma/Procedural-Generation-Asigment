@@ -67,8 +67,8 @@
     <Compile Include="Assets\Editor\StackEditor.cs" />
     <Compile Include="Assets\Scripts\MyScripts\Editor\BuilderEditors.cs" />
     <Compile Include="Assets\Scripts\MyScripts\Editor\BuilderGenerateButtons.cs" />
-    <Compile Include="Assets\Scripts\MyScripts\Editor\CityBuilderTool.cs" />
     <Compile Include="Assets\Scripts\MyScripts\Editor\GenerateBuilding.cs" />
+    <Compile Include="Assets\Scripts\MyScripts\Editor\RoadEditor.cs" />
     <Reference Include="UnityEditor.TestRunner">
       <HintPath>D:/Documents/StudyDocs/Year2/Prcedural generation/Assigment/Procedural-Generation-Asigment/Library/ScriptAssemblies/UnityEditor.TestRunner.dll</HintPath>
     </Reference>

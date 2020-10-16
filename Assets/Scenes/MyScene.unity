@@ -160,7 +160,16 @@ MonoBehaviour:
   distanceBetweenBuildings:
     minValue: 3
     maxValue: 5
-  MinRoadLength: 21.4
+  MinRoadLength: 40
+  streetParameters:
+    startPosition: {x: 40.372715, y: 0, z: 22.64527}
+    endPosition: {x: 1.8019247, y: 0, z: 42.785458}
+    curvitureDepth: 10.5
+    roadWidth: 9.9
+    buildingDensity:
+      minValue: 4.2
+      maxValue: 6.6
+    streetLength: 43.512447
 --- !u!4 &652912290
 Transform:
   m_ObjectHideFlags: 0
@@ -187,7 +196,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5fd24ab55c2f53c4c87fe962d45559ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  seed: 0
+  seed: 500
 --- !u!114 &652912292
 MonoBehaviour:
   m_ObjectHideFlags: 0

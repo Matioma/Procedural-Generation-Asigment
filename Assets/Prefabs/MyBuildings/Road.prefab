@@ -47,8 +47,7 @@ MonoBehaviour:
   random: {fileID: 0}
   buildingPrefab: {fileID: 7788002103011912713, guid: 4e2c422ddff90ed47b32fe6843acf243,
     type: 3}
-  startPosition: {x: 0, y: 0, z: 0}
-  endPosition: {x: 0, y: 0, z: 0}
+  roadPrefab: {fileID: 1806120222370655490}
   curve:
     serializedVersion: 2
     m_Curve:
@@ -73,12 +72,16 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  buildingDinstance: 4
-  curvitureDepth: 85.5
-  roadWidth: 10.3
-  buildingDensity:
-    minValue: 1
-    maxValue: 1
+  streetParameters:
+    startPosition: {x: 0, y: 0, z: 0}
+    endPosition: {x: 0, y: 0, z: 0}
+    curvitureDepth: 0
+    roadWidth: 0
+    buildingDensity:
+      minValue: 1
+      maxValue: 1
+    streetLength: 0
+  minLength: 10
 --- !u!114 &8733226730631457501
 MonoBehaviour:
   m_ObjectHideFlags: 0
