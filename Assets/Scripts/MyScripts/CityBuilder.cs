@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using System.Runtime.Remoting;
 using UnityEngine;
 
+
+
 [RequireComponent(typeof(RandomGenerator))]
 public class CityBuilder : Builder
 {
@@ -11,38 +13,47 @@ public class CityBuilder : Builder
     GameObject buildingPrefab;
 
 
-    [SerializeField,Range(0, 50)]
+    [SerializeField,Range(5, 250)]
     float width =10 ;
-    [SerializeField, Range(0, 50)]
+    [SerializeField, Range(5, 250)]
     float depth =10;
 
-
     [SerializeField]
-    int BuildingDistance;
+    FloatRandomRange distanceBetweenBuildings;
 
-    [SerializeField, Range(0, 20)]
-    int MinRoadLength = 10;
+    [SerializeField, Range(0, 50)]
+    float MinRoadLength = 10;
 
+    private void OnValidate()
+    {
+        float maxLength = Mathf.Sqrt(width * width + depth * depth);
 
-    //RandomGenerator random;
+        if (MinRoadLength >= maxLength)
+        {
+            MinRoadLength = maxLength * 0.9f;
+        }
+
+        distanceBetweenBuildings.Validate();
+    }
 
     private void Awake()
     {
         base.Awake();
-        //random = GetComponent<RandomGenerator>();
         Generate();
     }
 
     public override void  Generate()
     {
         base.Generate();
-        //random.ResetRandom();
         BuildCity();
     }
 
     void BuildCity() {
         RemoveChildren();
-        buildRoads();
+        //for (int i = 0; i < 3; i++) {
+        //    buildRoads();
+        //}
+        buildRoad();
     }
     void RemoveChildren() {
         for (int i = 0; i < transform.childCount; i++) {
@@ -50,8 +61,7 @@ public class CityBuilder : Builder
         }
     }
 
-
-    void buildRoads() {
+    void buildRoad() {
         Vector3 randPostionStart = new Vector3(random.Next(0, width), 0, random.Next(0, width));
         Vector3 randPostionEnd;
         do
@@ -59,9 +69,6 @@ public class CityBuilder : Builder
             randPostionEnd = new Vector3(random.Next(0, width), 0, random.Next(0, width));
         } while ((randPostionStart - randPostionEnd).sqrMagnitude < MinRoadLength * MinRoadLength);
 
-        //Debug.Log((randPostionStart - randPostionEnd).magnitude);       
-
-        GetComponent<RoadBuilder>()?.SpawnRoad(randPostionStart, randPostionEnd);
+        GetComponent<RoadBuilder>()?.SpawnRoad(randPostionStart, randPostionEnd, distanceBetweenBuildings);
     }
-
 }

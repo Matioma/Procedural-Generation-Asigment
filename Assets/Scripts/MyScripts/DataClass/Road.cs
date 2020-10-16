@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -19,13 +20,16 @@ public class Road:Builder
     [SerializeField, Range(1,15)]
     float buildingDinstance=2;
 
-    [SerializeField, Range(0, 40)]
+    [SerializeField, Range(0, 150)]
     float curvitureDepth = 20;
 
 
     [SerializeField,Range(0,20)]
     float roadWidth = 5;
 
+
+    [SerializeField]
+    FloatRandomRange buildingDensity;
 
 
     public Vector3 vectorDif {
@@ -42,6 +46,11 @@ public class Road:Builder
         base.Awake();
     }
 
+    private void OnValidate()
+    {
+        buildingDensity.Validate();
+    }
+
     override public void Generate() {
         base.Generate();
         RemoveChildren();
@@ -49,19 +58,24 @@ public class Road:Builder
         BuildTheBuildings();
     }
 
+
     void BuildTheBuildings() {
         float distance = vectorDif.magnitude;
-        float numberOfBuildings = distance / buildingDinstance;
-        float distancePerStep = distance /numberOfBuildings;
 
-        for (int i = 0; i < numberOfBuildings; i++)
-        {
-            Vector3 objectPosition = startPosition + vectorDif.normalized * i * distancePerStep + perpendicular * curve.Evaluate(distancePerStep * i);
+        buildingDinstance = random.Next(buildingDensity.minValue, buildingDensity.maxValue);
+       
+
+        float distancePassed;
+        for (distancePassed = 0; distancePassed < distance; distancePassed += buildingDinstance) {
+
+            buildingDinstance = random.Next(buildingDensity.minValue, buildingDensity.maxValue);
+
+            Vector3 objectPosition = startPosition + vectorDif.normalized * distancePassed + perpendicular * curve.Evaluate(distancePassed);
 
             //Buildings of Left
             GameObject building = Instantiate(buildingPrefab, transform);
             building.GetComponent<RandomGenerator>().seed = random.Next(int.MaxValue); //Random.Range(0, int.MaxValue);
-            building.transform.position = objectPosition + perpendicular* roadWidth/2;  
+            building.transform.position = objectPosition + perpendicular * roadWidth / 2;
 
             //Building on Right
             building = Instantiate(buildingPrefab, transform);
@@ -72,29 +86,41 @@ public class Road:Builder
 
 
 
-
-
-    public void  Initialize(Vector3 start, Vector3 end) {
+    public void  Initialize(Vector3 start, Vector3 end, FloatRandomRange range) {
         startPosition = start;
         endPosition = end;
+        buildingDensity = range;
+
+        //Debug.Log(buildingDensity.minValue + ": " + buildingDensity.maxValue);
+        buildingDinstance = random.Next(buildingDensity.minValue, buildingDensity.maxValue);
         RandomizeCurve();
     }
 
     public void RandomizeCurve() {
-        Debug.Log(curvitureDepth);
+        //Debug.Log(curvitureDepth);
      
 
         for (int i = 0; i < curve.length; i++) {
             curve.RemoveKey(i);
         }
         curve.AddKey(0, 0);
-        
-        curve.MoveKey(1, new Keyframe(vectorDif.magnitude, 0));
+        curve.MoveKey(0, new Keyframe(0, 0, 0, 0));
+
+        //Debug.Log(vectorDif.magnitude);
+        curve.MoveKey(1, new Keyframe(vectorDif.magnitude, 0,0,0));
 
         float randomX = random.Next(curve[0].time, curve[curve.length - 1].time);
-        float randomY = random.Next(-curvitureDepth, curvitureDepth);
+        float randomY = random.Next(-curvitureDepth, curvitureDepth) -0.5f;
 
-        curve.AddKey(randomX, randomY);
+
+        Keyframe keyFrame = new Keyframe(randomX, randomY,0,0);
+
+        curve.AddKey(keyFrame);
+        //curve.AddKey(randomX, randomY);
+        //=1.0f;
+        //curve.keys[1].inTangent = 1.0f;
+
+        //Debug.Log(curve.keys[1].inTangent + ":" + curve.keys[1].outTangent);
     }
 
     public void RemoveChildren()
@@ -103,13 +129,6 @@ public class Road:Builder
         {
             Destroy(transform.GetChild(i).gameObject);
         }
-    }
-
-    private void OnDrawGizmosSelected()
-    {
-        Gizmos.color = Color.yellow;
-        Gizmos.DrawSphere(startPosition, 0.5f);
-        Gizmos.DrawSphere(endPosition, 0.5f);
     }
 }
 

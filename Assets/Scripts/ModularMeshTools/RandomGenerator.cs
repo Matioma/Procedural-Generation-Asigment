@@ -32,7 +32,7 @@ public class RandomGenerator : MonoBehaviour {
 	{
 		float random = (float)Rand.NextDouble();
 
-		return  random*(maxValue-minValue);
+		return minValue+(random)*(maxValue-minValue);
 	}
 
 	public System.Random Rand {

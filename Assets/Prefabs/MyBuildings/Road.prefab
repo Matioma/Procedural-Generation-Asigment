@@ -74,8 +74,11 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   buildingDinstance: 4
-  curvitureDepth: 50
+  curvitureDepth: 85.5
   roadWidth: 10.3
+  buildingDensity:
+    minValue: 1
+    maxValue: 1
 --- !u!114 &8733226730631457501
 MonoBehaviour:
   m_ObjectHideFlags: 0

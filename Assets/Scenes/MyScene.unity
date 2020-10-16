@@ -155,10 +155,12 @@ MonoBehaviour:
   random: {fileID: 0}
   buildingPrefab: {fileID: 7788002103011912713, guid: 4e2c422ddff90ed47b32fe6843acf243,
     type: 3}
-  width: 50
-  depth: 50
-  BuildingDistance: 10
-  MinRoadLength: 10
+  width: 43
+  depth: 31
+  distanceBetweenBuildings:
+    minValue: 3
+    maxValue: 5
+  MinRoadLength: 2.0710678
 --- !u!4 &652912290
 Transform:
   m_ObjectHideFlags: 0
