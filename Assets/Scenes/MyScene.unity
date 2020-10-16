@@ -152,6 +152,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd63ccae785407940b9a00c934d45b58, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  random: {fileID: 0}
   buildingPrefab: {fileID: 7788002103011912713, guid: 4e2c422ddff90ed47b32fe6843acf243,
     type: 3}
   width: 50

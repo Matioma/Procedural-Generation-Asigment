@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [System.Serializable]
-public class Road:MonoBehaviour
+[RequireComponent(typeof(RandomGenerator))]
+public class Road:Builder
 {
     [SerializeField]
     GameObject buildingPrefab;
-
     [SerializeField]
     public Vector3 startPosition;
     [SerializeField]
@@ -26,6 +26,8 @@ public class Road:MonoBehaviour
     [SerializeField,Range(0,20)]
     float roadWidth = 5;
 
+
+
     public Vector3 vectorDif {
         get { return endPosition - startPosition; }
     }
@@ -35,7 +37,13 @@ public class Road:MonoBehaviour
         get { return Vector3.Cross(vectorDif, Vector3.up).normalized; }
     }
 
-    public void Generate() {
+    override protected void Awake()
+    {
+        base.Awake();
+    }
+
+    override public void Generate() {
+        base.Generate();
         RemoveChildren();
         RandomizeCurve();
         BuildTheBuildings();
@@ -52,12 +60,12 @@ public class Road:MonoBehaviour
 
             //Buildings of Left
             GameObject building = Instantiate(buildingPrefab, transform);
-            building.GetComponent<RandomGenerator>().seed = Random.Range(0, int.MaxValue);
+            building.GetComponent<RandomGenerator>().seed = random.Next(int.MaxValue); //Random.Range(0, int.MaxValue);
             building.transform.position = objectPosition + perpendicular* roadWidth/2;  
 
             //Building on Right
             building = Instantiate(buildingPrefab, transform);
-            building.GetComponent<RandomGenerator>().seed = Random.Range(0, int.MaxValue);
+            building.GetComponent<RandomGenerator>().seed = random.Next(int.MaxValue);// Random.Range(0, int.MaxValue);
             building.transform.position = objectPosition - perpendicular * roadWidth / 2;
         }
     }
@@ -83,13 +91,10 @@ public class Road:MonoBehaviour
         
         curve.MoveKey(1, new Keyframe(vectorDif.magnitude, 0));
 
-        float randomX = Random.Range(curve[0].time, curve[curve.length - 1].time);
-        float randomY = Random.Range(-curvitureDepth, curvitureDepth);
+        float randomX = random.Next(curve[0].time, curve[curve.length - 1].time);
+        float randomY = random.Next(-curvitureDepth, curvitureDepth);
 
-    
         curve.AddKey(randomX, randomY);
-        Debug.Log(curve.length);
-
     }
 
     public void RemoveChildren()
@@ -100,15 +105,11 @@ public class Road:MonoBehaviour
         }
     }
 
-
-    //void OnDrawGizmos()
-    //{
-    //    // Draw a yellow sphere at the transform's position
-    //    Gizmos.color = Color.yellow;
-    //    Gizmos.DrawSphere(startPosition, 0.5f);
-    //    Gizmos.DrawSphere(endPosition, 0.5f);
-    //}
-
-
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.yellow;
+        Gizmos.DrawSphere(startPosition, 0.5f);
+        Gizmos.DrawSphere(endPosition, 0.5f);
+    }
 }
 

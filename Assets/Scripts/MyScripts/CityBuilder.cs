@@ -4,7 +4,8 @@ using System.Collections.Generic;
 using System.Runtime.Remoting;
 using UnityEngine;
 
-public class CityBuilder : MonoBehaviour
+[RequireComponent(typeof(RandomGenerator))]
+public class CityBuilder : Builder
 {
     [SerializeField]
     GameObject buildingPrefab;
@@ -22,13 +23,20 @@ public class CityBuilder : MonoBehaviour
     [SerializeField, Range(0, 20)]
     int MinRoadLength = 10;
 
+
+    //RandomGenerator random;
+
     private void Awake()
     {
+        base.Awake();
+        //random = GetComponent<RandomGenerator>();
         Generate();
     }
 
-    public void Generate()
+    public override void  Generate()
     {
+        base.Generate();
+        //random.ResetRandom();
         BuildCity();
     }
 
@@ -44,14 +52,14 @@ public class CityBuilder : MonoBehaviour
 
 
     void buildRoads() {
-        Vector3 randPostionStart = new Vector3(Random.Range(0, width), 0, Random.Range(0, depth));
+        Vector3 randPostionStart = new Vector3(random.Next(0, width), 0, random.Next(0, width));
         Vector3 randPostionEnd;
         do
         {
-            randPostionEnd = new Vector3(Random.Range(0, width), 0, Random.Range(0, depth));
+            randPostionEnd = new Vector3(random.Next(0, width), 0, random.Next(0, width));
         } while ((randPostionStart - randPostionEnd).sqrMagnitude < MinRoadLength * MinRoadLength);
 
-        Debug.Log((randPostionStart - randPostionEnd).magnitude);       
+        //Debug.Log((randPostionStart - randPostionEnd).magnitude);       
 
         GetComponent<RoadBuilder>()?.SpawnRoad(randPostionStart, randPostionEnd);
     }

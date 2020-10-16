@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1806120222370655488}
   - component: {fileID: 1806120222370655491}
+  - component: {fileID: 8733226730631457501}
   m_Layer: 0
   m_Name: Road
   m_TagString: Untagged
@@ -74,3 +75,16 @@ MonoBehaviour:
   buildingDinstance: 1
   curvitureDepth: 50
   roadWidth: 10.3
+--- !u!114 &8733226730631457501
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1806120222370655490}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fd24ab55c2f53c4c87fe962d45559ec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  seed: 0

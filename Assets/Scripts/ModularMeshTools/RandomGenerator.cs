@@ -28,6 +28,12 @@ public class RandomGenerator : MonoBehaviour {
 	{
 		return Rand.Next(minValue, maxValue);
 	}
+	public float Next(float minValue, float maxValue)
+	{
+		float random = (float)Rand.NextDouble();
+
+		return  random*(maxValue-minValue);
+	}
 
 	public System.Random Rand {
 		get {

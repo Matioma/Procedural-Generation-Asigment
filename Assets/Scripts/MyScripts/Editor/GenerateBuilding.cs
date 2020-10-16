@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 
-[CustomEditor(typeof(Buildings))]
+[CustomEditor(typeof(Buildings),true)]
 public class GenerateBuilding : Editor
 {
     public override void OnInspectorGUI()
