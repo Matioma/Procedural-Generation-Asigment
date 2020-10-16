@@ -9,10 +9,13 @@ public class RoadBuilder : MonoBehaviour
     [SerializeField]
     GameObject RoadPrefab;
 
-    public void SpawnRoad(Vector3 start, Vector3 end, FloatRandomRange range) {
+  
+
+    public void SpawnRoad(StreetParameters streetParameters)
+    {
         var road = Instantiate(RoadPrefab, transform);
-        road.transform.position = start;
-        road.GetComponent<Road>()?.Initialize(start, end, range);
+
+        road.GetComponent<Road>()?.Initialize(streetParameters);
         road.GetComponent<Road>()?.Generate();
     }
 }

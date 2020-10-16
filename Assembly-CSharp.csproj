@@ -82,6 +82,7 @@
     <Compile Include="Assets\Scripts\MyScripts\CityBuilder.cs" />
     <Compile Include="Assets\Scripts\MyScripts\ControlledRandom.cs" />
     <Compile Include="Assets\Scripts\MyScripts\DataClass\Road.cs" />
+    <Compile Include="Assets\Scripts\MyScripts\DataClass\StreetParameters.cs" />
     <Compile Include="Assets\Scripts\MyScripts\Grammars\Buildings.cs" />
     <Compile Include="Assets\Scripts\MyScripts\Grammars\Floor.cs" />
     <Compile Include="Assets\Scripts\MyScripts\Grammars\RoofTop.cs" />

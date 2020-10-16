@@ -6,7 +6,7 @@ using UnityEngine;
 
 
 
-[RequireComponent(typeof(RandomGenerator))]
+[RequireComponent(typeof(RandomGenerator),typeof(RoadBuilder))]
 public class CityBuilder : Builder
 {
     [SerializeField]
@@ -23,6 +23,9 @@ public class CityBuilder : Builder
 
     [SerializeField, Range(0, 50)]
     float MinRoadLength = 10;
+
+    [SerializeField]
+    StreetParameters streetParameters;
 
     private void OnValidate()
     {
@@ -50,10 +53,11 @@ public class CityBuilder : Builder
 
     void BuildCity() {
         RemoveChildren();
-        //for (int i = 0; i < 3; i++) {
-        //    buildRoads();
-        //}
-        buildRoad();
+        for (int i = 0; i < 3; i++)
+        {
+            buildRoad();
+        }
+        //buildRoad();
     }
     void RemoveChildren() {
         for (int i = 0; i < transform.childCount; i++) {
@@ -69,6 +73,9 @@ public class CityBuilder : Builder
             randPostionEnd = new Vector3(random.Next(0, width), 0, random.Next(0, width));
         } while ((randPostionStart - randPostionEnd).sqrMagnitude < MinRoadLength * MinRoadLength);
 
-        GetComponent<RoadBuilder>()?.SpawnRoad(randPostionStart, randPostionEnd, distanceBetweenBuildings);
+
+        streetParameters.startPosition = randPostionStart;
+        streetParameters.endPosition = randPostionEnd;
+        GetComponent<RoadBuilder>()?.SpawnRoad(streetParameters);
     }
 }

@@ -9,6 +9,16 @@ public class FloatRandomRange
     public float minValue = 1;
     [SerializeField, Range(0, 100)]
     public float maxValue = 1;
+
+
+    public FloatRandomRange() { 
+    
+    }
+    public FloatRandomRange(FloatRandomRange randomRange) {
+        minValue = randomRange.minValue;
+        maxValue = randomRange.maxValue;
+    }
+
     public void Validate()
     {
         if (minValue > maxValue)
