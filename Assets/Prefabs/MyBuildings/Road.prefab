@@ -44,6 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40fcb5bccdabbc340a704ecd3d93483a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  random: {fileID: 0}
   buildingPrefab: {fileID: 7788002103011912713, guid: 4e2c422ddff90ed47b32fe6843acf243,
     type: 3}
   startPosition: {x: 0, y: 0, z: 0}
@@ -72,7 +73,7 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  buildingDinstance: 1
+  buildingDinstance: 4
   curvitureDepth: 50
   roadWidth: 10.3
 --- !u!114 &8733226730631457501

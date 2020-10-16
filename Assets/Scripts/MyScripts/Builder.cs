@@ -17,6 +17,9 @@ public class Builder : MonoBehaviour
         random = GetComponent<RandomGenerator>();
     }
     virtual public void Generate() {
+        if (random == null) {
+            random = GetComponent<RandomGenerator>();
+        }
         random.ResetRandom();
     }
 }

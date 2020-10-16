@@ -516,6 +516,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Road
       objectReference: {fileID: 0}
+    - target: {fileID: 1806120222370655491, guid: dae05ef1d34b6aa4aa3b1c7cedae9737,
+        type: 3}
+      propertyPath: buildingDinstance
+      value: 4
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dae05ef1d34b6aa4aa3b1c7cedae9737, type: 3}
 --- !u!1001 &7788002101598982114
