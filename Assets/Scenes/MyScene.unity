@@ -170,6 +170,12 @@ MonoBehaviour:
     streetLength: 43.512447
     intersectionsSize: 10
   numberOfSplitsOfTheRoad: 0
+  CityShape:
+  - {x: -81.98082, y: 0, z: 181.20137}
+  - {x: 113.36812, y: 0, z: 114.6252}
+  - {x: 155.08266, y: 0, z: 10.690445}
+  - {x: 21.088438, y: 0, z: -38.548676}
+  - {x: -92.91296, y: 0, z: 27.68267}
 --- !u!4 &652912290
 Transform:
   m_ObjectHideFlags: 0
@@ -178,7 +184,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 652912288}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 15.082981, y: 0, z: 28.601088}
+  m_LocalPosition: {x: 6, y: 0, z: 59}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}

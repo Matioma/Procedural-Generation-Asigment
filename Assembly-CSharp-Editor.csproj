@@ -65,8 +65,8 @@
   <ItemGroup>
     <Compile Include="Assets\Editor\RowEditor.cs" />
     <Compile Include="Assets\Editor\StackEditor.cs" />
-    <Compile Include="Assets\Scripts\MyScripts\Editor\BuilderEditors.cs" />
     <Compile Include="Assets\Scripts\MyScripts\Editor\BuilderGenerateButtons.cs" />
+    <Compile Include="Assets\Scripts\MyScripts\Editor\CityBuilderEditor.cs" />
     <Compile Include="Assets\Scripts\MyScripts\Editor\GenerateBuilding.cs" />
     <Compile Include="Assets\Scripts\MyScripts\Editor\RoadEditor.cs" />
     <Compile Include="Assets\Scripts\MyScripts\Editor\RoadSystemEditor.cs" />

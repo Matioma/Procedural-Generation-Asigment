@@ -9,8 +9,6 @@ using UnityEngine;
 [RequireComponent(typeof(RandomGenerator),typeof(RoadBuilder))]
 public class CityBuilder : Builder
 {
-    //[SerializeField]
-    //GameObject buildingPrefab;
 
 
     [SerializeField,Range(5, 250)]
@@ -29,8 +27,12 @@ public class CityBuilder : Builder
 
     [SerializeField]
     int numberOfSplitsOfTheRoad;
-    
 
+
+    [SerializeField]
+    public List<Vector3> CityShape;
+
+    
     private void OnValidate()
     {
         float maxLength = Mathf.Sqrt(width * width + depth * depth);
