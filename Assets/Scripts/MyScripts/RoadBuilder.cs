@@ -24,9 +24,6 @@ public class RoadBuilder : MonoBehaviour
     public void SpawnRoad(StreetParameters streetParameters, int splitsLeft =0)
     {
         var road = Instantiate(RoadPrefab, transform);
-
-        //road.GetComponent<RoadSystemBuilder>().Initialize(2, streetParameters);
-        //road.GetComponent<Builder>().Generate();
         road.GetComponent<Road>()?.Initialize(streetParameters, splitsLeft);
         road.GetComponent<Road>()?.Generate();
     }

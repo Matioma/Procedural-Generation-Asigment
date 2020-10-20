@@ -82,11 +82,13 @@ MonoBehaviour:
       minValue: 1
       maxValue: 1
     streetLength: 0
+    intersectionsSize: 0
   minLength: 10
   roadToLeft: 1
-  roadToRight: 1
-  buildingsToRight: 1
+  roadToRight: 0
+  buildingsToRight: 0
   buildingsToLeft: 1
+  splitsLeft: 0
 --- !u!114 &8733226730631457501
 MonoBehaviour:
   m_ObjectHideFlags: 0

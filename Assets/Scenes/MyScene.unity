@@ -160,22 +160,22 @@ MonoBehaviour:
     maxValue: 5
   MinRoadLength: 40
   streetParameters:
-    startPosition: {x: 40.372715, y: 0, z: 22.64527}
-    endPosition: {x: 1.8019247, y: 0, z: 42.785458}
+    startPosition: {x: 61.189, y: 0, z: -21.971367}
+    endPosition: {x: 15.7034855, y: 0, z: -36.58058}
     curvitureDepth: 10.5
     roadWidth: 9.9
     buildingDensity:
-      minValue: 4.2
+      minValue: 3.4
       maxValue: 6.6
-    streetLength: 43.512447
-    intersectionsSize: 10
-  numberOfSplitsOfTheRoad: 0
+    streetLength: 47.774063
+    intersectionsSize: 5
+  numberOfSplitsOfTheRoad: 1
   CityShape:
-  - {x: -81.98082, y: 0, z: 181.20137}
-  - {x: 113.36812, y: 0, z: 114.6252}
-  - {x: 155.08266, y: 0, z: 10.690445}
-  - {x: 21.088438, y: 0, z: -38.548676}
-  - {x: -92.91296, y: 0, z: 27.68267}
+  - {x: 26.189, y: 0, z: -30.971367}
+  - {x: -19.296515, y: 0, z: -45.58058}
+  - {x: -66.2178, y: 0, z: 5.2413864}
+  - {x: -26.356009, y: 0, z: 59.267418}
+  - {x: 37.18846, y: 0, z: 26.537498}
 --- !u!4 &652912290
 Transform:
   m_ObjectHideFlags: 0
@@ -184,7 +184,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 652912288}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 6, y: 0, z: 59}
+  m_LocalPosition: {x: 35, y: 0, z: 9}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
