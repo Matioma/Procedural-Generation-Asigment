@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 1806120222370655488}
   - component: {fileID: 1806120222370655491}
   - component: {fileID: 8733226730631457501}
+  - component: {fileID: -7311196184908273935}
   m_Layer: 0
   m_Name: Road
   m_TagString: Untagged
@@ -82,6 +83,10 @@ MonoBehaviour:
       maxValue: 1
     streetLength: 0
   minLength: 10
+  roadToLeft: 1
+  roadToRight: 1
+  buildingsToRight: 1
+  buildingsToLeft: 1
 --- !u!114 &8733226730631457501
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -95,3 +100,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   seed: 0
+--- !u!114 &-7311196184908273935
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1806120222370655490}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d337c953789d3cf49ab6a98a6f78d20c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  RoadPrefab: {fileID: 1806120222370655490}

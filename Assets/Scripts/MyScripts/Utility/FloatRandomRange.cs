@@ -5,9 +5,9 @@ using UnityEngine;
 [System.Serializable]
 public class FloatRandomRange
 {
-    [SerializeField, Range(0, 100)]
+    [SerializeField, Range(0, 20)]
     public float minValue = 1;
-    [SerializeField, Range(0, 100)]
+    [SerializeField, Range(0, 20)]
     public float maxValue = 1;
 
 

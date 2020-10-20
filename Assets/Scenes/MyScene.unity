@@ -153,8 +153,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   random: {fileID: 652912291}
-  buildingPrefab: {fileID: 7788002103011912713, guid: 4e2c422ddff90ed47b32fe6843acf243,
-    type: 3}
   width: 43
   depth: 31
   distanceBetweenBuildings:
@@ -170,6 +168,8 @@ MonoBehaviour:
       minValue: 4.2
       maxValue: 6.6
     streetLength: 43.512447
+    intersectionsSize: 10
+  numberOfSplitsOfTheRoad: 0
 --- !u!4 &652912290
 Transform:
   m_ObjectHideFlags: 0
@@ -495,40 +495,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
---- !u!1001 &1806120221655290030
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 1806120222370655488, guid: dae05ef1d34b6aa4aa3b1c7cedae9737,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 1806120222370655488, guid: dae05ef1d34b6aa4aa3b1c7cedae9737,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1806120222370655488, guid: dae05ef1d34b6aa4aa3b1c7cedae9737,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1806120222370655488, guid: dae05ef1d34b6aa4aa3b1c7cedae9737,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1806120222370655490, guid: dae05ef1d34b6aa4aa3b1c7cedae9737,
-        type: 3}
-      propertyPath: m_Name
-      value: Road
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: dae05ef1d34b6aa4aa3b1c7cedae9737, type: 3}
 --- !u!1001 &7788002101598982114
 PrefabInstance:
   m_ObjectHideFlags: 0

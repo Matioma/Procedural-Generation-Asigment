@@ -23,6 +23,12 @@ public class StreetParameters
     [HideInInspector]
     public float streetLength;
 
+    public float GetStreetLength() {
+        return (endPosition - startPosition).magnitude;
+    }
+
+
+    public float intersectionsSize;
 
     public StreetParameters(StreetParameters param)
     {
@@ -32,5 +38,6 @@ public class StreetParameters
         roadWidth = param.roadWidth;
         buildingDensity = new FloatRandomRange(param.buildingDensity);
         streetLength = param.streetLength;
+        intersectionsSize = param.intersectionsSize;
     }
 }

@@ -21,6 +21,22 @@ public class Road : Builder
     float minLength = 10;
 
     AnimationCurve oldCurve;
+
+    [Header ("Road Options")]
+    [SerializeField]
+    bool roadToLeft = true;
+    [SerializeField]
+    bool roadToRight = true;
+
+    [Header("Road Options")]
+    [SerializeField]
+    bool buildingsToRight = true;
+    [SerializeField]
+    bool buildingsToLeft = true;
+
+    [SerializeField]
+    int splitsLeft = 0; 
+
     public Vector3 vectorDif {
         get {
             //Debug.Log(streetParameters.endPosition + ": " + streetParameters.startPosition);
@@ -40,9 +56,15 @@ public class Road : Builder
 
     private void OnValidate()
     {
-        //Debug.Log(curve.keys[0].time);
 
         streetParameters.buildingDensity.Validate();
+
+        if (!buildingsToRight) {
+            roadToRight = false;
+        }
+        if (!buildingsToLeft) {
+            roadToLeft = false;
+        }
     }
 
     override public void Generate() {
@@ -75,35 +97,52 @@ public class Road : Builder
         
 
         float distancePassed;
-        for (distancePassed = 0; distancePassed < distance; distancePassed += buildingDinstance) {
+        for (distancePassed = streetParameters.intersectionsSize; distancePassed < distance - streetParameters.intersectionsSize; distancePassed += buildingDinstance) {
 
             buildingDinstance = random.Next(streetParameters.buildingDensity.minValue, streetParameters.buildingDensity.maxValue);
 
-            Vector3 objectPosition = streetParameters.startPosition + vectorDif.normalized * distancePassed; //+ perpendicular * curve.Evaluate(distancePassed);
+            Vector3 objectPosition = streetParameters.startPosition + vectorDif.normalized * distancePassed+ perpendicular * curve.Evaluate(distancePassed);
 
-            //Buildings of Left
-            GameObject building = Instantiate(buildingPrefab, child.transform);
-            building.GetComponent<RandomGenerator>().seed = random.Next(int.MaxValue); //Random.Range(0, int.MaxValue);
-            building.transform.position = objectPosition + perpendicular * streetParameters.roadWidth / 2;
 
+            if (buildingsToLeft) {
+                GameObject building = Instantiate(buildingPrefab, child.transform);
+                building.GetComponent<RandomGenerator>().seed = random.Next(int.MaxValue); 
+                building.transform.position = objectPosition + perpendicular * streetParameters.roadWidth / 2;
+
+               // Debug.Log()s
+            }
             //Building on Right
-            building = Instantiate(buildingPrefab, child.transform);
-            building.GetComponent<RandomGenerator>().seed = random.Next(int.MaxValue);// Random.Range(0, int.MaxValue);
-            building.transform.position = objectPosition - perpendicular * streetParameters.roadWidth / 2;
-
-            
+            if (buildingsToRight) {
+                GameObject building = Instantiate(buildingPrefab, child.transform);
+                building.GetComponent<RandomGenerator>().seed = random.Next(int.MaxValue);
+                building.transform.position = objectPosition - perpendicular * streetParameters.roadWidth / 2;
+            }
         }
 
-        //Debug.Log(distance + " -  " + distance / 2);
-        if (distance / 2 > minLength) {
-            SplitRoad(distancePassed / 2, true);
+        if(splitsLeft>0)
+        {
+            if (roadToLeft)
+            {
+                SplitRoad(distancePassed / 2);
+            }
+            if(roadToRight){
+                SplitRoad(distancePassed / 2, left: false);
+            }
         }
+
+       
     }
 
 
-    public void Initialize(StreetParameters streetParameters)
+    public void Initialize(StreetParameters streetParameters, int splitsLeft=0)
     {
         this.streetParameters = new StreetParameters(streetParameters);
+        this.splitsLeft = splitsLeft;
+        roadToLeft = true;
+        roadToRight = true;
+        buildingsToLeft = true;
+        buildingsToRight = true;
+
         GenerateTheRoadCurve();
     }
 
@@ -122,14 +161,18 @@ public class Road : Builder
 
         Keyframe keyFrame = new Keyframe(randomX, randomY, 0, 0);
 
+       
+
         curve.AddKey(keyFrame);
        
     }
 
 
-    void SplitRoad(float time, bool left) {
+    void SplitRoad(float time, bool left =true) {
         StreetParameters newStreetParameters = new StreetParameters(streetParameters);
-        newStreetParameters.streetLength *= 0.5f;
+
+
+        newStreetParameters.streetLength = newStreetParameters.GetStreetLength()/2;
         newStreetParameters.startPosition = streetParameters.startPosition + vectorDif.normalized * time;
 
         
@@ -137,20 +180,26 @@ public class Road : Builder
         float degreesFromRoadNormal = random.Next(-45,45);
         Debug.Log("Road was split");
 
+        Vector3 roadDirection = new Vector3(perpendicular.x, perpendicular.y, perpendicular.z);
+        if (!left) {
+            roadDirection *= -1;
+        }
 
-        Vector3 direction = Quaternion.Euler(0, degreesFromRoadNormal, 0) * perpendicular;
+
+        Vector3 direction = Quaternion.Euler(0, degreesFromRoadNormal, 0) * roadDirection;
         newStreetParameters.endPosition = newStreetParameters.startPosition + direction * newStreetParameters.streetLength;
 
 
+        GetComponent<RoadBuilder>().SpawnRoad(newStreetParameters,splitsLeft-1);
 
-        var newRoad = Instantiate(roadPrefab,transform);
-        newRoad.GetComponent<Road>()?.Initialize(newStreetParameters);
-        newRoad.GetComponent<Road>()?.Generate();
+        //var newRoad = Instantiate(roadPrefab,transform);
+        //newRoad.GetComponent<Road>()?.Initialize(newStreetParameters);
+        //newRoad.GetComponent<Road>()?.Generate();
         //newRoad.GetComponent<Road>().streetParameters = newStreetParameters;
 
 
         //Debug.DrawLine(streetParameters.startPosition, streetParameters.endPosition, Color.cyan, 5.0f);
-        //Debug.DrawLine(newStreetParameters.startPosition, newStreetParameters.endPosition, Color.green,5.0f);
+        //Debug.DrawLine(newStreetParameters.startPosition, newStreetParameters.endPosition, Color.green, 5.0f);
         //Debug.DrawRay(newStreetParameters.startPosition, perpendicular * 100, Color.yellow, 5.0f);
     }
 

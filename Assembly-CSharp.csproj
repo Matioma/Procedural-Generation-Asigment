@@ -90,6 +90,7 @@
     <Compile Include="Assets\Scripts\MyScripts\GridInfo.cs" />
     <Compile Include="Assets\Scripts\MyScripts\RandomWithSeed.cs" />
     <Compile Include="Assets\Scripts\MyScripts\RoadBuilder.cs" />
+    <Compile Include="Assets\Scripts\MyScripts\RoadSystemBuilder.cs" />
     <Compile Include="Assets\Scripts\MyScripts\Utility\FloatRandomRange.cs" />
     <Compile Include="Assets\Scripts\MyScripts\Utility\IntRandomRange.cs" />
     <Compile Include="Assets\Scripts\MyScripts\WallParameters.cs" />

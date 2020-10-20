@@ -9,8 +9,8 @@ using UnityEngine;
 [RequireComponent(typeof(RandomGenerator),typeof(RoadBuilder))]
 public class CityBuilder : Builder
 {
-    [SerializeField]
-    GameObject buildingPrefab;
+    //[SerializeField]
+    //GameObject buildingPrefab;
 
 
     [SerializeField,Range(5, 250)]
@@ -26,6 +26,10 @@ public class CityBuilder : Builder
 
     [SerializeField]
     StreetParameters streetParameters;
+
+    [SerializeField]
+    int numberOfSplitsOfTheRoad;
+    
 
     private void OnValidate()
     {
@@ -66,18 +70,24 @@ public class CityBuilder : Builder
     }
 
     void buildRoad() {
-        Vector3 randPostionStart = new Vector3(random.Next(0, width), 0, random.Next(0, width));
-        Vector3 randPostionEnd;
-        do
-        {
-            randPostionEnd = new Vector3(random.Next(0, width), 0, random.Next(0, width));
-        } while ((randPostionStart - randPostionEnd).sqrMagnitude < MinRoadLength * MinRoadLength);
+        //Vector3 randPostionStart = new Vector3(random.Next(0, width), 0, random.Next(0, depth));
+        //Vector3 randPostionEnd;
+        //do
+        //{
+        //    randPostionEnd = new Vector3(random.Next(0, width), 0, random.Next(0, depth));
+        //} while ((randPostionStart - randPostionEnd).sqrMagnitude < MinRoadLength * MinRoadLength);
 
 
-        streetParameters.startPosition = randPostionStart;
-        streetParameters.endPosition = randPostionEnd;
-        streetParameters.streetLength = (randPostionStart - randPostionEnd).magnitude;
 
-        GetComponent<RoadBuilder>()?.SpawnRoad(streetParameters);
+        //streetParameters.startPosition = randPostionStart;
+        //streetParameters.endPosition = randPostionEnd;
+
+
+        //streetParameters.startPosition = transform.position;
+        streetParameters.endPosition = new Vector3(transform.position.x + width, 0, transform.position.z + depth);
+        streetParameters.streetLength = (streetParameters.endPosition - streetParameters.startPosition).magnitude;
+        streetParameters.streetLength = (streetParameters.startPosition - streetParameters.endPosition).magnitude;
+
+        GetComponent<RoadBuilder>()?.SpawnRoad(streetParameters, numberOfSplitsOfTheRoad);
     }
 }
