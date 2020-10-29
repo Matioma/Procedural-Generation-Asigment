@@ -165,17 +165,17 @@ MonoBehaviour:
     curvitureDepth: 10.5
     roadWidth: 9.9
     buildingDensity:
-      minValue: 3.4
-      maxValue: 6.6
+      minValue: 2.2
+      maxValue: 4.3
     streetLength: 47.774063
     intersectionsSize: 5
   numberOfSplitsOfTheRoad: 1
   CityShape:
-  - {x: 26.189, y: 0, z: -30.971367}
+  - {x: 23.188099, y: 0, z: -51.518337}
   - {x: -19.296515, y: 0, z: -45.58058}
-  - {x: -66.2178, y: 0, z: 5.2413864}
-  - {x: -26.356009, y: 0, z: 59.267418}
-  - {x: 37.18846, y: 0, z: 26.537498}
+  - {x: -66.2178, y: 0, z: 5.241391}
+  - {x: 4.6969433, y: 0, z: 82.57002}
+  - {x: 60.904716, y: 0, z: 3.7546015}
 --- !u!4 &652912290
 Transform:
   m_ObjectHideFlags: 0
@@ -184,7 +184,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 652912288}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 35, y: 0, z: 9}
+  m_LocalPosition: {x: 24.5, y: 0, z: 12.7}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -520,6 +520,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Building
+      objectReference: {fileID: 0}
+    - target: {fileID: 7788002103011912713, guid: 4e2c422ddff90ed47b32fe6843acf243,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7788002103011912716, guid: 4e2c422ddff90ed47b32fe6843acf243,
         type: 3}

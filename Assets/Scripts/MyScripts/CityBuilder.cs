@@ -60,11 +60,6 @@ public class CityBuilder : Builder
 
     void BuildCity() {
         RemoveChildren();
-        //for (int i = 0; i < 1; i++)
-        //{
-        //    buildRoad();
-        //}
-
         buildRoad();
     }
     void RemoveChildren() {
@@ -78,8 +73,6 @@ public class CityBuilder : Builder
         {
             for (int i = 0; i < CityShape.Count; i++)
             {
-
-                Debug.Log(i + ":" + i+1);
                 streetParameters.startPosition = transform.position + CityShape[i];
                 if (i < CityShape.Count-1)
                 {
@@ -90,9 +83,6 @@ public class CityBuilder : Builder
                     streetParameters.endPosition = transform.position + CityShape[0];
                 }
 
-
-                //streetParameters.endPosition = new Vector3(transform.position.x + width, 0, transform.position.z + depth);
-                //streetParameters.streetLength = (streetParameters.endPosition - streetParameters.startPosition).magnitude;
                 streetParameters.streetLength = (streetParameters.startPosition - streetParameters.endPosition).magnitude;
                 GetComponent<RoadBuilder>()?.SpawnRoad(streetParameters, numberOfSplitsOfTheRoad);
             }
@@ -103,27 +93,6 @@ public class CityBuilder : Builder
             streetParameters.streetLength = (streetParameters.startPosition - streetParameters.endPosition).magnitude;
             GetComponent<RoadBuilder>()?.SpawnRoad(streetParameters, numberOfSplitsOfTheRoad);
         }
-       
-
-
-        //Vector3 randPostionStart = new Vector3(random.Next(0, width), 0, random.Next(0, depth));
-        //Vector3 randPostionEnd;
-        //do
-        //{
-        //    randPostionEnd = new Vector3(random.Next(0, width), 0, random.Next(0, depth));
-        //} while ((randPostionStart - randPostionEnd).sqrMagnitude < MinRoadLength * MinRoadLength);
-
-
-
-        //streetParameters.startPosition = randPostionStart;
-        //streetParameters.endPosition = randPostionEnd;
-
-
-        //streetParameters.startPosition = transform.position;
-        //streetParameters.endPosition = new Vector3(transform.position.x + width, 0, transform.position.z + depth);
-        ////streetParameters.streetLength = (streetParameters.endPosition - streetParameters.startPosition).magnitude;
-        //streetParameters.streetLength = (streetParameters.startPosition - streetParameters.endPosition).magnitude;
-
-        //GetComponent<RoadBuilder>()?.SpawnRoad(streetParameters, numberOfSplitsOfTheRoad);
+     
     }
 }

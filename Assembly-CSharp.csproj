@@ -88,6 +88,8 @@
     <Compile Include="Assets\Scripts\MyScripts\Grammars\RoofTop.cs" />
     <Compile Include="Assets\Scripts\MyScripts\Grammars\Wall.cs" />
     <Compile Include="Assets\Scripts\MyScripts\GridInfo.cs" />
+    <Compile Include="Assets\Scripts\MyScripts\PerlinNoise\PerlinNoise.cs" />
+    <Compile Include="Assets\Scripts\MyScripts\PerlinNoise\TerainGenerator.cs" />
     <Compile Include="Assets\Scripts\MyScripts\RandomWithSeed.cs" />
     <Compile Include="Assets\Scripts\MyScripts\RoadBuilder.cs" />
     <Compile Include="Assets\Scripts\MyScripts\RoadSystemBuilder.cs" />

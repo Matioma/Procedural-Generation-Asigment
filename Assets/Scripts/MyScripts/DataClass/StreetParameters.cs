@@ -30,6 +30,7 @@ public class StreetParameters
 
     public float intersectionsSize;
 
+
     public StreetParameters(StreetParameters param)
     {
         startPosition = new Vector3(param.startPosition.x, param.startPosition.y, param.startPosition.z);
