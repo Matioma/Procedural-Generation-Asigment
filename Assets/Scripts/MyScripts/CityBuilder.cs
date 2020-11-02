@@ -10,18 +10,14 @@ using UnityEngine;
 [RequireComponent(typeof(RandomGenerator),typeof(RoadBuilder))]
 public class CityBuilder : Builder
 {
+    //[SerializeField,Range(5, 250)]
+    //float width =10 ;
+    //[SerializeField, Range(5, 250)]
+    //float depth =10;
 
 
-    [SerializeField,Range(5, 250)]
-    float width =10 ;
-    [SerializeField, Range(5, 250)]
-    float depth =10;
-
-    [SerializeField]
-    FloatRandomRange distanceBetweenBuildings;
-
-    [SerializeField, Range(0, 50)]
-    float MinRoadLength = 10;
+    //[SerializeField, Range(0, 50)]
+    //float MinRoadLength = 10;
 
     [SerializeField]
     StreetParameters streetParameters;
@@ -36,14 +32,14 @@ public class CityBuilder : Builder
     
     private void OnValidate()
     {
-        float maxLength = Mathf.Sqrt(width * width + depth * depth);
+        //float maxLength = Mathf.Sqrt(width * width + depth * depth);
 
-        if (MinRoadLength >= maxLength)
-        {
-            MinRoadLength = maxLength * 0.9f;
-        }
+        //if (MinRoadLength >= maxLength)
+        //{
+        //    MinRoadLength = maxLength * 0.9f;
+        //}
 
-        distanceBetweenBuildings.Validate();
+        //distanceBetweenBuildings.Validate();
     }
 
     private void Awake()
@@ -87,12 +83,12 @@ public class CityBuilder : Builder
                 GetComponent<RoadBuilder>()?.SpawnRoad(streetParameters, numberOfSplitsOfTheRoad);
             }
         }
-        else {
-            streetParameters.startPosition = transform.position;
-            streetParameters.endPosition = new Vector3(transform.position.x + width, 0, transform.position.z + depth);
-            streetParameters.streetLength = (streetParameters.startPosition - streetParameters.endPosition).magnitude;
-            GetComponent<RoadBuilder>()?.SpawnRoad(streetParameters, numberOfSplitsOfTheRoad);
-        }
+        //else {
+        //    streetParameters.startPosition = transform.position;
+        //    streetParameters.endPosition = new Vector3(transform.position.x + width, 0, transform.position.z + depth);
+        //    streetParameters.streetLength = (streetParameters.startPosition - streetParameters.endPosition).magnitude;
+        //    GetComponent<RoadBuilder>()?.SpawnRoad(streetParameters, numberOfSplitsOfTheRoad);
+        //}
      
     }
 }

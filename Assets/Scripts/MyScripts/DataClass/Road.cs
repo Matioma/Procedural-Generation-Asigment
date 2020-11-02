@@ -149,6 +149,8 @@ public class Road : Builder
                     Vector3 relativePosition = nextPosition - building.transform.position;
                     Vector3 directionVector = Vector3.Cross(relativePosition, Vector3.up).normalized;
                     building.transform.rotation = Quaternion.LookRotation(-directionVector, Vector3.up);
+
+                    building.GetComponent<Buildings>().Trigger();
                 }
             }
             //Building on Right
@@ -164,6 +166,8 @@ public class Road : Builder
                     Vector3 relativePosition = nextPosition - building.transform.position;
                     Vector3 directionVector = Vector3.Cross(relativePosition, Vector3.up).normalized;
                     building.transform.rotation = Quaternion.LookRotation(directionVector, Vector3.up);
+
+                    building.GetComponent<Buildings>().Trigger();
                 }
             }
         }

@@ -284,13 +284,25 @@ public class RoofTop : Shape
                     MeshRenderer meshRenderer = roofBlock.GetComponentInChildren<MeshRenderer>();
                     var materialList = meshRenderer.materials;
 
-                    materialList[0] = roofMaterials;
-                    materialList[1] = roofMaterials;
-                    materialList[2] = roofMaterials;
+                    //for (int materialIndex = 0; i < materialList.Length; i++) {
+                    //    materialList[materialIndex] = roofMaterials;
+                    //}
 
-                    if (materialList.Length == 4) {
+
+
+                    materialList[0] = roofMaterials;
+                    if (materialList.Length > 1) {
+                        materialList[1] = roofMaterials;
+                    }
+                    if (materialList.Length > 2)
+                    {
+                        materialList[2] = roofMaterials;
+                    }
+                    if (materialList.Length > 3)
+                    {
                         materialList[3] = roofMaterials;
                     }
+                   
                     meshRenderer.materials = materialList;
 
                     roofBlock.transform.localPosition = new Vector3(j, 0, i);
