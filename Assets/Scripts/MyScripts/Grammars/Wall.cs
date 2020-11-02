@@ -17,7 +17,8 @@ public enum Direction{
 [RequireComponent(typeof(WallParameters))]
 public class Wall : Shape
 {
-    public GameObject wallTypePrefab;
+    //[HideInInspector]
+    //public GameObject wallTypePrefab;
     public int WidthRemaining;
 
     //public Direction wallDirection = Direction.XDirection;
@@ -27,6 +28,11 @@ public class Wall : Shape
 
     RandomGenerator random;
 
+
+    [Header("Materials")]
+    [SerializeField]
+    Material[] wallmaterials;
+    
    
 
     private void Awake()
@@ -35,10 +41,10 @@ public class Wall : Shape
     }
 
 
-    public void Initialize(int pWidthRemaining, GameObject prefab)
+    public void Initialize(int pWidthRemaining, GameObject prefab =null)
     {
         WidthRemaining = pWidthRemaining;
-        wallTypePrefab = prefab;
+        //wallTypePrefab = prefab;
     }
 
 
@@ -51,6 +57,11 @@ public class Wall : Shape
         Execute();
     }
 
+    Material[] GetMaterial() {
+        return wallmaterials;
+    }
+
+
     protected override void Execute()
     {
         if (WidthRemaining <= 0)
@@ -58,10 +69,21 @@ public class Wall : Shape
             return;
         }
         GameObject wallObject = SpawnPrefab(Root.GetComponent<WallParameters>().GetWallPiece());
-        
-        
+
+        MeshRenderer meshRenderer = wallObject.GetComponentInChildren<MeshRenderer>();
+
+        var materials = meshRenderer.materials;
+        var newMaterials = Root.GetComponent<Wall>()?.GetMaterial();
+
+        materials[0] = newMaterials[0];
+        materials[1] = newMaterials[1];
+        //materials[1] = wallMaterial2;
+
+        meshRenderer.materials = materials;
+
+
         Wall wall = CreateSymbol<Wall>("WallSegment", new Vector3(0,0,1));
-        wall.Initialize(WidthRemaining-1, wallTypePrefab);
+        wall.Initialize(WidthRemaining-1);
         wall.Generate(0.1f);
 
     }

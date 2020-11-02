@@ -46,9 +46,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09e3abf6036e703409a72430d15343ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wallTypePrefab: {fileID: -927199367670048503, guid: 8c13c6d5ccba6a64c8368e092e275061,
-    type: 3}
   WidthRemaining: 0
+  wallmaterials:
+  - {fileID: 2233890314359317816, guid: dd1bc5ea557a87645810ed5beb22b9b5, type: 3}
+  - {fileID: -2125774551491969924, guid: 92531de6a9502ea4f894814b5f418c06, type: 3}
 --- !u!114 &8558462978408649995
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -84,6 +85,8 @@ MonoBehaviour:
   doors: []
   windows: []
   hasDoor: 0
+  wallPattern:
+    patern: 
 --- !u!114 &5996255259975006730
 MonoBehaviour:
   m_ObjectHideFlags: 0
