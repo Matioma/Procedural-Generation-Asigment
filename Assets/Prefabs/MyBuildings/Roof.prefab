@@ -64,6 +64,16 @@ MonoBehaviour:
   roofPrefab: {fileID: 4211637534977134367}
   roofMaterials: {fileID: -3466359529836016787, guid: 1c2cf8cf83b190b46a611d405d4765c2,
     type: 3}
+  EdgesPattern:
+    patern: 
+  OuterCornerPattern:
+    patern: 
+  ReverseCornerPattern:
+    patern: 
+  SquareRoofPattern:
+    patern: 
+  lineEdgePattern:
+    patern: 
 --- !u!114 &4211637534977134336
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -71,7 +81,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4211637534977134367}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9c601806f2ae6db4b994fc92779c19fd, type: 3}
   m_Name: 
