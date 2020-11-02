@@ -36,9 +36,7 @@ public class Floor : Shape
 
     protected override void Execute()
     {
-
         GameObject wall;
-
 
         //Building the walls
         do
@@ -95,8 +93,6 @@ public class Floor : Shape
         //index 
         return false;
     }
-
-
 
     void moveToNextIndex() {
         if (!canIreachNextIndex()) return;

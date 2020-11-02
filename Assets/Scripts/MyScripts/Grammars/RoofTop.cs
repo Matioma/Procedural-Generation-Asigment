@@ -15,29 +15,6 @@ public class prefabsGroup
 }
 
 
-[System.Serializable]
-public class Pattern {
-    [SerializeField]
-    public int[] patern;
-
-    
-    int currentIndex = 0;
-
-    public int GetValue() {
-        Increment();
-        return patern[currentIndex];
-    }
-
-    void Increment() {
-        currentIndex = (currentIndex + 1) % patern.Length;
-       
-    }
-
-
-    public int Length { get { return patern.Length; } }
-
-}
-
 [RequireComponent(typeof(GridInfo))]
 public class RoofTop : Shape
 {
@@ -277,7 +254,8 @@ public class RoofTop : Shape
     public void Generate() {
         //Debug.Log("Generated");
         DeleteGenerated();
-        if (random != null) {
+        if (random != null)
+        {
             random.ResetRandom();
         }
         wasBuilt = false;

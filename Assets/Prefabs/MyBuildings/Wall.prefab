@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 8558462978408649993}
   - component: {fileID: 8558462978408649995}
   - component: {fileID: 6771376728369118766}
+  - component: {fileID: 5996255259975006730}
   m_Layer: 0
   m_Name: Wall
   m_TagString: Untagged
@@ -48,7 +49,6 @@ MonoBehaviour:
   wallTypePrefab: {fileID: -927199367670048503, guid: 8c13c6d5ccba6a64c8368e092e275061,
     type: 3}
   WidthRemaining: 0
-  wallDirection: 0
 --- !u!114 &8558462978408649995
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -84,3 +84,16 @@ MonoBehaviour:
   doors: []
   windows: []
   hasDoor: 0
+--- !u!114 &5996255259975006730
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8558462978408649990}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fd24ab55c2f53c4c87fe962d45559ec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  seed: 0

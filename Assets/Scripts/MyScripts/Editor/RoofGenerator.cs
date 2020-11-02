@@ -14,10 +14,13 @@ public class RoofGenerator : Editor
         base.OnInspectorGUI();
         if (GUILayout.Button("Generate"))
         {
+            roofTop.GetComponent<RandomGenerator>()?.ResetRandom();
             roofTop.Generate();
         }
         if (GUILayout.Button("RandomSeed"))
         {
+            
+          
             roofTop.GetComponent<RandomGenerator>().seed = Random.Range(0, int.MaxValue);
             roofTop.Generate();
         }

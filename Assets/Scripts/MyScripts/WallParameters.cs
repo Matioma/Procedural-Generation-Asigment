@@ -11,27 +11,22 @@ public class WallParameters : MonoBehaviour
 
     public bool hasDoor = false;
 
-
+    [SerializeField]
+    Pattern wallPattern;
     public GameObject GetWallPiece() {
         if (walls ==null && walls.Length == 0) {
             Debug.LogError("Wall types array is empty");
             return null;
         }
-
-        //RandomGenerator random = GetComponentInParent<RandomGenerator>();
         int randomIndex =0;
 
-        //if (random != null)
-        //{
-        //    //Debug.Log("Yay");
-        //    randomIndex = random.Next(walls.Length);
-        //}
-        //else {
-            randomIndex = Random.Range(0, walls.Length);
-        //}
-        //GetComponentInParent<RandomGenerator>()?.Next(walls.Length - 1);
-
-        
+        if (wallPattern.Length > 0)
+        {
+            randomIndex = wallPattern.GetValue();
+        }
+        else {
+            randomIndex = GetComponent<RandomGenerator>().Next(0, walls.Length);
+        }
         return walls[randomIndex];
     }
 }

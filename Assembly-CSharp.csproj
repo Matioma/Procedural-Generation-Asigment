@@ -96,6 +96,7 @@
     <Compile Include="Assets\Scripts\MyScripts\SubstanceDesigner\TestSubstance.cs" />
     <Compile Include="Assets\Scripts\MyScripts\Utility\FloatRandomRange.cs" />
     <Compile Include="Assets\Scripts\MyScripts\Utility\IntRandomRange.cs" />
+    <Compile Include="Assets\Scripts\MyScripts\Utility\Pattern.cs" />
     <Compile Include="Assets\Scripts\MyScripts\WallParameters.cs" />
     <None Include="Assets\Allegorithmic\Plugins\EULA.txt" />
     <None Include="Assets\Allegorithmic\Plugins\engine_build_info.txt" />
