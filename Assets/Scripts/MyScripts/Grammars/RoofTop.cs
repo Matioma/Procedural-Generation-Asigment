@@ -2,6 +2,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.ComponentModel.Design.Serialization;
 using System.Dynamic;
 using UnityEngine;
@@ -13,6 +14,30 @@ public class prefabsGroup
     public GameObject[] groupPrefabs;
 }
 
+
+[System.Serializable]
+public class Pattern {
+    [SerializeField]
+    public int[] patern;
+
+    
+    int currentIndex = 0;
+
+    public int GetValue() {
+        Increment();
+        return patern[currentIndex];
+    }
+
+    void Increment() {
+        currentIndex = (currentIndex + 1) % patern.Length;
+       
+    }
+
+
+    public int Length { get { return patern.Length; } }
+
+}
+
 [RequireComponent(typeof(GridInfo))]
 public class RoofTop : Shape
 {
@@ -22,24 +47,35 @@ public class RoofTop : Shape
     [SerializeField]
     prefabsGroup[] roofMeshes;
 
-   
-
     [SerializeField]
     public GameObject roofPrefab;
-
 
     [SerializeField, Header("Material Settings")]
     Material roofMaterials;
 
-
     GridInfo grid;
 
     RandomGenerator random;
+
+
+    [SerializeField, Header("Patterns")]
+    Pattern EdgesPattern;
+    [SerializeField]
+    Pattern OuterCornerPattern;
+    [SerializeField]
+    Pattern ReverseCornerPattern;
+    [SerializeField]
+    Pattern SquareRoofPattern;
+    [SerializeField]
+    Pattern lineEdgePattern;
+
+
     private void Awake()
     {
         grid = GetComponent<GridInfo>();
         random = GetComponent<RandomGenerator>();
     }
+
 
     private GameObject ChooseRightPrefab(int value)
     {
@@ -57,7 +93,15 @@ public class RoofTop : Shape
             case 1 + 2 + 4 + 8 + 16 + 32 + 64 + 128 - 32 - 16:
             case 1 + 2 + 4 + 8 + 16 + 32 + 64 + 128 - 64 - 128:
             case 1 + 2 + 4 + 8 + 16 + 32 + 64 + 128 - 128 - 1:
-                index = random.Next(0, roofMeshes[0].groupPrefabs.Length);
+                if (EdgesPattern.Length > 0)
+                {
+                    index = EdgesPattern.GetValue();
+                }
+                else {
+                    index = random.Next(0, roofMeshes[0].groupPrefabs.Length);
+                }
+
+                
                 return roofMeshes[0].groupPrefabs[index];
                 break;
 
@@ -73,7 +117,12 @@ public class RoofTop : Shape
             case 2 + 4 + 8 + 16 + 32:
             case 2 + 4 + 8 + 16:
             case 8 + 16 + 32 + 64:
-                index = random.Next(0, roofMeshes[1].groupPrefabs.Length);
+                if (OuterCornerPattern.Length > 0)
+                {
+                    index = OuterCornerPattern.GetValue();
+                }else {
+                    index = random.Next(0, roofMeshes[1].groupPrefabs.Length);
+                }
                 return roofMeshes[1].groupPrefabs[index];
                 break;
 
@@ -82,10 +131,32 @@ public class RoofTop : Shape
             case 1 + 2 + 4 + 8 + 16 + 32 + 64 + 128 - 8:
             case 1 + 2 + 4 + 8 + 16 + 32 + 64 + 128 - 32:
             case 1 + 2 + 4 + 8 + 16 + 32 + 64 + 128 - 128:
-                index = random.Next(0, roofMeshes[2].groupPrefabs.Length);
+                if (ReverseCornerPattern.Length > 0)
+                {
+                    index = EdgesPattern.GetValue();
+                }
+                else {
+                    index = random.Next(0, roofMeshes[2].groupPrefabs.Length);
+                }
+                
                 return roofMeshes[2].groupPrefabs[0];
                 break;
-           
+
+
+            //Solo square
+            case 0:
+                if (SquareRoofPattern.Length > 0)
+                {
+                    index = SquareRoofPattern.GetValue();
+                }
+                else {
+                    index = random.Next(0, roofMeshes[3].groupPrefabs.Length);
+                }
+
+                
+                return roofMeshes[3].groupPrefabs[index];
+
+
 
             //Line Edge
             case 17:
@@ -94,15 +165,18 @@ public class RoofTop : Shape
             case 16:
             case 64:
             case 4:
-                index = random.Next(0, roofMeshes[4].groupPrefabs.Length);
+                if (lineEdgePattern.Length > 0)
+                {
+                    index = lineEdgePattern.GetValue();
+                }
+                else {
+                    index = random.Next(0, roofMeshes[4].groupPrefabs.Length);
+
+                }
                 return roofMeshes[4].groupPrefabs[index];
 
             case 1 + 2 + 4 + 8 + 16 + 32 + 64 + 128:
                 return null;
-
-            case 0:
-                index = random.Next(0, roofMeshes[3].groupPrefabs.Length);
-                return roofMeshes[3].groupPrefabs[index];
         }
 
         return roofMeshes[0].groupPrefabs[1];
