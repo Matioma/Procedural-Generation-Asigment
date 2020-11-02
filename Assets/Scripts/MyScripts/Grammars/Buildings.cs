@@ -7,7 +7,6 @@ public class Buildings : Shape
 {
     public GameObject floorPrefab;
     public GameObject RoofPrefab;
-    public GameObject debugPrefab;
 
 
     int heightRemaining;
