@@ -228,6 +228,7 @@ GameObject:
   - component: {fileID: 1481626576}
   - component: {fileID: 1481626575}
   - component: {fileID: 1481626578}
+  - component: {fileID: 1481626579}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -314,6 +315,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mouseSpeed: 1
   moveSpeed: 0.5
+--- !u!114 &1481626579
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1481626574}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c0864f13e7c2e7141bfb314d5d7b58ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  color: {r: 0, g: 0, b: 0, a: 0}
+  valueDeterioration: 0
+  mySubstance: {fileID: -5537756484518242580, guid: 1c2cf8cf83b190b46a611d405d4765c2,
+    type: 3}
 --- !u!1 &1531300276
 GameObject:
   m_ObjectHideFlags: 0
@@ -515,6 +532,10 @@ PrefabInstance:
       propertyPath: seed
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7788002103011912713, guid: 4e2c422ddff90ed47b32fe6843acf243,
         type: 3}
       propertyPath: m_Name
@@ -578,10 +599,6 @@ PrefabInstance:
     - target: {fileID: 7788002103011912716, guid: 4e2c422ddff90ed47b32fe6843acf243,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 0}
-      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7788002103011912719, guid: 4e2c422ddff90ed47b32fe6843acf243,
