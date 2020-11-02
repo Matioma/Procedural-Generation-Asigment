@@ -94,7 +94,6 @@
     <Compile Include="Assets\Scripts\MyScripts\RoadBuilder.cs" />
     <Compile Include="Assets\Scripts\MyScripts\RoadSystemBuilder.cs" />
     <Compile Include="Assets\Scripts\MyScripts\SubstanceDesigner\TestSubstance.cs" />
-    <Compile Include="Assets\Scripts\MyScripts\SubstanceDesigner\TilesMaterialParameters.cs" />
     <Compile Include="Assets\Scripts\MyScripts\Utility\FloatRandomRange.cs" />
     <Compile Include="Assets\Scripts\MyScripts\Utility\IntRandomRange.cs" />
     <Compile Include="Assets\Scripts\MyScripts\Utility\Pattern.cs" />

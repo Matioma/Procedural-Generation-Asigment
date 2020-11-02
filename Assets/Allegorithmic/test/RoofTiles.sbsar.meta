@@ -21,12 +21,12 @@ ScriptedImporter:
     shaderName: Standard
     materialProperties:
       shader: {fileID: 46, guid: 0000000000000000f000000000000000, type: 0}
-      shaderKeywords: _MAINTEX _METALLICGLOSSMAP _NORMALMAP _OCCLUSIONMAP _PARALLAXMAP
-        _ROUGHNESSMAP
+      shaderKeywords: _ALPHAPREMULTIPLY_ON _MAINTEX _METALLICGLOSSMAP _NORMALMAP
+        _OCCLUSIONMAP _PARALLAXMAP
       lightmapFlags: 4
       enableInstancingVariants: 0
       doubleSidedGI: 0
-      customRenderQueue: -1
+      customRenderQueue: 3000
       texEnvs:
       - name: _BumpMap
         texture: {fileID: 6092627568780410311, guid: 1c2cf8cf83b190b46a611d405d4765c2,
@@ -77,7 +77,7 @@ ScriptedImporter:
       - name: _DetailNormalMapScale
         float: 1
       - name: _DstBlend
-        float: 0
+        float: 10
       - name: _GlossMapScale
         float: 1
       - name: _Glossiness
@@ -87,7 +87,7 @@ ScriptedImporter:
       - name: _Metallic
         float: 0
       - name: _Mode
-        float: 0
+        float: 3
       - name: _OcclusionStrength
         float: 1
       - name: _Parallax
@@ -101,7 +101,7 @@ ScriptedImporter:
       - name: _UVSec
         float: 0
       - name: _ZWrite
-        float: 1
+        float: 0
       colors:
       - name: _Color
         color: {r: 1, g: 1, b: 1, a: 1}

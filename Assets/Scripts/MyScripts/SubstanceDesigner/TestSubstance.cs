@@ -9,26 +9,24 @@ public class TestSubstance : MonoBehaviour
     [SerializeField]
     Color color;
     [SerializeField]
-    float valueDeterioration;
+    float scale;
 
 
     public Substance.Game.SubstanceGraph mySubstance;
 
-  
-
-    private void OnValidate()
+    // Start is called before the first frame update
+    void Start()
     {
-        Debug.Log(mySubstance.GetInputFloat("TileAmountOfDeterioratedColor"));
-        mySubstance.SetInputFloat("TileAmountOfDeterioratedColor", valueDeterioration);
-        Debug.Log(mySubstance.GetInputFloat("TileAmountOfDeterioratedColor"));
-        //mySubstance.SetInputColor("BrickColor", color);
-        mySubstance.QueueForRender();
-
-        Substance.Game.Substance.RenderSubstancesAsync();
+       
+        
     }
+
     // Update is called once per frame
     void Update()
     {
-       
+        Debug.Log(scale);
+        mySubstance.SetInputFloat("BrickSize", scale);
+        mySubstance.SetInputColor("BrickColor", color);
+        mySubstance.QueueForRender();
     }
 }
