@@ -266,7 +266,7 @@ public class RoofTop : Shape
     {
         if (wasBuilt) return;
 
-        Debug.Log(transform.name);
+        //Debug.Log(transform.name);
         GameObject roofElement;
         GameObject roofBlock;
         for (int i = 0; i < grid.Depth; i++)

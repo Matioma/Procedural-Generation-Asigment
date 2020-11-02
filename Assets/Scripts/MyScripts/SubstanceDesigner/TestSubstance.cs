@@ -25,7 +25,7 @@ public class TestSubstance : MonoBehaviour
     void Update()
     {
         Debug.Log(scale);
-        mySubstance.SetInputFloat("BrickSize", scale);
+        mySubstance.SetInputFloat("TileAmountOfDeterioratedColor", scale);
         mySubstance.SetInputColor("BrickColor", color);
         mySubstance.QueueForRender();
     }

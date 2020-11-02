@@ -153,9 +153,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   random: {fileID: 652912291}
-  width: 43
-  depth: 31
-  MinRoadLength: 36.4
   streetParameters:
     startPosition: {x: 47.6881, y: 0, z: -38.818336}
     endPosition: {x: 5.2034855, y: 0, z: -32.88058}
@@ -166,7 +163,7 @@ MonoBehaviour:
       maxValue: 8.2
     streetLength: 42.89754
     intersectionsSize: 5
-  numberOfSplitsOfTheRoad: 1
+  numberOfSplitsOfTheRoad: 0
   CityShape:
   - {x: 32.935246, y: 0, z: -23.997784}
   - {x: -19.296515, y: 0, z: -45.58058}

@@ -10,14 +10,6 @@ using UnityEngine;
 [RequireComponent(typeof(RandomGenerator),typeof(RoadBuilder))]
 public class CityBuilder : Builder
 {
-    //[SerializeField,Range(5, 250)]
-    //float width =10 ;
-    //[SerializeField, Range(5, 250)]
-    //float depth =10;
-
-
-    //[SerializeField, Range(0, 50)]
-    //float MinRoadLength = 10;
 
     [SerializeField]
     StreetParameters streetParameters;

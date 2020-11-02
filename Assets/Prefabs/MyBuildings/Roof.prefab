@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 4211637534977134336}
   - component: {fileID: 4211637534977134339}
   - component: {fileID: -5071328486605100155}
+  - component: {fileID: -2430051020212037138}
   m_Layer: 0
   m_Name: Roof
   m_TagString: Untagged
@@ -115,3 +116,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   seed: 0
+--- !u!114 &-2430051020212037138
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4211637534977134367}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 830a0a4ede061bf448376010bacefed3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mySubstance: {fileID: -5537756484518242580, guid: 1c2cf8cf83b190b46a611d405d4765c2,
+    type: 3}
+  deteriorationAmount: 0.1
