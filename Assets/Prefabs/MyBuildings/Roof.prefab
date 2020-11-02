@@ -61,9 +61,9 @@ MonoBehaviour:
   - groupPrefabs:
     - {fileID: -927199367670048503, guid: ae4b3f22e9ea8134085eca92377efe3d, type: 3}
     - {fileID: -927199367670048503, guid: 12d72c5bd01e8084d912dc81e3b2da0a, type: 3}
-  roofMaterials:
-  - {fileID: -3466359529836016787, guid: 1c2cf8cf83b190b46a611d405d4765c2, type: 3}
   roofPrefab: {fileID: 4211637534977134367}
+  roofMaterials: {fileID: -3466359529836016787, guid: 1c2cf8cf83b190b46a611d405d4765c2,
+    type: 3}
 --- !u!114 &4211637534977134336
 MonoBehaviour:
   m_ObjectHideFlags: 0

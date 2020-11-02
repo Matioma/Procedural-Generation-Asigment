@@ -1,4 +1,5 @@
 ﻿using Demo;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel.Design.Serialization;
@@ -21,10 +22,15 @@ public class RoofTop : Shape
     [SerializeField]
     prefabsGroup[] roofMeshes;
 
-    [SerializeField]
-    Material[] roofMaterials;
+   
+
     [SerializeField]
     public GameObject roofPrefab;
+
+
+    [SerializeField, Header("Material Settings")]
+    Material roofMaterials;
+
 
     GridInfo grid;
 
@@ -37,9 +43,7 @@ public class RoofTop : Shape
 
     private GameObject ChooseRightPrefab(int value)
     {
-
         int index=0;
-
 
         switch (value) {
             //edge values
@@ -158,8 +162,11 @@ public class RoofTop : Shape
     }
 
     int[,] newFloorPlan() {
-        int[,] floorPlan = grid.getArray();
 
+
+        
+        int[,] floorPlan = new int[grid.getArray().GetLength(0), grid.getArray().GetLength(1)];
+        Array.Copy(grid.getArray(), floorPlan, grid.getArray().Length);
         bool needsAFloor = false;
 
 
@@ -192,9 +199,21 @@ public class RoofTop : Shape
         grid.FillTheData(dataArray);
     }
 
+
+    public void Generate() {
+        //Debug.Log("Generated");
+        DeleteGenerated();
+        if (random != null) {
+            random.ResetRandom();
+        }
+        wasBuilt = false;
+        Execute();
+    }
+
     protected override void Execute()
     {
         if (wasBuilt) return;
+
         Debug.Log(transform.name);
         GameObject roofElement;
         GameObject roofBlock;
@@ -210,7 +229,17 @@ public class RoofTop : Shape
                     roofBlock = SpawnPrefab(roofElement);
                     roofBlock.transform.name = "i[" + i + "]; j[" + j + "]";
 
-                    Debug.Log(grid.getValue(i, j)+ "==" + "i[" + i + "]; j[" + j + "]");
+                    MeshRenderer meshRenderer = roofBlock.GetComponentInChildren<MeshRenderer>();
+                    var materialList = meshRenderer.materials;
+
+                    materialList[0] = roofMaterials;
+                    materialList[1] = roofMaterials;
+                    materialList[2] = roofMaterials;
+
+                    if (materialList.Length == 4) {
+                        materialList[3] = roofMaterials;
+                    }
+                    meshRenderer.materials = materialList;
 
                     roofBlock.transform.localPosition = new Vector3(j, 0, i);
 
@@ -235,7 +264,8 @@ public class RoofTop : Shape
             roofTop.GetComponent<RoofTop>()?.Initialize(floorPlan);
             roofTop.GetComponent<RoofTop>()?.Generate(0.1f);
         }
-        else {
+        else
+        {
             Debug.Log("Does not need next Level of Roof");
         }
 

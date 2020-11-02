@@ -70,6 +70,7 @@
     <Compile Include="Assets\Scripts\MyScripts\Editor\GenerateBuilding.cs" />
     <Compile Include="Assets\Scripts\MyScripts\Editor\RoadEditor.cs" />
     <Compile Include="Assets\Scripts\MyScripts\Editor\RoadSystemEditor.cs" />
+    <Compile Include="Assets\Scripts\MyScripts\Editor\RoofGenerator.cs" />
     <Reference Include="UnityEditor.TestRunner">
       <HintPath>D:/Documents/StudyDocs/Year2/Prcedural generation/Assigment/Procedural-Generation-Asigment/Library/ScriptAssemblies/UnityEditor.TestRunner.dll</HintPath>
     </Reference>
