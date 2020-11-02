@@ -5,6 +5,7 @@ using System.Data;
 using UnityEngine;
 using UnityEngine.Rendering;
 
+[RequireComponent (typeof(RandomGenerator))]
 public class Floor : Shape
 {
     public GameObject wallPrefab;
@@ -45,7 +46,12 @@ public class Floor : Shape
             wall.transform.localPosition = new Vector3(index.x, 0, index.y);
             wall.transform.localRotation = Quaternion.Euler(0, mydirection.directionRotation, 0);
             wall.GetComponent<Wall>().WidthRemaining = computeWallWidth();
+            wall.GetComponent<RandomGenerator>().seed = GetComponent<RandomGenerator>().Next(0,int.MaxValue);
+           
+            
             wall.GetComponent<Wall>().Generate();
+
+
         } while (index.x != 0 || index.y != 0);
     }
 

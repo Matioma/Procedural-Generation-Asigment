@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 7788002103011912716}
   - component: {fileID: 7788002103011912719}
-  - component: {fileID: 7788002103011912718}
   - component: {fileID: 8035809625655292637}
   m_Layer: 0
   m_Name: Building
@@ -49,28 +48,12 @@ MonoBehaviour:
     type: 3}
   RoofPrefab: {fileID: 4211637534977134367, guid: 347daf892e17e0244977956fd0a064d4,
     type: 3}
-  debugPrefab: {fileID: -927199367670048503, guid: 07320f43aa78db04883b2055ead1d2fa,
-    type: 3}
   minHeight: 1
   maxHeight: 6
   minWidth: 2
   maxWidth: 4
   minDepth: 2
   maxDepth: 4
---- !u!114 &7788002103011912718
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7788002103011912713}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9c601806f2ae6db4b994fc92779c19fd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  BuildKey: 32
-  BuildOnStart: 1
 --- !u!114 &8035809625655292637
 MonoBehaviour:
   m_ObjectHideFlags: 0

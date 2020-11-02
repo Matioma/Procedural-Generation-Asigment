@@ -70,7 +70,13 @@ public class Wall : Shape
         }
         GameObject wallObject = SpawnPrefab(Root.GetComponent<WallParameters>().GetWallPiece());
 
+
+     
+
         MeshRenderer meshRenderer = wallObject.GetComponentInChildren<MeshRenderer>();
+
+        
+
 
         var materials = meshRenderer.materials;
         var newMaterials = Root.GetComponent<Wall>()?.GetMaterial();
@@ -93,6 +99,7 @@ public class Wall : Shape
 
 
         Wall wall = CreateSymbol<Wall>("WallSegment", new Vector3(0,0,1));
+       
         wall.Initialize(WidthRemaining-1);
         wall.Generate(0.1f);
 
