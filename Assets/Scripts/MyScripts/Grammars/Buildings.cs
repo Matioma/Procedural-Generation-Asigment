@@ -20,9 +20,6 @@ public class Buildings : Shape
     [SerializeField, Range(1, 10)]
     int maxHeight=1;
 
-
-    
-
     [Header("Width Parameters")]
     [SerializeField, Range(2, 10)]
     int minWidth;
@@ -37,23 +34,7 @@ public class Buildings : Shape
     int maxDepth;
 
 
-
-
-
     public int[,] floorPlan;
-
-
-
-
-    //void Initialize(int heightRemaining, GameObject prefab) {
-    //    this.heightRemaining = heightRemaining;
-    //    floorPrefab = prefab;
-
-    //}
-    //private void Start()
-    //{
-    //    Trigger();
-    //}
 
 
 
@@ -65,7 +46,6 @@ public class Buildings : Shape
     //Reset The floor Plan
     public void OnValidate()
     {
-        //UpdateRandomValues();
         resetFloorPlan();
     }
 
@@ -85,7 +65,6 @@ public class Buildings : Shape
         {
             Generate();
         }
-        //GetComponent<BuildTrigger>()?.Build();
     }
 
 

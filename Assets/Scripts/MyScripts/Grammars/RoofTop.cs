@@ -7,7 +7,6 @@ using UnityEngine;
 [System.Serializable]
 public class prefabsGroup
 {
-
     [SerializeField]
     public GameObject[] groupPrefabs;
 
@@ -22,7 +21,10 @@ public class RoofTop : Shape
     [SerializeField]
     prefabsGroup[] roofMeshes;
 
-    
+
+    [SerializeField]
+    Material[] roofMaterials;
+     
 
     GridInfo grid;
     private void Awake()
@@ -96,6 +98,12 @@ public class RoofTop : Shape
                
 
                 roofBlock = SpawnPrefab(roofElement);
+
+
+                //Debug.Log(roofBlock.GetComponentInChildren<MeshRenderer>());
+                //roofBlock.GetComponentInChildren<MeshRenderer>().material = roofMaterials[0];
+                //Debug.Log(roofBlock.GetComponent<MeshRenderer>());
+
                 roofBlock.transform.localPosition= new Vector3(j,0,i);
 
                 //Debug.Log(roofBlock.name + " : " + grid.getValue(i, j));
