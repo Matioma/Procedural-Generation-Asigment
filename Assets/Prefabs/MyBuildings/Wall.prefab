@@ -76,16 +76,35 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 88f044beb3752704fb7f6de89d3007ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  doors:
+  - {fileID: -927199367670048503, guid: e6599e1602810b44597e9f15a6f5a319, type: 3}
+  - {fileID: -927199367670048503, guid: e98ccde9b97cf5449a0e2de435ad61db, type: 3}
+  - {fileID: -927199367670048503, guid: 6727d1e12f793da449424afa96daf6c5, type: 3}
+  - {fileID: -927199367670048503, guid: 216a5fbbaa1a14f48a699f4270cd1194, type: 3}
   walls:
   - {fileID: -927199367670048503, guid: 8c13c6d5ccba6a64c8368e092e275061, type: 3}
   - {fileID: -927199367670048503, guid: 74f53374937e42a4daad3c48cf4054b6, type: 3}
   - {fileID: -927199367670048503, guid: 84e5114d12c20464080b24e94f6faf23, type: 3}
   - {fileID: -927199367670048503, guid: 3a6b7aeb07151e147a3bf8b4a4b1f8b9, type: 3}
   - {fileID: -927199367670048503, guid: 6200df9d6339e864db615a682bfcbe9f, type: 3}
-  doors: []
-  windows: []
+  windows:
+  - {fileID: -927199367670048503, guid: 31729512350dcdf4e8c11188e066c8fb, type: 3}
+  - {fileID: -927199367670048503, guid: 7e60e7d36b402464f82cc1dc0fbb2c8a, type: 3}
+  - {fileID: -927199367670048503, guid: 7cb66059224c98c4e83ef9775768dbe4, type: 3}
+  - {fileID: -927199367670048503, guid: 9f5ba21d67df1504ea62facdf923165c, type: 3}
+  - {fileID: -927199367670048503, guid: b8bab90dfba28ba4cbb15b7af5e85895, type: 3}
+  - {fileID: -927199367670048503, guid: 9b2d37eb222fcf14096927b622f93a31, type: 3}
+  - {fileID: -927199367670048503, guid: 0dfe00013000a524e91c2fc61c13a4c8, type: 3}
+  - {fileID: -927199367670048503, guid: 630102e860e13e242b06ed36da08dce8, type: 3}
+  - {fileID: -927199367670048503, guid: 610fe84ebda06f24dab98578f2c15cd7, type: 3}
   hasDoor: 0
-  wallPattern:
+  doorWallWindowPattern:
+    patern: 
+  doorsPattern:
+    patern: 
+  wallsPattern:
+    patern: 
+  windowsPattern:
     patern: 
 --- !u!114 &5996255259975006730
 MonoBehaviour:

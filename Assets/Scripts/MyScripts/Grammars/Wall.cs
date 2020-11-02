@@ -75,10 +75,20 @@ public class Wall : Shape
         var materials = meshRenderer.materials;
         var newMaterials = Root.GetComponent<Wall>()?.GetMaterial();
 
-        materials[0] = newMaterials[0];
-        materials[1] = newMaterials[1];
-        //materials[1] = wallMaterial2;
-
+        if (materials.Length > 0) {
+            materials[0] = newMaterials[0];
+        }
+        if (materials.Length > 1) {
+            materials[1] = newMaterials[1];
+        }
+        if (materials.Length > 2)
+        {
+            materials[2] = newMaterials[1];
+        }
+        if (materials.Length > 3)
+        {
+            materials[3] = newMaterials[1];
+        }
         meshRenderer.materials = materials;
 
 

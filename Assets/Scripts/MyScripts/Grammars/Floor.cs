@@ -45,7 +45,7 @@ public class Floor : Shape
             wall.transform.localPosition = new Vector3(index.x, 0, index.y);
             wall.transform.localRotation = Quaternion.Euler(0, mydirection.directionRotation, 0);
             wall.GetComponent<Wall>().WidthRemaining = computeWallWidth();
-
+            wall.GetComponent<Wall>().Generate();
         } while (index.x != 0 || index.y != 0);
     }
 
