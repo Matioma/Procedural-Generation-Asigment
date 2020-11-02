@@ -187,10 +187,12 @@ public class Buildings : Shape
             roofTop.transform.localPosition = new Vector3(0, 1, 0);
             roofTop.transform.name = "RoofTop";
 
-            int[,] array = new int[depth,width];
-            for (int i = 0; i < width; i++) {
-                for (int j = 0; j < depth; j++) {
-                    array[j, i] = floorPlan[i, j]-1; // (Roof top data -1 is and empty value)
+            int[,] array = new int[depth, width];
+            for (int i = 0; i < width; i++)
+            {
+                for (int j = 0; j < depth; j++)
+                {
+                    array[j, i] = floorPlan[i, j] - 1; // (Roof top data -1 is and empty value)
                 }
             }
             roofTop.GetComponent<RoofTop>()?.Initialize(array);

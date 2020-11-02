@@ -76,38 +76,77 @@ public class GridInfo : MonoBehaviour
         //0010 -> 2 -> Conection Bottom
         //0100 -> 4 -> Connection RIght
         //1000 -> 8 -> Connection Top
+        
+
+        //0000 0001  -> 1 connection top
+        //0000 0010 -> conetection top-right
+        //0000 0100 -> connection right
+        //0000 1000 -> coneection bottom right
+        //0001 0000 -> connection bottom
+        //0010 0000 -> connection bottom -Left
+        //0100 0000 -> left
+        //1000 0000 -> top left
 
 
-        //0011 -> 4 -> conection Left Bottom
 
         int connectionType = 0;
 
-        //if (getValue(i, j) == -1) {
-        //    connectionType = 0;
-        
-        //};
-
+        //SomethingToTop;
         if (inRange(i + 1, j) && getValue(i + 1, j) > -1)
         {
-            //SomethingToTop;
-            connectionType += 8;
+            connectionType += 1;
+
+           
+            //connectionType += 8;
         }
-        if (inRange(i - 1, j) && getValue(i - 1, j) > -1)
+
+        //Something top-right
+        if (inRange(i + 1, j+1) && getValue(i + 1, j+1) > -1)
         {
+           
             connectionType += 2;
-            //Somehting Down;
+
+
+            //connectionType += 8;
         }
+
+        //SOmething right
         if (inRange(i, j + 1) && getValue(i, j + 1) > -1)
         {
             connectionType += 4;
-            //SOmething right
+           
         }
+        //SOmething bottom right
+        if (inRange(i - 1, j+1) && getValue(i - 1, j+1) > -1)
+        {
+            connectionType += 8;
+        }
+
+        //Somehting Down;
+        if (inRange(i - 1, j) && getValue(i - 1, j) > -1)
+        {
+            connectionType += 16;
+        }
+
+        //Something Down-left
+        if (inRange(i - 1, j-1) && getValue(i - 1, j-1) > -1)
+        {
+            connectionType += 32;
+        }
+        //Something LEft
         if (inRange(i, j - 1) && getValue(i, j - 1) > -1)
         {
-            connectionType += 1;
-            //Something LEft
+            connectionType += 64;
+          
         }
-        //Debug.Log("Connection type: "+ connectionType);
+
+        //Something Left-top
+        if (inRange(i+1, j - 1) && getValue(i+1, j - 1) > -1)
+        {
+            connectionType += 128;
+
+        }
+
 
 
         return connectionType;
