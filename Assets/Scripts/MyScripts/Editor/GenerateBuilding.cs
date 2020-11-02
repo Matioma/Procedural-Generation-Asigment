@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿
+using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
@@ -12,6 +13,13 @@ public class GenerateBuilding : Editor
 
         base.OnInspectorGUI();
         if (GUILayout.Button("Generate")) {
+            building.Trigger();
+        }
+
+
+        if (GUILayout.Button("RandomSeed"))
+        {
+            building.GetComponent<RandomGenerator>().seed = Random.Range(0, int.MaxValue);
             building.Trigger();
         }
     }

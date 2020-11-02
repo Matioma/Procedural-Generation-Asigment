@@ -55,13 +55,14 @@ public class Buildings : Shape
     public void Trigger()
     {
         var random = GetComponent<RandomGenerator>(); 
-        UpdateRandomValues();
+        
         if (random != null)
         {
             random.ResetRandom();
         }
         if (Root != null)
         {
+            UpdateRandomValues();
             Generate();
         }
     }
