@@ -76,7 +76,7 @@ public class Buildings : Shape
         resetFloorPlan();
     }
 
-    void Initialize(int heightRemaining, GameObject prefab, int[,] floorPlan)
+    public void Initialize(int heightRemaining, GameObject prefab, int[,] floorPlan)
     {
         this.heightRemaining = heightRemaining;
         this.floorPlan = floorPlan;
@@ -112,10 +112,6 @@ public class Buildings : Shape
         Vector2Int cornerIndex = new Vector2Int(0, 0);
         Vector2Int size = new Vector2Int(0,0);
 
-        // 0 - [0; depth] // topLeft
-        // 1 - [width;depth] //topRight
-        
-
 
         int depthOfTheBuilding = floorPlan.GetLength(1)-1;
         int widthOfTheBuilding = floorPlan.GetLength(0)-1;
@@ -123,7 +119,6 @@ public class Buildings : Shape
         int corner = RandomInt(0, 2);
         
         // Get the corner INdexes
-
         if (corner == 0)
         {
             cornerIndex.x = 0;
@@ -187,6 +182,8 @@ public class Buildings : Shape
             roofTop.transform.localPosition = new Vector3(0, 1, 0);
             roofTop.transform.name = "RoofTop";
 
+            roofTop.GetComponent<RoofTop>().roofPrefab = RoofPrefab;
+           
             int[,] array = new int[depth, width];
             for (int i = 0; i < width; i++)
             {

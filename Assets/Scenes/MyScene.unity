@@ -160,14 +160,14 @@ MonoBehaviour:
     maxValue: 5
   MinRoadLength: 40
   streetParameters:
-    startPosition: {x: 61.189, y: 0, z: -21.971367}
-    endPosition: {x: 15.7034855, y: 0, z: -36.58058}
+    startPosition: {x: 47.6881, y: 0, z: -38.818336}
+    endPosition: {x: 5.2034855, y: 0, z: -32.88058}
     curvitureDepth: 10.5
     roadWidth: 9.9
     buildingDensity:
       minValue: 2.2
       maxValue: 4.3
-    streetLength: 47.774063
+    streetLength: 42.89754
     intersectionsSize: 5
   numberOfSplitsOfTheRoad: 1
   CityShape:

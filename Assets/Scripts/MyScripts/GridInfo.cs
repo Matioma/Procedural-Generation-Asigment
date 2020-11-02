@@ -30,6 +30,9 @@ public class GridInfo : MonoBehaviour
     int[,] array;
 
 
+   public  int[,] getArray() {
+        return array;
+    }
 
 
     public void Initialize(int width, int depth)
