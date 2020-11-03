@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 1c2cf8cf83b190b46a611d405d4765c2
+guid: 79c944d8b5535d54282625eff22791b4
 ScriptedImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -11,13 +11,13 @@ ScriptedImporter:
   version: 29
   projectContext: 0
   mGraphInstanceData:
-  - graphLabel: Tiles
-    prototypeName: Tiles
+  - graphLabel: Walls
+    prototypeName: Walls
     graphDescIndex: 0
     generateAllOutputs: 0
     generateMipMaps: 1
-    preset: " <sbspreset pkgurl=\"pkg://Tiles\" label=\"\" >\n  <presetinput identifier=\"$outputsize\"
-      uid=\"2122556597\" type=\"8\" value=\"9,9\" />\n </sbspreset>\n"
+    preset: " <sbspreset pkgurl=\"pkg://Walls\" label=\"\" >\n  <presetinput identifier=\"$outputsize\"
+      uid=\"760565187\" type=\"8\" value=\"9,9\" />\n </sbspreset>\n"
     shaderName: Standard
     materialProperties:
       shader: {fileID: 46, guid: 0000000000000000f000000000000000, type: 0}
@@ -28,7 +28,7 @@ ScriptedImporter:
       customRenderQueue: -1
       texEnvs:
       - name: _BumpMap
-        texture: {fileID: 6092627568780410311, guid: 1c2cf8cf83b190b46a611d405d4765c2,
+        texture: {fileID: 5871383560343728185, guid: 79c944d8b5535d54282625eff22791b4,
           type: 3}
         scale: {x: 1, y: 1}
         offset: {x: 0, y: 0}
@@ -49,22 +49,22 @@ ScriptedImporter:
         scale: {x: 1, y: 1}
         offset: {x: 0, y: 0}
       - name: _MainTex
-        texture: {fileID: 7076800067904256717, guid: 1c2cf8cf83b190b46a611d405d4765c2,
+        texture: {fileID: -2722043554132669187, guid: 79c944d8b5535d54282625eff22791b4,
           type: 3}
         scale: {x: 1, y: 1}
         offset: {x: 0, y: 0}
       - name: _MetallicGlossMap
-        texture: {fileID: 5765646773862234258, guid: 1c2cf8cf83b190b46a611d405d4765c2,
+        texture: {fileID: 1964258662773140977, guid: 79c944d8b5535d54282625eff22791b4,
           type: 3}
         scale: {x: 1, y: 1}
         offset: {x: 0, y: 0}
       - name: _OcclusionMap
-        texture: {fileID: -2065724247036050798, guid: 1c2cf8cf83b190b46a611d405d4765c2,
+        texture: {fileID: 1685780233977287747, guid: 79c944d8b5535d54282625eff22791b4,
           type: 3}
         scale: {x: 1, y: 1}
         offset: {x: 0, y: 0}
       - name: _ParallaxMap
-        texture: {fileID: -1928242095264958018, guid: 1c2cf8cf83b190b46a611d405d4765c2,
+        texture: {fileID: 337319303902830216, guid: 79c944d8b5535d54282625eff22791b4,
           type: 3}
         scale: {x: 1, y: 1}
         offset: {x: 0, y: 0}
@@ -193,27 +193,27 @@ ScriptedImporter:
         from: 0
         to: 3
     textureParameters:
-    - textureName: Tiles - baseColor
+    - textureName: Walls - baseColor
       wrapMode: 0
       filterMode: 1
       aniso: 1
-    - textureName: Tiles - normal
+    - textureName: Walls - normal
       wrapMode: 0
       filterMode: 1
       aniso: 1
-    - textureName: Tiles - roughness
+    - textureName: Walls - roughness
       wrapMode: 0
       filterMode: 1
       aniso: 1
-    - textureName: Tiles - metallic
+    - textureName: Walls - metallic
       wrapMode: 0
       filterMode: 1
       aniso: 1
-    - textureName: Tiles - height
+    - textureName: Walls - height
       wrapMode: 0
       filterMode: 1
       aniso: 1
-    - textureName: Tiles - ambientOcclusion
+    - textureName: Walls - ambientOcclusion
       wrapMode: 0
       filterMode: 1
       aniso: 1
@@ -228,11 +228,11 @@ ScriptedImporter:
       textureFormatMode: 0
       normalCompressed: 0
       bGenerateOnLoad: 1
-    material: {fileID: -3466359529836016787, guid: 1c2cf8cf83b190b46a611d405d4765c2,
+    material: {fileID: -978160288850237216, guid: 79c944d8b5535d54282625eff22791b4,
       type: 3}
     generatedTextures:
-    - {fileID: 7076800067904256717, guid: 1c2cf8cf83b190b46a611d405d4765c2, type: 3}
-    - {fileID: 6092627568780410311, guid: 1c2cf8cf83b190b46a611d405d4765c2, type: 3}
-    - {fileID: 5765646773862234258, guid: 1c2cf8cf83b190b46a611d405d4765c2, type: 3}
-    - {fileID: -1928242095264958018, guid: 1c2cf8cf83b190b46a611d405d4765c2, type: 3}
-    - {fileID: -2065724247036050798, guid: 1c2cf8cf83b190b46a611d405d4765c2, type: 3}
+    - {fileID: -2722043554132669187, guid: 79c944d8b5535d54282625eff22791b4, type: 3}
+    - {fileID: 5871383560343728185, guid: 79c944d8b5535d54282625eff22791b4, type: 3}
+    - {fileID: 1964258662773140977, guid: 79c944d8b5535d54282625eff22791b4, type: 3}
+    - {fileID: 337319303902830216, guid: 79c944d8b5535d54282625eff22791b4, type: 3}
+    - {fileID: 1685780233977287747, guid: 79c944d8b5535d54282625eff22791b4, type: 3}
