@@ -284,10 +284,6 @@ public class RoofTop : Shape
                     MeshRenderer meshRenderer = roofBlock.GetComponentInChildren<MeshRenderer>();
                     var materialList = meshRenderer.materials;
 
-                    //for (int materialIndex = 0; i < materialList.Length; i++) {
-                    //    materialList[materialIndex] = roofMaterials;
-                    //}
-
 
 
                     materialList[0] = roofMaterials;

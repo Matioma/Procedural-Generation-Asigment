@@ -69,7 +69,6 @@
     <Compile Include="Assets\Scripts\MyScripts\Editor\CityBuilderEditor.cs" />
     <Compile Include="Assets\Scripts\MyScripts\Editor\GenerateBuilding.cs" />
     <Compile Include="Assets\Scripts\MyScripts\Editor\RoadEditor.cs" />
-    <Compile Include="Assets\Scripts\MyScripts\Editor\RoadSystemEditor.cs" />
     <Compile Include="Assets\Scripts\MyScripts\Editor\RoofGenerator.cs" />
     <Compile Include="Assets\Scripts\MyScripts\Editor\WallBuilder.cs" />
     <Reference Include="UnityEditor.TestRunner">

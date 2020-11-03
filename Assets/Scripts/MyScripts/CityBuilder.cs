@@ -21,17 +21,16 @@ public class CityBuilder : Builder
     [SerializeField]
     public List<Vector3> CityShape;
 
+
+    [SerializeField]
+    BuildingParameters buildingParameters;
+
+
+  
+
     
     private void OnValidate()
     {
-        //float maxLength = Mathf.Sqrt(width * width + depth * depth);
-
-        //if (MinRoadLength >= maxLength)
-        //{
-        //    MinRoadLength = maxLength * 0.9f;
-        //}
-
-        //distanceBetweenBuildings.Validate();
     }
 
     private void Awake()
@@ -72,15 +71,8 @@ public class CityBuilder : Builder
                 }
 
                 streetParameters.streetLength = (streetParameters.startPosition - streetParameters.endPosition).magnitude;
-                GetComponent<RoadBuilder>()?.SpawnRoad(streetParameters, numberOfSplitsOfTheRoad);
+                GetComponent<RoadBuilder>()?.SpawnRoad(streetParameters, buildingParameters, numberOfSplitsOfTheRoad);
             }
         }
-        //else {
-        //    streetParameters.startPosition = transform.position;
-        //    streetParameters.endPosition = new Vector3(transform.position.x + width, 0, transform.position.z + depth);
-        //    streetParameters.streetLength = (streetParameters.startPosition - streetParameters.endPosition).magnitude;
-        //    GetComponent<RoadBuilder>()?.SpawnRoad(streetParameters, numberOfSplitsOfTheRoad);
-        //}
-     
     }
 }

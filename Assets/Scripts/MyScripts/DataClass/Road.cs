@@ -21,6 +21,10 @@ public class Road : Builder
     [SerializeField]
     float minLength = 10;
 
+
+    [SerializeField]
+    BuildingParameters buildingParameters;
+
     AnimationCurve oldCurve;
 
     [Header ("Road Options")]
@@ -150,6 +154,7 @@ public class Road : Builder
                     Vector3 directionVector = Vector3.Cross(relativePosition, Vector3.up).normalized;
                     building.transform.rotation = Quaternion.LookRotation(-directionVector, Vector3.up);
 
+                    building.GetComponent<Buildings>().buildingParameters = new BuildingParameters(this.buildingParameters);
                     building.GetComponent<Buildings>().Trigger();
                 }
             }
@@ -167,6 +172,8 @@ public class Road : Builder
                     Vector3 directionVector = Vector3.Cross(relativePosition, Vector3.up).normalized;
                     building.transform.rotation = Quaternion.LookRotation(directionVector, Vector3.up);
 
+
+                    building.GetComponent<Buildings>().buildingParameters = new BuildingParameters(this.buildingParameters);
                     building.GetComponent<Buildings>().Trigger();
                 }
             }
@@ -186,10 +193,11 @@ public class Road : Builder
         }
     }
 
-
-    public void Initialize(StreetParameters streetParameters, int splitsLeft=0)
+    public void Initialize(StreetParameters streetParameters, BuildingParameters buildingParameters, int splitsLeft = 0)
     {
+        
         this.streetParameters = new StreetParameters(streetParameters);
+        this.buildingParameters = new BuildingParameters(buildingParameters);
         this.splitsLeft = splitsLeft;
         roadToLeft = true;
         roadToRight = true;
@@ -239,7 +247,7 @@ public class Road : Builder
         newStreetParameters.endPosition = newStreetParameters.startPosition + direction * newStreetParameters.streetLength;
         newStreetParameters.roadWidth *=0.8f;
 
-        GetComponent<RoadBuilder>().SpawnRoad(newStreetParameters,splitsLeft-1);
+        GetComponent<RoadBuilder>().SpawnRoad(newStreetParameters, buildingParameters,splitsLeft-1);
     }
 
 

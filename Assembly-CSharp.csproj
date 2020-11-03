@@ -79,6 +79,7 @@
     <Compile Include="Assets\Scripts\ModularMeshTools\Shape.cs" />
     <Compile Include="Assets\Scripts\ModularMeshTools\ValueGrid.cs" />
     <Compile Include="Assets\Scripts\MyScripts\Builder.cs" />
+    <Compile Include="Assets\Scripts\MyScripts\BuildingParameters.cs" />
     <Compile Include="Assets\Scripts\MyScripts\CityBuilder.cs" />
     <Compile Include="Assets\Scripts\MyScripts\ControlledRandom.cs" />
     <Compile Include="Assets\Scripts\MyScripts\DataClass\Road.cs" />
@@ -92,7 +93,6 @@
     <Compile Include="Assets\Scripts\MyScripts\PerlinNoise\TerainGenerator.cs" />
     <Compile Include="Assets\Scripts\MyScripts\RandomWithSeed.cs" />
     <Compile Include="Assets\Scripts\MyScripts\RoadBuilder.cs" />
-    <Compile Include="Assets\Scripts\MyScripts\RoadSystemBuilder.cs" />
     <Compile Include="Assets\Scripts\MyScripts\SubstanceDesigner\RoofTilesParameter.cs" />
     <Compile Include="Assets\Scripts\MyScripts\SubstanceDesigner\TestSubstance.cs" />
     <Compile Include="Assets\Scripts\MyScripts\Utility\FloatRandomRange.cs" />

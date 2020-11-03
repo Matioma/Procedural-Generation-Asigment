@@ -10,21 +10,10 @@ public class RoadBuilder : MonoBehaviour
     GameObject RoadPrefab;
 
   
-
-    public void SpawnRoad(StreetParameters streetParameters)
+    public void SpawnRoad(StreetParameters streetParameters, BuildingParameters buildingParameters, int splitsLeft = 0)
     {
         var road = Instantiate(RoadPrefab, transform);
-
-        //road.GetComponent<RoadSystemBuilder>().Initialize(2, streetParameters);
-        //road.GetComponent<Builder>().Generate();
-        road.GetComponent<Road>()?.Initialize(streetParameters);
-        road.GetComponent<Road>()?.Generate();
-    }
-
-    public void SpawnRoad(StreetParameters streetParameters, int splitsLeft =0)
-    {
-        var road = Instantiate(RoadPrefab, transform);
-        road.GetComponent<Road>()?.Initialize(streetParameters, splitsLeft);
+        road.GetComponent<Road>()?.Initialize(streetParameters, buildingParameters, splitsLeft);
         road.GetComponent<Road>()?.Generate();
     }
 }

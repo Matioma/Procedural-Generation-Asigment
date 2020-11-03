@@ -13,24 +13,10 @@ public class Buildings : Shape
     int width;
     int depth;
 
-    [Header("Height Parameters")]
-    [SerializeField, Range(1, 10)]
-    int minHeight =1;
-    [SerializeField, Range(1, 10)]
-    int maxHeight=1;
+ 
 
-    [Header("Width Parameters")]
-    [SerializeField, Range(2, 10)]
-    int minWidth;
-    [SerializeField, Range(2, 10)]
-    int maxWidth;
-
-
-    [Header("Height Parameters")]
-    [SerializeField, Range(2, 10)]
-    int minDepth;
-    [SerializeField, Range(2, 10)]
-    int maxDepth;
+    [SerializeField]
+    public BuildingParameters buildingParameters;
 
 
     public int[,] floorPlan;
@@ -70,18 +56,31 @@ public class Buildings : Shape
 
     private void UpdateRandomValues()
     {
-        width = RandomInt(minWidth, maxWidth+1);
-        depth = RandomInt(minDepth, maxDepth+1);
-        heightRemaining = RandomInt(minHeight-1, maxHeight);
+        width = RandomInt(buildingParameters.minWidth, buildingParameters.maxWidth+ 1);
+        depth = RandomInt(buildingParameters.minDepth, buildingParameters.maxDepth+1);
+        heightRemaining = RandomInt(buildingParameters.minHeight - 1, buildingParameters.maxHeight);
         resetFloorPlan();
     }
 
-    public void Initialize(int heightRemaining, GameObject prefab, int[,] floorPlan)
+    //public void Initialize(int heightRemaining, GameObject prefab, int[,] floorPlan)
+    //{
+    //    this.heightRemaining = heightRemaining;
+    //    this.floorPlan = floorPlan;
+    //    floorPrefab = prefab;
+
+    //    width = floorPlan.GetLength(0);
+    //    depth = floorPlan.GetLength(1);
+    //}
+
+
+    public void Initialize(int heightRemaining, GameObject prefab, BuildingParameters buildingParameters, int[,] floorPlan)
     {
+        
         this.heightRemaining = heightRemaining;
         this.floorPlan = floorPlan;
         floorPrefab = prefab;
 
+        this.buildingParameters = new BuildingParameters(buildingParameters);
         width = floorPlan.GetLength(0);
         depth = floorPlan.GetLength(1);
     }
@@ -173,7 +172,7 @@ public class Buildings : Shape
             Buildings building = CreateSymbol<Buildings>("BuildingSymbol", new Vector3(0, 1, 0));
             building.RoofPrefab = RoofPrefab;
 
-            building.Initialize(heightRemaining - 1, floorPrefab, floorPlan);
+            building.Initialize(heightRemaining - 1, floorPrefab, buildingParameters, floorPlan);
             building.Generate(0.1f);
         }
         //Create Roof
