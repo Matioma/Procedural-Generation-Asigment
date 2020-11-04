@@ -154,21 +154,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   random: {fileID: 652912291}
   streetParameters:
-    startPosition: {x: 47.6881, y: 0, z: -38.818336}
-    endPosition: {x: 5.2034855, y: 0, z: -32.88058}
+    startPosition: {x: 92.79173, y: 0, z: -16.882946}
+    endPosition: {x: -27.143251, y: 0, z: -35.333107}
     curvitureDepth: 10.5
     roadWidth: 8.5
     buildingDensity:
       minValue: 5.4
       maxValue: 8.2
-    streetLength: 42.89754
+    streetLength: 121.345825
     intersectionsSize: 5
   numberOfSplitsOfTheRoad: 0
   CityShape:
-  - {x: 32.935246, y: 0, z: -23.997784}
-  - {x: -19.296515, y: 0, z: -45.58058}
-  - {x: -31.030647, y: 0, z: 21.645786}
-  - {x: 32.9184, y: 0, z: 47.534657}
+  - {x: 79.39173, y: 0, z: -41.082947}
+  - {x: -40.54325, y: 0, z: -59.533108}
+  - {x: -69.48882, y: 0, z: 22.516113}
+  - {x: 38.454834, y: 0, z: 48.66}
   buildingParameters:
     minHeight: 3
     maxHeight: 6
@@ -176,7 +176,27 @@ MonoBehaviour:
     maxWidth: 4
     minDepth: 2
     maxDepth: 4
-  numberOfPoints: 6
+  numberOfPoints: 5
+  points:
+  - id: 39
+  - id: 40
+  - id: 41
+  - id: 42
+  - id: 43
+  - id: 44
+  - id: 45
+  - id: 46
+  - id: 47
+  - id: 48
+  - id: 49
+  - id: 50
+  - id: 51
+  - id: 52
+  - id: 53
+  - id: 54
+  - id: 55
+  - id: 56
+  - id: 57
 --- !u!4 &652912290
 Transform:
   m_ObjectHideFlags: 0
@@ -185,7 +205,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 652912288}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 24.5, y: 0, z: 12.7}
+  m_LocalPosition: {x: 13.4, y: 0, z: 24.2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}

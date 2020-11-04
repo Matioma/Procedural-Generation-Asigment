@@ -11,9 +11,9 @@ public class RoofTilesParameter : MonoBehaviour
     float deteriorationAmount; 
     void Start()
     {
-        Debug.Log(mySubstance.GetInputFloat("TileAmountOfDeterioratedColor"));
+      
         mySubstance.SetInputFloat("TileAmountOfDeterioratedColor", deteriorationAmount);
-        Debug.Log(mySubstance.GetInputFloat("TileAmountOfDeterioratedColor"));
+
 
         mySubstance.QueueForRender();
 

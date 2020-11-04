@@ -1,11 +1,9 @@
 ﻿using Demo;
 using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
-using System.Net.Http.Headers;
-using System.Runtime.Remoting;
 using UnityEngine;
-using UnityEngine.UIElements;
+using System.Drawing;
+using System;
 
 [RequireComponent(typeof(RandomGenerator),typeof(RoadBuilder))]
 public class CityBuilder : Builder
@@ -37,32 +35,45 @@ public class CityBuilder : Builder
 
     List<Edge> edges = new List<Edge>();
 
-    List<Point> points = new List<Point>();
+    [HideInInspector]
+    public List<Point> points = new List<Point>();
 
-    List<Edge> finalEdge = new List<Edge>();
-
-
-    bool debug=false;
+    [HideInInspector]
+    public List<Edge> finalEdge = new List<Edge>();
 
     private void Awake()
     {
         base.Awake();
         CreatePoints();
-        //Generate();
+        
     }
 
 
     //Creates Points sorts edges
-    void CreatePoints() {
+    public void CreatePoints() {
         RandomGenerator random= GetComponent<RandomGenerator>();
 
-        for (int i = 0; i < numberOfPoints; i++) {
-            Point point = new Point(new Vector3(Random.Range(0,100),0, Random.Range(0,100)));
+        edges.Clear();
+        points.Clear();
+        finalEdge.Clear();
 
-            //Debug.Log(point.parent);
+
+        for (int i = 0; i < CityShape.Count; i++) {
+            Point point = new Point(CityShape[i] + transform.position);
             points.Add(point);
         }
 
+
+        Vector3[] boundries = BoundingBox(CityShape);
+       
+
+        for (int i = 0; i < numberOfPoints; i++) {
+            Vector3 pointToCheck;
+
+            pointToCheck = new Vector3(random.Next((int)boundries[0].x, (int)boundries[1].x), 0, random.Next((int)boundries[2].z, (int)boundries[3].z));
+            Point point = new Point(pointToCheck);
+            points.Add(point);
+        }
 
         for (int i = 0; i < points.Count- 1; i++) {
             for (int j = i+1; j < points.Count; j++) {
@@ -75,10 +86,47 @@ public class CityBuilder : Builder
         edges.Sort((x, y) => x.Length.CompareTo(y.Length));
 
         Krukal();
-
-        debug = true;
     }
 
+    Vector3[] BoundingBox(List<Vector3> polygon) {
+        var boundries = new Vector3[4];
+
+        Vector3 minX = polygon[0];
+        Vector3 maxX = polygon[0];
+
+
+        Vector3 minZ = polygon[0];
+        Vector3 maxZ = polygon[0];
+
+
+        for (int i = 1; i < polygon.Count; i++) {
+            if (polygon[i].x > minX.x)
+            {
+                maxX = polygon[i];
+            }
+            else { 
+                minX = polygon[i];
+            }
+
+            if (polygon[i].z > minZ.z)
+            {
+                
+                maxZ = polygon[i];
+            }
+            else
+            {
+                minZ = polygon[i];
+            }
+
+        }
+
+        boundries[0] = minX + transform.position;
+        boundries[1] = maxX + transform.position;
+        boundries[2] = minZ + transform.position;
+        boundries[3] = maxZ + transform.position;
+
+        return boundries;
+    }
 
     void Krukal() {
 
@@ -96,16 +144,12 @@ public class CityBuilder : Builder
 
             i++;
         }
-
-
     }
-
-
-
 
     public override void  Generate()
     {
         base.Generate();
+        //CreatePoints();
         BuildCity();
     }
 
@@ -138,48 +182,55 @@ public class CityBuilder : Builder
                 GetComponent<RoadBuilder>()?.SpawnRoad(streetParameters, buildingParameters, numberOfSplitsOfTheRoad);
             }
         }
+
+        if (finalEdge.Count > 0) {
+            for (int i = 0; i < finalEdge.Count; i++) {
+                streetParameters.startPosition = finalEdge[i].PointStart.Position;
+                streetParameters.endPosition = finalEdge[i].PointEnd.Position;
+
+
+                streetParameters.streetLength = (streetParameters.startPosition - streetParameters.endPosition).magnitude;
+                GetComponent<RoadBuilder>()?.SpawnRoad(streetParameters, buildingParameters, numberOfSplitsOfTheRoad);
+            }
+           
+
+
+        }
+
     }
 
 
     void OnDrawGizmos()
     {
-        // Draw a yellow sphere at the transform's position
-        Gizmos.color = Color.green;
-
+        //// Draw a yellow sphere at the transform's position
+        //Gizmos.color = Color.green;
       
-        if (points.Count > 0) {
-            
-            for (int i = 0; i < points.Count; i++)
-            {
-                Gizmos.DrawSphere(points[i].Position, 1);
-            }
-        }
+        //if (points.Count > 0) {
+        //    for (int i = 0; i < points.Count; i++)
+        //    {
+        //        Gizmos.DrawSphere(points[i].Position, 1);
+        //    }
+        //}
 
-
-        Gizmos.color = Color.red;
-        if (finalEdge.Count > 0 && debug)
-        {
-            for (int i = 0; i < finalEdge.Count; i++)
-            {
-                Gizmos.color = Color.cyan;
-                Gizmos.DrawSphere(finalEdge[i].PointStart.Position, 2.0f);
-                Gizmos.color = Color.white;
-                Gizmos.DrawSphere(finalEdge[i].PointStart.Position, 2.0f);
-
-                Gizmos.color = new Color(255, 0,255);
-                Gizmos.DrawLine(finalEdge[i].PointStart.Position, finalEdge[i].PointEnd.Position);
-            }
-        }
-
-
-
-
+        //Gizmos.color = Color.red;
+        //if (finalEdge.Count > 0)
+        //{
+        //    for (int i = 0; i < finalEdge.Count; i++)
+        //    {
+        //        Gizmos.color = Color.cyan;
+        //        Gizmos.DrawSphere(finalEdge[i].PointStart.Position, 2.0f);
+        //        Gizmos.color = Color.white;
+        //        Gizmos.DrawSphere(finalEdge[i].PointStart.Position, 2.0f);
+        //        Gizmos.color = new Color(255, 0,255);
+        //        Gizmos.DrawLine(finalEdge[i].PointStart.Position, finalEdge[i].PointEnd.Position);
+        //    }
+        //}
     }
 }
 
 
 
-class EdgeSorter : IComparer
+public class EdgeSorter : IComparer
 {
     int IComparer.Compare(object a, object b)
     {
@@ -193,7 +244,7 @@ class EdgeSorter : IComparer
             return 0;
     }
 }
-class Edge
+public class Edge
 {
     public Point PointStart;
     public Point PointEnd;
@@ -212,7 +263,7 @@ class Edge
 }
 
 [System.Serializable]
-class Point {
+public class Point {
     static int pointsCreated = 0;
 
     Vector3 position;
@@ -225,13 +276,7 @@ class Point {
         //Make sure that all chiled have this parrent
         for (int i = 0; i < points.Count; i++) {
             Children.Add(points[i]);
-            
-            
-            //points[i].parent =parent;
-
-
-            //Debug.Log(points[i].ToString());
-            //Debug.Log(parent.Position);
+      
         }
 
     }
@@ -272,3 +317,4 @@ class Point {
     }
 
 }
+
