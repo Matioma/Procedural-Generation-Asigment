@@ -27,13 +27,13 @@ public class Road : Builder
 
     AnimationCurve oldCurve;
 
-    [Header ("Road Options")]
+    [Header("Road Options")]
     [SerializeField]
     bool roadToLeft = true;
     [SerializeField]
     bool roadToRight = true;
 
-    [Header("Road Options")]
+    [Header("Buildings Options")]
     [SerializeField]
     bool buildingsToRight = true;
     [SerializeField]
@@ -43,9 +43,26 @@ public class Road : Builder
     int splitsLeft = 0;
 
 
-
     float timeSplitLeft;
     float timeSplitRight;
+
+
+    public bool SetHasBuildingsOnLeft{
+        set {
+            buildingsToLeft = value;
+        }
+    }
+    public bool SetHasBuildingsOnRight
+    {
+        set
+        {
+            buildingsToRight = value;
+        }
+    }
+
+
+
+
 
     public Vector3 vectorDif {
         get {

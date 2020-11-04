@@ -170,12 +170,13 @@ MonoBehaviour:
   - {x: -31.030647, y: 0, z: 21.645786}
   - {x: 32.9184, y: 0, z: 47.534657}
   buildingParameters:
-    minHeight: 5
+    minHeight: 3
     maxHeight: 6
     minWidth: 2
     maxWidth: 4
     minDepth: 2
     maxDepth: 4
+  numberOfPoints: 6
 --- !u!4 &652912290
 Transform:
   m_ObjectHideFlags: 0
