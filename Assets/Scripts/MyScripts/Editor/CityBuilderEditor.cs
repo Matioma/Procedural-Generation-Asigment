@@ -35,18 +35,16 @@ public class CityEditor : BuilderGenerateButtons
         Handles.DrawAAConvexPolygon(globalPositions);
 
 
-        Handles.color = new Color(0, 255, 0, 0.7f);
+        Handles.color = new Color(100, 100, 100, 0.7f);
+       
         Handles.DrawAAPolyLine(10,globalPositions);
 
 
-
+        //Handles.preselectionColor = new Color(127, 127, 127);
         for (int i = 0; i < city.CityShape.Count; i++)
         {
             city.CityShape[i] = Handles.PositionHandle(city.CityShape[i]+ city.transform.position, Quaternion.identity) - city.transform.position;
         }
-
-
-
 
         Handles.color = new Color(0, 255, 0);
 
@@ -54,21 +52,20 @@ public class CityEditor : BuilderGenerateButtons
         //
         for (int i = 0; i < city.finalEdge.Count-1; i++)
         {
-            //Vector3 position = city.points[i].Position;
-
             Handles.DrawLine(city.finalEdge[i].PointStart.Position, city.finalEdge[i].PointEnd.Position);
-           
         }
 
+
+        Handles.color = Handles.xAxisColor;
+
         // Draw Streets grid  handles
-        //
         for (int i = 0; i < city.finalEdge.Count; i++)
         {
             Vector3 positionStart = city.finalEdge[i].PointStart.Position;
             Vector3 positionEnd = city.finalEdge[i].PointEnd.Position;
 
-            city.finalEdge[i].PointStart.Position = Handles.PositionHandle(positionStart, Quaternion.identity);
-            city.finalEdge[i].PointEnd.Position = Handles.PositionHandle(positionEnd, Quaternion.identity);
+            city.finalEdge[i].PointStart.Position = Handles.PositionHandle(new Vector3(positionStart.x, 0, positionStart.z), Quaternion.identity);
+            city.finalEdge[i].PointEnd.Position = Handles.PositionHandle(new Vector3(positionEnd.x, 0, positionEnd.z), Quaternion.identity);
         }
 
 

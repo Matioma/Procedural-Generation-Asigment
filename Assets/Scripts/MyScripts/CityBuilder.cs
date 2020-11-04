@@ -38,13 +38,12 @@ public class CityBuilder : Builder
     [HideInInspector]
     public List<Point> points = new List<Point>();
 
-    [HideInInspector]
+    //[HideInInspector]
     public List<Edge> finalEdge = new List<Edge>();
 
     private void Awake()
     {
         base.Awake();
-        CreatePoints();
         
     }
 
@@ -149,7 +148,6 @@ public class CityBuilder : Builder
     public override void  Generate()
     {
         base.Generate();
-        //CreatePoints();
         BuildCity();
     }
 
@@ -198,34 +196,6 @@ public class CityBuilder : Builder
         }
 
     }
-
-
-    void OnDrawGizmos()
-    {
-        //// Draw a yellow sphere at the transform's position
-        //Gizmos.color = Color.green;
-      
-        //if (points.Count > 0) {
-        //    for (int i = 0; i < points.Count; i++)
-        //    {
-        //        Gizmos.DrawSphere(points[i].Position, 1);
-        //    }
-        //}
-
-        //Gizmos.color = Color.red;
-        //if (finalEdge.Count > 0)
-        //{
-        //    for (int i = 0; i < finalEdge.Count; i++)
-        //    {
-        //        Gizmos.color = Color.cyan;
-        //        Gizmos.DrawSphere(finalEdge[i].PointStart.Position, 2.0f);
-        //        Gizmos.color = Color.white;
-        //        Gizmos.DrawSphere(finalEdge[i].PointStart.Position, 2.0f);
-        //        Gizmos.color = new Color(255, 0,255);
-        //        Gizmos.DrawLine(finalEdge[i].PointStart.Position, finalEdge[i].PointEnd.Position);
-        //    }
-        //}
-    }
 }
 
 
@@ -244,9 +214,13 @@ public class EdgeSorter : IComparer
             return 0;
     }
 }
+
+[System.Serializable]
 public class Edge
 {
+    [SerializeField]
     public Point PointStart;
+    [SerializeField]
     public Point PointEnd;
 
 
@@ -266,6 +240,7 @@ public class Edge
 public class Point {
     static int pointsCreated = 0;
 
+    [SerializeField]
     Vector3 position;
     public Point parent;
     public int id;
@@ -300,20 +275,16 @@ public class Point {
         }
         parent.AddChildren(Children);
 
-        //Debug.Log(parent.Children.Count);
-
         Children.Clear();
     }
 
     public Point(Vector3 position) {
-        //this.position = new Vector3(position.x,position.y,position.z);
         this.position = position;
         
         pointsCreated++;
         id = pointsCreated;
 
         parent = this;
-        //Children.Add(this);
     }
 
 }

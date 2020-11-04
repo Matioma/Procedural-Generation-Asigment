@@ -154,49 +154,41 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   random: {fileID: 652912291}
   streetParameters:
-    startPosition: {x: 92.79173, y: 0, z: -16.882946}
-    endPosition: {x: -27.143251, y: 0, z: -35.333107}
-    curvitureDepth: 10.5
-    roadWidth: 8.5
+    startPosition: {x: 20.020256, y: 0, z: -86.93593}
+    endPosition: {x: -46.49672, y: 0, z: -35.33311}
+    curvitureDepth: 27.9
+    roadWidth: 3.2
     buildingDensity:
       minValue: 5.4
       maxValue: 8.2
-    streetLength: 121.345825
-    intersectionsSize: 5
+    streetLength: 84.186455
+    intersectionsSize: 15
   numberOfSplitsOfTheRoad: 0
   CityShape:
-  - {x: 79.39173, y: 0, z: -41.082947}
-  - {x: -40.54325, y: 0, z: -59.533108}
-  - {x: -69.48882, y: 0, z: 22.516113}
-  - {x: 38.454834, y: 0, z: 48.66}
+  - {x: 6.6202564, y: 0, z: -111.135925}
+  - {x: -59.89672, y: 0, z: -59.53311}
+  - {x: -69.48882, y: 0, z: 22.516117}
+  - {x: 21.064074, y: 0, z: 61.048656}
+  - {x: 98.26314, y: 0, z: -62.912178}
   buildingParameters:
-    minHeight: 3
-    maxHeight: 6
+    minHeight: 2
+    maxHeight: 4
     minWidth: 2
-    maxWidth: 4
+    maxWidth: 3
     minDepth: 2
-    maxDepth: 4
+    maxDepth: 3
   numberOfPoints: 5
   points:
-  - id: 39
-  - id: 40
-  - id: 41
-  - id: 42
-  - id: 43
-  - id: 44
-  - id: 45
-  - id: 46
-  - id: 47
-  - id: 48
-  - id: 49
-  - id: 50
-  - id: 51
-  - id: 52
-  - id: 53
-  - id: 54
-  - id: 55
-  - id: 56
-  - id: 57
+  - id: 21
+  - id: 22
+  - id: 23
+  - id: 24
+  - id: 25
+  - id: 26
+  - id: 27
+  - id: 28
+  - id: 29
+  - id: 30
 --- !u!4 &652912290
 Transform:
   m_ObjectHideFlags: 0
