@@ -1,0 +1,166 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &4321014162346773822
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4321014162346773820}
+  - component: {fileID: 4321014162346773823}
+  - component: {fileID: 4321014162346773818}
+  - component: {fileID: 4321014162346773821}
+  - component: {fileID: 4321014162346773819}
+  m_Layer: 0
+  m_Name: City
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4321014162346773820
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4321014162346773822}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 15.9, y: 33.1, z: 25.5}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4321014162346773823
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4321014162346773822}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd63ccae785407940b9a00c934d45b58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  random: {fileID: 4321014162346773821}
+  streetParameters:
+    startPosition: {x: 108.22743, y: 0, z: -62.06613}
+    endPosition: {x: -43.99672, y: 0, z: -34.03312}
+    curvitureDepth: 16.3
+    roadWidth: 3.2
+    buildingDensity:
+      minValue: 8
+      maxValue: 8
+    streetLength: 154.78386
+    intersectionsSize: 5
+  numberOfSplitsOfTheRoad: 0
+  CityShape:
+  - {x: 75.26399, y: 0, z: -11.635624}
+  - {x: -42.8067, y: 0, z: -81.68587}
+  - {x: -69.48882, y: 0, z: 22.516136}
+  - {x: 21.064066, y: 0, z: 61.048653}
+  buildingParameters:
+    minHeight: 2
+    maxHeight: 4
+    minWidth: 2
+    maxWidth: 3
+    minDepth: 2
+    maxDepth: 3
+  numberOfPoints: 3
+  points:
+  - position: {x: 91.163994, y: 33.1, z: 13.864376}
+    id: 36
+  - position: {x: -27.76557, y: 33.1, z: -56.904007}
+    id: 37
+  - position: {x: -53.58882, y: 33.1, z: 48.016136}
+    id: 38
+  - position: {x: 36.964066, y: 33.1, z: 86.54865}
+    id: 39
+  - position: {x: 21.671846, y: 33.1, z: 34.25289}
+    id: 40
+  - position: {x: 22.365713, y: 33.1, z: 34.628708}
+    id: 41
+  - position: {x: -4.824047, y: 33.1, z: -8.31497}
+    id: 42
+  finalEdge:
+  - PointStart:
+      position: {x: 22.365713, y: 33.1, z: 34.628708}
+      id: 41
+    PointEnd:
+      position: {x: -4.824047, y: 33.1, z: -8.31497}
+      id: 42
+  - PointStart:
+      position: {x: -53.58882, y: 33.1, z: 48.016136}
+      id: 38
+    PointEnd:
+      position: {x: -4.824047, y: 33.1, z: -8.31497}
+      id: 42
+  - PointStart:
+      position: {x: 91.163994, y: 33.1, z: 13.864376}
+      id: 36
+    PointEnd:
+      position: {x: 21.671846, y: 33.1, z: 34.25289}
+      id: 40
+  - PointStart:
+      position: {x: -53.58882, y: 33.1, z: 48.016136}
+      id: 38
+    PointEnd:
+      position: {x: 22.365713, y: 33.1, z: 34.628708}
+      id: 41
+  - PointStart:
+      position: {x: -27.76557, y: 33.1, z: -56.904007}
+      id: 37
+    PointEnd:
+      position: {x: -4.824047, y: 33.1, z: -8.31497}
+      id: 42
+  - PointStart:
+      position: {x: -27.76557, y: 33.1, z: -56.904007}
+      id: 37
+    PointEnd:
+      position: {x: 22.365713, y: 33.1, z: 34.628708}
+      id: 41
+--- !u!114 &4321014162346773818
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4321014162346773822}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d337c953789d3cf49ab6a98a6f78d20c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  RoadPrefab: {fileID: 1806120222370655490, guid: dae05ef1d34b6aa4aa3b1c7cedae9737,
+    type: 3}
+--- !u!114 &4321014162346773821
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4321014162346773822}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fd24ab55c2f53c4c87fe962d45559ec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  seed: 500
+--- !u!114 &4321014162346773819
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4321014162346773822}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5eecb1ffa7d1f7a40bc49cca899496b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  combineKey: 13
+  destroyChildren: 1

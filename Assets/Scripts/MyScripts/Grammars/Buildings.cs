@@ -54,7 +54,7 @@ public class Buildings : Shape
         {
             transform.position = hit.point + new Vector3(0,-0.2f,0);
             Debug.DrawRay(transform.position, -Vector3.up * hit.distance, Color.yellow);
-            Debug.Log("Did Hit");
+            //Debug.Log("Did Hit");
         }
 
 
