@@ -74,6 +74,10 @@
     <Compile Include="Assets\Scripts\GeneralScripts\CameraControls.cs" />
     <Compile Include="Assets\Scripts\GeneralScripts\GridCity.cs" />
     <Compile Include="Assets\Scripts\Handout\CombineMeshes.cs" />
+    <Compile Include="Assets\Scripts\Handout\CreateOctahedron.cs" />
+    <Compile Include="Assets\Scripts\Handout\CreateStairs.cs" />
+    <Compile Include="Assets\Scripts\Handout\MeshBuilder.cs" />
+    <Compile Include="Assets\Scripts\Handout\MeshCreator.cs" />
     <Compile Include="Assets\Scripts\ModularMeshTools\BuildTrigger.cs" />
     <Compile Include="Assets\Scripts\ModularMeshTools\MarchingSquares.cs" />
     <Compile Include="Assets\Scripts\ModularMeshTools\RandomGenerator.cs" />
@@ -96,6 +100,7 @@
     <Compile Include="Assets\Scripts\MyScripts\RoadBuilder.cs" />
     <Compile Include="Assets\Scripts\MyScripts\SubstanceDesigner\RoofTilesParameter.cs" />
     <Compile Include="Assets\Scripts\MyScripts\SubstanceDesigner\TestSubstance.cs" />
+    <Compile Include="Assets\Scripts\MyScripts\TerrainGeneration\TerrainBuilder.cs" />
     <Compile Include="Assets\Scripts\MyScripts\Utility\FloatRandomRange.cs" />
     <Compile Include="Assets\Scripts\MyScripts\Utility\IntRandomRange.cs" />
     <Compile Include="Assets\Scripts\MyScripts\Utility\Pattern.cs" />

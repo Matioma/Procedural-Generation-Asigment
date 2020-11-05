@@ -121,6 +121,117 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &208637078
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 208637083}
+  - component: {fileID: 208637082}
+  - component: {fileID: 208637081}
+  - component: {fileID: 208637080}
+  - component: {fileID: 208637079}
+  m_Layer: 0
+  m_Name: Quad
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &208637079
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 208637078}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78ac19d42afd7b94392b0bccea779c9d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  width: 100
+  depth: 100
+  resolutionX: 100
+  resolutionZ: 100
+--- !u!64 &208637080
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 208637078}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 0
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!23 &208637081
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 208637078}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+--- !u!33 &208637082
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 208637078}
+  m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!4 &208637083
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 208637078}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 2.3567767, y: -24.898907, z: 23.697268}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &652912288
 GameObject:
   m_ObjectHideFlags: 0
@@ -155,22 +266,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   random: {fileID: 652912291}
   streetParameters:
-    startPosition: {x: 20.020256, y: 0, z: -86.93593}
-    endPosition: {x: -46.49672, y: 0, z: -35.33311}
+    startPosition: {x: 108.22743, y: 0, z: -62.06613}
+    endPosition: {x: -43.99672, y: 0, z: -34.03312}
     curvitureDepth: 16.3
     roadWidth: 3.2
     buildingDensity:
-      minValue: 2.2
-      maxValue: 4.4
-    streetLength: 84.186455
+      minValue: 3
+      maxValue: 3.1
+    streetLength: 154.78386
     intersectionsSize: 5
   numberOfSplitsOfTheRoad: 0
   CityShape:
-  - {x: 6.620262, y: 0, z: -111.135925}
-  - {x: -59.89672, y: 0, z: -59.53311}
-  - {x: -69.48882, y: 0, z: 22.516106}
-  - {x: 21.064074, y: 0, z: 61.048656}
-  - {x: 98.26314, y: 0, z: -62.912178}
+  - {x: 75.26399, y: 0, z: -11.635624}
+  - {x: -42.8067, y: 0, z: -81.68587}
+  - {x: -69.48882, y: 0, z: 22.516136}
+  - {x: 21.064066, y: 0, z: 61.048653}
   buildingParameters:
     minHeight: 2
     maxHeight: 4
@@ -178,83 +288,59 @@ MonoBehaviour:
     maxWidth: 3
     minDepth: 2
     maxDepth: 3
-  numberOfPoints: 5
+  numberOfPoints: 3
   points:
-  - position: {x: 20.020256, y: 0, z: -86.93593}
-    id: 1
-  - position: {x: -46.49672, y: 0, z: -35.33311}
-    id: 2
-  - position: {x: -56.08882, y: 0, z: 46.716118}
-    id: 3
-  - position: {x: 34.464073, y: 0, z: 85.24866}
-    id: 4
-  - position: {x: 111.66314, y: 0, z: -38.712177}
-    id: 5
-  - position: {x: 41.61736, y: 0, z: -13.796856}
-    id: 6
-  - position: {x: -4.53244, y: 0, z: -21.007883}
-    id: 7
-  - position: {x: 41.10058, y: 0, z: -13.814011}
-    id: 8
-  - position: {x: -7.4879494, y: 0, z: 30.42788}
-    id: 9
-  - position: {x: -5.004257, y: 0, z: -20.222382}
+  - position: {x: 90.32794, y: 0, z: 11.993603}
     id: 10
+  - position: {x: -28.797977, y: 0, z: -55.77284}
+    id: 11
+  - position: {x: -53.58882, y: 0, z: 48.016136}
+    id: 12
+  - position: {x: 36.964066, y: 0, z: 86.54865}
+    id: 13
+  - position: {x: 6.422261, y: 0, z: -6.549759}
+    id: 14
+  - position: {x: 6.0281477, y: 0, z: -6.891674}
+    id: 15
+  - position: {x: 17.268322, y: 0, z: 43.952168}
+    id: 16
   finalEdge:
   - PointStart:
-      position: {x: 41.10058, y: 0, z: -13.814011}
-      id: 8
+      position: {x: 6.422261, y: 0, z: -6.549759}
+      id: 14
     PointEnd:
-      position: {x: -5.004257, y: 0, z: -20.222382}
+      position: {x: 17.268322, y: 0, z: 43.952168}
+      id: 16
+  - PointStart:
+      position: {x: -28.797977, y: 0, z: -55.77284}
+      id: 11
+    PointEnd:
+      position: {x: 6.0281477, y: 0, z: -6.891674}
+      id: 15
+  - PointStart:
+      position: {x: 90.32794, y: 0, z: 11.993603}
       id: 10
-  - PointStart:
-      position: {x: -46.49672, y: 0, z: -35.33311}
-      id: 2
     PointEnd:
-      position: {x: -4.53244, y: 0, z: -21.007883}
-      id: 7
+      position: {x: 17.268322, y: 0, z: 43.952168}
+      id: 16
   - PointStart:
-      position: {x: 34.464073, y: 0, z: 85.24866}
-      id: 4
-    PointEnd:
-      position: {x: -7.4879494, y: 0, z: 30.42788}
-      id: 9
-  - PointStart:
-      position: {x: 20.020256, y: 0, z: -86.93593}
-      id: 1
-    PointEnd:
-      position: {x: 41.61736, y: 0, z: -13.796856}
-      id: 6
-  - PointStart:
-      position: {x: 41.10058, y: 0, z: -13.814011}
-      id: 8
-    PointEnd:
-      position: {x: -7.4879494, y: 0, z: 30.42788}
-      id: 9
-  - PointStart:
-      position: {x: -56.08882, y: 0, z: 46.716118}
-      id: 3
-    PointEnd:
-      position: {x: -4.53244, y: 0, z: -21.007883}
-      id: 7
-  - PointStart:
-      position: {x: 111.66314, y: 0, z: -38.712177}
-      id: 5
-    PointEnd:
-      position: {x: 41.61736, y: 0, z: -13.796856}
-      id: 6
-  - PointStart:
-      position: {x: 34.464073, y: 0, z: 85.24866}
-      id: 4
-    PointEnd:
-      position: {x: 41.10058, y: 0, z: -13.814011}
-      id: 8
-  - PointStart:
-      position: {x: 111.66314, y: 0, z: -38.712177}
-      id: 5
-    PointEnd:
-      position: {x: -5.004257, y: 0, z: -20.222382}
+      position: {x: 90.32794, y: 0, z: 11.993603}
       id: 10
+    PointEnd:
+      position: {x: 6.422261, y: 0, z: -6.549759}
+      id: 14
+  - PointStart:
+      position: {x: -53.58882, y: 0, z: 48.016136}
+      id: 12
+    PointEnd:
+      position: {x: 6.0281477, y: 0, z: -6.891674}
+      id: 15
+  - PointStart:
+      position: {x: -28.797977, y: 0, z: -55.77284}
+      id: 11
+    PointEnd:
+      position: {x: -53.58882, y: 0, z: 48.016136}
+      id: 12
 --- !u!4 &652912290
 Transform:
   m_ObjectHideFlags: 0
@@ -263,7 +349,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 652912288}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 13.4, y: 0, z: 24.2}
+  m_LocalPosition: {x: 15.9, y: -2.4, z: 25.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -309,8 +395,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   combineKey: 13
-  disableRendererKey: 290
-  destroyKey: 291
   destroyChildren: 1
 --- !u!1 &1481626574
 GameObject:
