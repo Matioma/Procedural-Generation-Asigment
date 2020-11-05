@@ -32,7 +32,15 @@ public class Wall : Shape
     [Header("Materials")]
     [SerializeField]
     Material[] wallmaterials;
-    
+
+
+    [SerializeField]
+    public Material[] stoneMaterials;
+    [SerializeField]
+    public Material[] woodMaterials;
+
+
+    public GameObject parent;
    
 
     private void Awake()
@@ -75,14 +83,49 @@ public class Wall : Shape
 
         MeshRenderer[] meshRenderers = wallObject.GetComponentsInChildren<MeshRenderer>();
 
+
+        parent = Root;
+
+        RandomGenerator parentRandom = Root.GetComponent<RandomGenerator>();
+
+        if (parent == null) {
+            Debug.LogWarning(parent);
+        }
+        if (parentRandom == null)
+        {
+            Debug.LogWarning(parent);
+        }
+        
+
+        var newMaterials = Root.GetComponent<Wall>()?.GetMaterial();
+        var stoneMaterials = Root.GetComponent<Wall>().stoneMaterials;
+        var woodMaterials = Root.GetComponent<Wall>().woodMaterials;
+
         foreach (var meshRenderer in meshRenderers) {
             var materials = meshRenderer.materials;
-            
-            var newMaterials = Root.GetComponent<Wall>()?.GetMaterial();
 
 
             for (int i = 0; i < materials.Length; i++) {
-                materials[i] = newMaterials[0];
+                //Debug.Log(materials[i].name);
+
+                string materialName = materials[i].name;
+                int materialIndex = 0;
+
+                if (materialName.Contains("stone"))
+                {
+                    materialIndex = parentRandom.Next(0, stoneMaterials.Length);
+
+                    materials[i] = stoneMaterials[materialIndex];
+                }
+                else if (materialName.Contains("wood"))
+                {
+                    materialIndex = parentRandom.Next(0, woodMaterials.Length);
+                    materials[i] = woodMaterials[materialIndex];
+                }
+                else
+                {
+                    materials[i] = newMaterials[0];
+                }
             }
             //if (materials.Length > 0)
             //{

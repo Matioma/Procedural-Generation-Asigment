@@ -10,8 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 8558462978408649992}
   - component: {fileID: 8558462978408649993}
-  - component: {fileID: 8558462978408649995}
   - component: {fileID: 6771376728369118766}
+  - component: {fileID: 8558462978408649995}
   - component: {fileID: 5996255259975006730}
   m_Layer: 0
   m_Name: Wall
@@ -50,20 +50,13 @@ MonoBehaviour:
   wallmaterials:
   - {fileID: 2233890314359317816, guid: dd1bc5ea557a87645810ed5beb22b9b5, type: 3}
   - {fileID: -2125774551491969924, guid: 92531de6a9502ea4f894814b5f418c06, type: 3}
---- !u!114 &8558462978408649995
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8558462978408649990}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9c601806f2ae6db4b994fc92779c19fd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  BuildKey: 32
-  BuildOnStart: 1
+  stoneMaterials:
+  - {fileID: -551597020860776487, guid: fc06523f2a57c9943a00aefd7afe3fb5, type: 3}
+  - {fileID: -978160288850237216, guid: 79c944d8b5535d54282625eff22791b4, type: 3}
+  - {fileID: 2233890314359317816, guid: dd1bc5ea557a87645810ed5beb22b9b5, type: 3}
+  woodMaterials:
+  - {fileID: -6290090260403112025, guid: ee44cde9a72800d4a96a374906fef6e5, type: 3}
+  parent: {fileID: 0}
 --- !u!114 &6771376728369118766
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -106,6 +99,20 @@ MonoBehaviour:
     patern: 
   windowsPattern:
     patern: 
+--- !u!114 &8558462978408649995
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8558462978408649990}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9c601806f2ae6db4b994fc92779c19fd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  BuildKey: 32
+  BuildOnStart: 1
 --- !u!114 &5996255259975006730
 MonoBehaviour:
   m_ObjectHideFlags: 0
