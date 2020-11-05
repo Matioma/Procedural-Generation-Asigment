@@ -15,5 +15,12 @@ public class TerrainUI : Editor
         {
             terrainBuilder.Generate();
         }
+
+        if (GUILayout.Button("Generate Random Seed"))
+        {
+            terrainBuilder.GetComponent<RandomGenerator>().seed = Random.Range(0, int.MaxValue);
+            Debug.Log("random Seed");
+            terrainBuilder.Generate();
+        }
     }
 }

@@ -22,7 +22,7 @@ public class CityEditor : BuilderGenerateButtons
     {
         CityBuilder city = (CityBuilder)target;
 
-        Handles.color = new Color(127, 127, 127, 0.5f);
+        Handles.color = new Color(0, 0, 0, 0.5f);
 
 
         Vector3[] globalPositions = city.CityShape.ToArray();

@@ -42,17 +42,19 @@ public class TerrainBuilder : MonoBehaviour
 
 	void Start()
 	{
-		
-
-
-		//GetComponent<Renderer>().material.mainTexture = perlinNoiseTexture;
 	}
 
 
 	public void Generate() {
 		GenerateTexture();
+
+		offsetX = GetComponent<RandomGenerator>().Next(0, int.MaxValue);
+		offsetY = GetComponent<RandomGenerator>().Next(0, int.MaxValue);
+		Debug.Log(offsetX);
+
+
 		MeshBuilder builder = new MeshBuilder();
-		builder.Clear();
+		//builder.Clear();
 
 		float xOffset = (float)width / resolutionX;
 		float zOffset = (float)width / resolutionZ;
@@ -73,16 +75,16 @@ public class TerrainBuilder : MonoBehaviour
 				builder.AddTriangle(v1, v3, v4);
 			}
 		}
-		GetComponent<MeshFilter>().mesh.RecalculateNormals();
+		
 		GetComponent<MeshFilter>().mesh = builder.CreateMesh();
+		GetComponent<MeshFilter>().mesh.RecalculateNormals();
 
-
+		GetComponent<MeshCollider>().sharedMesh = GetComponent<MeshFilter>().mesh;
 	}
 
 
 	float getPixelHeight(int x, int y) {
 		Color pixelColor = perlinNoiseTexture.GetPixel(x, y);
-		Debug.Log(pixelColor.r);
 		float pixelHeight = pixelColor.r * height;
 
 		

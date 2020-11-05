@@ -56,6 +56,7 @@ MonoBehaviour:
     maxWidth: 4
     minDepth: 2
     maxDepth: 4
+  Merge: 1
 --- !u!114 &8035809625655292637
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -82,6 +83,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   combineKey: 282
-  disableRendererKey: 290
-  destroyKey: 291
   destroyChildren: 1

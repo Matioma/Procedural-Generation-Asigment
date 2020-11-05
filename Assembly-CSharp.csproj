@@ -78,6 +78,7 @@
     <Compile Include="Assets\Scripts\Handout\CreateStairs.cs" />
     <Compile Include="Assets\Scripts\Handout\MeshBuilder.cs" />
     <Compile Include="Assets\Scripts\Handout\MeshCreator.cs" />
+    <Compile Include="Assets\Scripts\Handout\SaveMeshToOBJ.cs" />
     <Compile Include="Assets\Scripts\ModularMeshTools\BuildTrigger.cs" />
     <Compile Include="Assets\Scripts\ModularMeshTools\MarchingSquares.cs" />
     <Compile Include="Assets\Scripts\ModularMeshTools\RandomGenerator.cs" />

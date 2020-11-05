@@ -134,6 +134,8 @@ GameObject:
   - component: {fileID: 208637081}
   - component: {fileID: 208637080}
   - component: {fileID: 208637079}
+  - component: {fileID: 208637084}
+  - component: {fileID: 208637085}
   m_Layer: 0
   m_Name: Terrain
   m_TagString: Untagged
@@ -161,7 +163,7 @@ MonoBehaviour:
   perlinNoiseTexture: {fileID: 0}
   tex_width: 256
   tex_height: 256
-  scale: 10
+  scale: 25
   offsetX: 100
   offsetY: 100
 --- !u!64 &208637080
@@ -173,7 +175,7 @@ MeshCollider:
   m_GameObject: {fileID: 208637078}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 3
   m_Convex: 0
   m_CookingOptions: 30
@@ -239,6 +241,32 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &208637084
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 208637078}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 79a38c1739ee2ae4a832a2cafbf95489, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  filename: MyTerrain
+--- !u!114 &208637085
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 208637078}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fd24ab55c2f53c4c87fe962d45559ec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  seed: 0
 --- !u!1 &652912288
 GameObject:
   m_ObjectHideFlags: 0
@@ -297,57 +325,57 @@ MonoBehaviour:
     maxDepth: 3
   numberOfPoints: 3
   points:
-  - position: {x: 91.163994, y: 0, z: 13.864376}
-    id: 29
-  - position: {x: -26.906702, y: 0, z: -56.185867}
-    id: 30
+  - position: {x: 91.163994, y: 33.1, z: 13.864376}
+    id: 36
+  - position: {x: -27.76557, y: 33.1, z: -56.904007}
+    id: 37
   - position: {x: -53.58882, y: 33.1, z: 48.016136}
-    id: 31
-  - position: {x: 36.964066, y: 0, z: 86.54865}
-    id: 32
-  - position: {x: 48, y: 0, z: -40}
-    id: 33
-  - position: {x: 64, y: 0, z: 13}
-    id: 34
-  - position: {x: 41, y: 0, z: 52}
-    id: 35
+    id: 38
+  - position: {x: 36.964066, y: 33.1, z: 86.54865}
+    id: 39
+  - position: {x: 21.671846, y: 33.1, z: 34.25289}
+    id: 40
+  - position: {x: 22.365713, y: 33.1, z: 34.628708}
+    id: 41
+  - position: {x: -4.824047, y: 33.1, z: -8.31497}
+    id: 42
   finalEdge:
   - PointStart:
-      position: {x: 91.163994, y: 0, z: 13.864376}
-      id: 29
+      position: {x: 22.365713, y: 33.1, z: 34.628708}
+      id: 41
     PointEnd:
-      position: {x: 64, y: 0, z: 13}
-      id: 34
+      position: {x: -4.824047, y: 33.1, z: -8.31497}
+      id: 42
   - PointStart:
-      position: {x: 36.964066, y: 0, z: 86.54865}
-      id: 32
+      position: {x: -53.58882, y: 33.1, z: 48.016136}
+      id: 38
     PointEnd:
-      position: {x: 41, y: 0, z: 52}
-      id: 35
+      position: {x: -4.824047, y: 33.1, z: -8.31497}
+      id: 42
   - PointStart:
-      position: {x: 64, y: 0, z: 13}
-      id: 34
+      position: {x: 91.163994, y: 33.1, z: 13.864376}
+      id: 36
     PointEnd:
-      position: {x: 41, y: 0, z: 52}
-      id: 35
+      position: {x: 21.671846, y: 33.1, z: 34.25289}
+      id: 40
   - PointStart:
-      position: {x: 48, y: 0, z: -40}
-      id: 33
+      position: {x: -53.58882, y: 33.1, z: 48.016136}
+      id: 38
     PointEnd:
-      position: {x: 64, y: 0, z: 13}
-      id: 34
+      position: {x: 22.365713, y: 33.1, z: 34.628708}
+      id: 41
   - PointStart:
-      position: {x: 91.163994, y: 0, z: 13.864376}
-      id: 29
+      position: {x: -27.76557, y: 33.1, z: -56.904007}
+      id: 37
     PointEnd:
-      position: {x: 48, y: 0, z: -40}
-      id: 33
+      position: {x: -4.824047, y: 33.1, z: -8.31497}
+      id: 42
   - PointStart:
-      position: {x: -26.906702, y: 0, z: -56.185867}
-      id: 30
+      position: {x: -27.76557, y: 33.1, z: -56.904007}
+      id: 37
     PointEnd:
-      position: {x: 48, y: 0, z: -40}
-      id: 33
+      position: {x: 22.365713, y: 33.1, z: 34.628708}
+      id: 41
 --- !u!4 &652912290
 Transform:
   m_ObjectHideFlags: 0
@@ -612,6 +640,11 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3983368761647857603, guid: 4e2c422ddff90ed47b32fe6843acf243,
+        type: 3}
+      propertyPath: destroyChildren
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7788002103011912713, guid: 4e2c422ddff90ed47b32fe6843acf243,
         type: 3}
       propertyPath: m_Name
@@ -696,7 +729,7 @@ PrefabInstance:
     - target: {fileID: 7788002103011912719, guid: 4e2c422ddff90ed47b32fe6843acf243,
         type: 3}
       propertyPath: buildingParameters.maxHeight
-      value: 10
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4e2c422ddff90ed47b32fe6843acf243, type: 3}

@@ -63,7 +63,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   BuildKey: 32
-  BuildOnStart: 1
+  BuildOnStart: 0
 --- !u!114 &-8237404585256223984
 MonoBehaviour:
   m_ObjectHideFlags: 0

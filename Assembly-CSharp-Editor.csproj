@@ -65,6 +65,7 @@
   <ItemGroup>
     <Compile Include="Assets\Editor\RowEditor.cs" />
     <Compile Include="Assets\Editor\StackEditor.cs" />
+    <Compile Include="Assets\Scripts\Handout\Editor\SaveMeshEditor.cs" />
     <Compile Include="Assets\Scripts\MyScripts\Editor\BuilderGenerateButtons.cs" />
     <Compile Include="Assets\Scripts\MyScripts\Editor\BuildingCombiner.cs" />
     <Compile Include="Assets\Scripts\MyScripts\Editor\CityBuilderEditor.cs" />
