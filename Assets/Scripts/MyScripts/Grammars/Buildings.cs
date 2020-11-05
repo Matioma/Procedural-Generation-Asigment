@@ -1,6 +1,7 @@
 ﻿using Demo;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class Buildings : Shape
@@ -22,6 +23,11 @@ public class Buildings : Shape
     public int[,] floorPlan;
 
 
+    
+
+
+
+   
 
     public void resetFloorPlan() {
         floorPlan = new int[0, 0];
@@ -40,8 +46,18 @@ public class Buildings : Shape
     /// </summary>
     public void Trigger()
     {
-        var random = GetComponent<RandomGenerator>(); 
-        
+        var random = GetComponent<RandomGenerator>();
+
+        //PLace the building of floor
+        RaycastHit hit;
+        if (Physics.Raycast(transform.position, -Vector3.up, out hit, Mathf.Infinity))
+        {
+            transform.position = hit.point + new Vector3(0,-0.2f,0);
+            Debug.DrawRay(transform.position, -Vector3.up * hit.distance, Color.yellow);
+            Debug.Log("Did Hit");
+        }
+
+
         if (random != null)
         {
             random.ResetRandom();
@@ -62,15 +78,6 @@ public class Buildings : Shape
         resetFloorPlan();
     }
 
-    //public void Initialize(int heightRemaining, GameObject prefab, int[,] floorPlan)
-    //{
-    //    this.heightRemaining = heightRemaining;
-    //    this.floorPlan = floorPlan;
-    //    floorPrefab = prefab;
-
-    //    width = floorPlan.GetLength(0);
-    //    depth = floorPlan.GetLength(1);
-    //}
 
 
     public void Initialize(int heightRemaining, GameObject prefab, BuildingParameters buildingParameters, int[,] floorPlan)
@@ -83,6 +90,7 @@ public class Buildings : Shape
         this.buildingParameters = new BuildingParameters(buildingParameters);
         width = floorPlan.GetLength(0);
         depth = floorPlan.GetLength(1);
+        
     }
 
     private void GenerateFloorPlan( int width,int depth)
@@ -153,6 +161,13 @@ public class Buildings : Shape
     }
 
 
+    private void Update()
+    {
+        //if (isLast && Finished) {
+          
+        //}
+    }
+
 
     protected override void Execute()
     {
@@ -172,6 +187,7 @@ public class Buildings : Shape
             Buildings building = CreateSymbol<Buildings>("BuildingSymbol", new Vector3(0, 1, 0));
             building.RoofPrefab = RoofPrefab;
 
+            
             building.Initialize(heightRemaining - 1, floorPrefab, buildingParameters, floorPlan);
             building.Generate(0.1f);
         }
@@ -192,7 +208,7 @@ public class Buildings : Shape
                 }
             }
             roofTop.GetComponent<RoofTop>()?.Initialize(array);
-            roofTop.GetComponent<RoofTop>()?.Generate(0.1f);
+            roofTop.GetComponent<RoofTop>()?.Generate(0.0f);
         }
     }
 }

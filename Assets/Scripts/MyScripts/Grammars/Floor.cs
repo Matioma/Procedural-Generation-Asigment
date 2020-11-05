@@ -20,6 +20,25 @@ public class Floor : Shape
     Vector2Int index = new Vector2Int(0, 0);
     MyDirection mydirection = new MyDirection(new Vector2Int(0, 1));
 
+
+    RandomWithSeed random;
+
+   
+
+    
+    
+    private void Start()
+    {
+        GetComponent<Buildings>()?.Trigger();
+
+        Generate();
+     
+    }
+
+
+
+
+
     public void Initialize(int pRotationsLeft, GameObject prefab)
     {
         rotationsLeft = pRotationsLeft;
@@ -34,22 +53,28 @@ public class Floor : Shape
         this.width = floorPlan.GetLength(0);
         this.depth = floorPlan.GetLength(1);
     }
+    
+ 
+
 
     protected override void Execute()
     {
         GameObject wall;
 
-        //Building the walls
         do
         {
             wall = SpawnPrefab(wallPrefab);
             wall.transform.localPosition = new Vector3(index.x, 0, index.y);
             wall.transform.localRotation = Quaternion.Euler(0, mydirection.directionRotation, 0);
-            wall.GetComponent<Wall>().WidthRemaining = computeWallWidth();
+
+            Wall wallComponent = wall.GetComponent<Wall>();
+          
+
+            wallComponent.WidthRemaining = computeWallWidth();
             wall.GetComponent<RandomGenerator>().seed = GetComponent<RandomGenerator>().Next(0,int.MaxValue);
-           
-            
-            wall.GetComponent<Wall>().Generate();
+
+
+            wallComponent.Generate();
 
 
         } while (index.x != 0 || index.y != 0);

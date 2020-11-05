@@ -41,7 +41,7 @@ public class Wall : Shape
 
 
     public GameObject parent;
-   
+
 
     private void Awake()
     {
@@ -74,6 +74,9 @@ public class Wall : Shape
     {
         if (WidthRemaining <= 0)
         {
+           
+            
+
             return;
         }
         GameObject wallObject = SpawnPrefab(Root.GetComponent<WallParameters>().GetWallPiece());
