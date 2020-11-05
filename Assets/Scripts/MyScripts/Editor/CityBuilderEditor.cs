@@ -64,8 +64,8 @@ public class CityEditor : BuilderGenerateButtons
             Vector3 positionStart = city.finalEdge[i].PointStart.Position;
             Vector3 positionEnd = city.finalEdge[i].PointEnd.Position;
 
-            city.finalEdge[i].PointStart.Position = Handles.PositionHandle(new Vector3(positionStart.x, 0, positionStart.z), Quaternion.identity);
-            city.finalEdge[i].PointEnd.Position = Handles.PositionHandle(new Vector3(positionEnd.x, 0, positionEnd.z), Quaternion.identity);
+            city.finalEdge[i].PointStart.Position = Handles.PositionHandle(new Vector3(positionStart.x, city.transform.position.y, positionStart.z), Quaternion.identity);
+            city.finalEdge[i].PointEnd.Position = Handles.PositionHandle(new Vector3(positionEnd.x, city.transform.position.y, positionEnd.z), Quaternion.identity);
         }
 
 

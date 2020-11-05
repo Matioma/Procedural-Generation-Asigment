@@ -135,7 +135,7 @@ GameObject:
   - component: {fileID: 208637080}
   - component: {fileID: 208637079}
   m_Layer: 0
-  m_Name: Quad
+  m_Name: Terrain
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -153,10 +153,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 78ac19d42afd7b94392b0bccea779c9d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  width: 100
-  depth: 100
-  resolutionX: 100
-  resolutionZ: 100
+  width: 200
+  depth: 200
+  height: 50
+  resolutionX: 10
+  resolutionZ: 10
+  perlinNoiseTexture: {fileID: 0}
+  tex_width: 256
+  tex_height: 256
+  scale: 10
+  offsetX: 100
+  offsetY: 100
 --- !u!64 &208637080
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -226,7 +233,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 208637078}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.3567767, y: -24.898907, z: 23.697268}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -290,57 +297,57 @@ MonoBehaviour:
     maxDepth: 3
   numberOfPoints: 3
   points:
-  - position: {x: 90.32794, y: 0, z: 11.993603}
-    id: 10
-  - position: {x: -28.797977, y: 0, z: -55.77284}
-    id: 11
-  - position: {x: -53.58882, y: 0, z: 48.016136}
-    id: 12
+  - position: {x: 91.163994, y: 0, z: 13.864376}
+    id: 29
+  - position: {x: -26.906702, y: 0, z: -56.185867}
+    id: 30
+  - position: {x: -53.58882, y: 33.1, z: 48.016136}
+    id: 31
   - position: {x: 36.964066, y: 0, z: 86.54865}
-    id: 13
-  - position: {x: 6.422261, y: 0, z: -6.549759}
-    id: 14
-  - position: {x: 6.0281477, y: 0, z: -6.891674}
-    id: 15
-  - position: {x: 17.268322, y: 0, z: 43.952168}
-    id: 16
+    id: 32
+  - position: {x: 48, y: 0, z: -40}
+    id: 33
+  - position: {x: 64, y: 0, z: 13}
+    id: 34
+  - position: {x: 41, y: 0, z: 52}
+    id: 35
   finalEdge:
   - PointStart:
-      position: {x: 6.422261, y: 0, z: -6.549759}
-      id: 14
+      position: {x: 91.163994, y: 0, z: 13.864376}
+      id: 29
     PointEnd:
-      position: {x: 17.268322, y: 0, z: 43.952168}
-      id: 16
+      position: {x: 64, y: 0, z: 13}
+      id: 34
   - PointStart:
-      position: {x: -28.797977, y: 0, z: -55.77284}
-      id: 11
+      position: {x: 36.964066, y: 0, z: 86.54865}
+      id: 32
     PointEnd:
-      position: {x: 6.0281477, y: 0, z: -6.891674}
-      id: 15
+      position: {x: 41, y: 0, z: 52}
+      id: 35
   - PointStart:
-      position: {x: 90.32794, y: 0, z: 11.993603}
-      id: 10
+      position: {x: 64, y: 0, z: 13}
+      id: 34
     PointEnd:
-      position: {x: 17.268322, y: 0, z: 43.952168}
-      id: 16
+      position: {x: 41, y: 0, z: 52}
+      id: 35
   - PointStart:
-      position: {x: 90.32794, y: 0, z: 11.993603}
-      id: 10
+      position: {x: 48, y: 0, z: -40}
+      id: 33
     PointEnd:
-      position: {x: 6.422261, y: 0, z: -6.549759}
-      id: 14
+      position: {x: 64, y: 0, z: 13}
+      id: 34
   - PointStart:
-      position: {x: -53.58882, y: 0, z: 48.016136}
-      id: 12
+      position: {x: 91.163994, y: 0, z: 13.864376}
+      id: 29
     PointEnd:
-      position: {x: 6.0281477, y: 0, z: -6.891674}
-      id: 15
+      position: {x: 48, y: 0, z: -40}
+      id: 33
   - PointStart:
-      position: {x: -28.797977, y: 0, z: -55.77284}
-      id: 11
+      position: {x: -26.906702, y: 0, z: -56.185867}
+      id: 30
     PointEnd:
-      position: {x: -53.58882, y: 0, z: 48.016136}
-      id: 12
+      position: {x: 48, y: 0, z: -40}
+      id: 33
 --- !u!4 &652912290
 Transform:
   m_ObjectHideFlags: 0
@@ -349,7 +356,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 652912288}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 15.9, y: -2.4, z: 25.5}
+  m_LocalPosition: {x: 15.9, y: 33.1, z: 25.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -685,6 +692,11 @@ PrefabInstance:
         type: 3}
       propertyPath: width
       value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7788002103011912719, guid: 4e2c422ddff90ed47b32fe6843acf243,
+        type: 3}
+      propertyPath: buildingParameters.maxHeight
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4e2c422ddff90ed47b32fe6843acf243, type: 3}

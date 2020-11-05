@@ -1,13 +1,19 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.InteropServices;
+using System.Runtime.InteropServices.WindowsRuntime;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class TerrainBuilder : MonoBehaviour
 {
 	[SerializeField]
-	int width;
+	int width =100;
 	[SerializeField]
-	int depth;
+	int depth=100;
+
+	[SerializeField]
+	int height =100;
 
 	[SerializeField]
 	int resolutionX;
@@ -15,38 +21,98 @@ public class TerrainBuilder : MonoBehaviour
 	int resolutionZ;
 
 
+
+	[Header("Terrain")]
+	[SerializeField]
+	Texture2D perlinNoiseTexture;
+
+	[SerializeField]
+	int tex_width = 256;
+	[SerializeField]
+	int tex_height = 256;
+
+	[SerializeField]
+	float scale = 20;
+
+	[SerializeField]
+	float offsetX = 100;
+	[SerializeField]
+	float offsetY = 100;
+
+
 	void Start()
 	{
-		MeshBuilder builder = new MeshBuilder();
+		
 
-		float xOffset =(float)width / resolutionX;
+
+		//GetComponent<Renderer>().material.mainTexture = perlinNoiseTexture;
+	}
+
+
+	public void Generate() {
+		GenerateTexture();
+		MeshBuilder builder = new MeshBuilder();
+		builder.Clear();
+
+		float xOffset = (float)width / resolutionX;
 		float zOffset = (float)width / resolutionZ;
 
-		for (int z = 0; z < resolutionZ - 1; z++) { 
-			for (int x = 0; x < resolutionX; x++) {
-				int v1 = builder.AddVertex(new Vector3(x * xOffset, 0, z * zOffset), new Vector2(xOffset*x, z * zOffset));
-				int v2 = builder.AddVertex(new Vector3(x * xOffset +xOffset, 0, z * zOffset), new Vector2(x * xOffset + xOffset, z * zOffset));
-				int v3 = builder.AddVertex(new Vector3(x * xOffset , 0, z * zOffset + zOffset), new Vector2(x * xOffset, z * zOffset + zOffset));
-				int v4 = builder.AddVertex(new Vector3(x * xOffset + xOffset, 0, z * zOffset + zOffset),new Vector2(x * xOffset + xOffset, z * zOffset + zOffset));
+		for (int z = 0; z < resolutionZ - 1; z++)
+		{
+			for (int x = 0; x < resolutionX; x++)
+			{
+				float xCoordinate = x * xOffset;
+				float zCoordinate = z * zOffset;
 
+				int v1 = builder.AddVertex(new Vector3(xCoordinate, getPixelHeight(x, z), zCoordinate), new Vector2(xCoordinate, zCoordinate));
+				int v2 = builder.AddVertex(new Vector3(xCoordinate + xOffset, getPixelHeight(x + 1, z), zCoordinate), new Vector2(xCoordinate + xOffset, zCoordinate));
+				int v3 = builder.AddVertex(new Vector3(xCoordinate, getPixelHeight(x, z + 1), zCoordinate + zOffset), new Vector2(xCoordinate, zCoordinate + zOffset));
+				int v4 = builder.AddVertex(new Vector3(xCoordinate + xOffset, getPixelHeight(x + 1, z + 1), zCoordinate + zOffset), new Vector2(xCoordinate + xOffset, zCoordinate + zOffset));
 
 				builder.AddTriangle(v1, v4, v2);
 				builder.AddTriangle(v1, v3, v4);
 			}
 		}
-
-
-
-		//int v1 = builder.AddVertex(new Vector3(0.5f, 0, 0), new Vector2(0, 0));
-		//int v2 = builder.AddVertex(new Vector3(-0.5f, 0, 0), new Vector2(1, 0));
-		//int v3 = builder.AddVertex(new Vector3(0.5f, 0, 1f), new Vector2(0, 1));
-		//int v4 = builder.AddVertex(new Vector3(-0.5f, 0, 1f), new Vector2(1, 1));
-
-		//builder.AddTriangle(v1, v2, v3);
-		//builder.AddTriangle(v2, v4, v3);
-
 		GetComponent<MeshFilter>().mesh.RecalculateNormals();
-
 		GetComponent<MeshFilter>().mesh = builder.CreateMesh();
+
+
 	}
+
+
+	float getPixelHeight(int x, int y) {
+		Color pixelColor = perlinNoiseTexture.GetPixel(x, y);
+		Debug.Log(pixelColor.r);
+		float pixelHeight = pixelColor.r * height;
+
+		
+
+		return pixelHeight;
+		
+	}
+
+
+	void GenerateTexture() {
+		perlinNoiseTexture = new Texture2D(tex_width, tex_height);
+
+
+		for (int x = 0; x < tex_width; x++) {
+			for (int y = 0; y < tex_height; y++) {
+				Color color = GetColor(x, y);
+				perlinNoiseTexture.SetPixel(x, y, color);
+			}
+		}
+
+		perlinNoiseTexture.Apply();
+	}
+
+	Color GetColor(int x, int y) {
+		float xCoor = (float)x / tex_width *scale + offsetX;
+		float yCoor = (float)y / tex_height *scale+ offsetY;
+
+		float sample = Mathf.PerlinNoise(xCoor, yCoor);
+		return new Color(sample, sample, sample);
+	}
+
+
 }

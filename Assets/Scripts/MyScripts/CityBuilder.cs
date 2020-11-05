@@ -69,7 +69,7 @@ public class CityBuilder : Builder
         for (int i = 0; i < numberOfPoints; i++) {
             Vector3 pointToCheck;
 
-            pointToCheck = new Vector3(random.Next((int)boundries[0].x, (int)boundries[1].x), 0, random.Next((int)boundries[2].z, (int)boundries[3].z));
+            pointToCheck = new Vector3(random.Next((int)boundries[0].x, (int)boundries[1].x), transform.position.y, random.Next((int)boundries[2].z, (int)boundries[3].z));
             Point point = new Point(pointToCheck);
             points.Add(point);
         }
