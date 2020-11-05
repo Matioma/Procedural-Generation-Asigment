@@ -3,7 +3,22 @@ guid: f3003d963d8e4384bab6867527ecdfe9
 ModelImporter:
   serializedVersion: 19300
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: roofRed
+    second: {fileID: 2100000, guid: 3a5eb271ba1ecf7488562a16130b2ce0, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: roofRedLight
+    second: {fileID: 2100000, guid: be747b2c6c9b10943b1a0f4aad88dcbe, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: woodDark
+    second: {fileID: 2100000, guid: 8fc64a1b6ed399a41a5cf82d0ccd6d43, type: 2}
   materials:
     materialImportMode: 1
     materialName: 0
@@ -31,7 +46,7 @@ ModelImporter:
     extraExposedTransformPaths: []
     extraUserProperties: []
     clipAnimations: []
-    isReadable: 0
+    isReadable: 1
   meshes:
     lODScreenPercentages: []
     globalScale: 1

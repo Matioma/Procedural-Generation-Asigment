@@ -7,9 +7,9 @@ using UnityEngine;
 // Note that it identifies materials by name!
 public class CombineMeshes : MonoBehaviour
 {
-	public KeyCode combineKey = KeyCode.Return;
-	public KeyCode disableRendererKey = KeyCode.F9;
-	public KeyCode destroyKey = KeyCode.F10;
+	//public KeyCode combineKey = KeyCode.Return;
+	//public KeyCode disableRendererKey = KeyCode.F9;
+	//public KeyCode destroyKey = KeyCode.F10;
 	public bool destroyChildren = true;
 
 	// Key = material name. Value = triangle list, with indices relative to the combined vertex list
@@ -23,26 +23,41 @@ public class CombineMeshes : MonoBehaviour
 	List<Vector3> normals;
 	// Possibly: Later add other things like (bi)tangents, colors, secondary uvs, ... too
 
-    void Update()
-    {
-		
-		if (Input.GetKeyDown(combineKey)) {
-			Debug.Log("Remove");
-			Initialize();
-			AddChildMeshes(gameObject, Matrix4x4.identity);
-			Combine();
-			if (destroyChildren) {
-				DestroyChildren();
-			}
-		}
-		if (Input.GetKeyDown(destroyKey)) {
-			Debug.Log("Destroying all child objects!");
+
+	public void Optimize() {
+
+
+
+		Debug.Log("Remove");
+		Initialize();
+		AddChildMeshes(gameObject, Matrix4x4.identity);
+		Combine();
+		if (destroyChildren)
+		{
 			DestroyChildren();
 		}
-		if (Input.GetKeyDown(disableRendererKey)) {
-			Debug.Log("Removing all mesh renderers!");
-			DisableRenderers();
-		}
+	}
+
+
+    void Update()
+    {
+		//if (Input.GetKeyDown(combineKey)) {
+		//	Debug.Log("Remove");
+		//	Initialize();
+		//	AddChildMeshes(gameObject, Matrix4x4.identity);
+		//	Combine();
+		//	if (destroyChildren) {
+		//		DestroyChildren();
+		//	}
+		//}
+		//if (Input.GetKeyDown(destroyKey)) {
+		//	Debug.Log("Destroying all child objects!");
+		//	DestroyChildren();
+		//}
+		//if (Input.GetKeyDown(disableRendererKey)) {
+		//	Debug.Log("Removing all mesh renderers!");
+		//	DisableRenderers();
+		//}
     }
 
 	void Initialize() {

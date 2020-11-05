@@ -13,14 +13,35 @@ public class GenerateBuilding : Editor
 
         base.OnInspectorGUI();
         if (GUILayout.Button("Generate")) {
+            removeMesh();
+
             building.Trigger();
         }
 
 
         if (GUILayout.Button("RandomSeed"))
         {
+            removeMesh();
             building.GetComponent<RandomGenerator>().seed = Random.Range(0, int.MaxValue);
             building.Trigger();
         }
+
+
+        void removeMesh()
+        {
+            var render = building.GetComponent<MeshRenderer>();
+            if (render)
+            {
+                Destroy(render);
+            }
+            var meshFillter = building.GetComponent<MeshFilter>();
+            if (render)
+            {
+                Destroy(meshFillter);
+            }
+        }
     }
+
+
+    
 }

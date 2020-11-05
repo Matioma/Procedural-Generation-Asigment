@@ -13,7 +13,18 @@ public class BuilderGenerateButtons : Editor
         base.OnInspectorGUI();
         if (GUILayout.Button("Generate"))
         {
+            var render = builderComponent.GetComponent<MeshFilter>();
+            if (render != null)
+            {
+                Destroy(render);
+            }
+
+
+
             builderComponent.Generate();
+
+
+
         }
         if (GUILayout.Button("RandomSeed"))
         {
