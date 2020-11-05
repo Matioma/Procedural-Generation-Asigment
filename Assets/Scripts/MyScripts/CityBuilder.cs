@@ -99,30 +99,33 @@ public class CityBuilder : Builder
 
 
         for (int i = 1; i < polygon.Count; i++) {
-            if (polygon[i].x > minX.x)
+            if (polygon[i].x > maxX.x)
             {
                 maxX = polygon[i];
             }
-            else { 
+            if (polygon[i].x < minX.x) {
                 minX = polygon[i];
             }
 
-            if (polygon[i].z > minZ.z)
+            if (polygon[i].z > maxZ.z)
             {
-                
                 maxZ = polygon[i];
             }
-            else
+            if (polygon[i].x < minZ.z)
             {
                 minZ = polygon[i];
             }
-
         }
 
         boundries[0] = minX + transform.position;
         boundries[1] = maxX + transform.position;
         boundries[2] = minZ + transform.position;
         boundries[3] = maxZ + transform.position;
+
+        Debug.Log(boundries[0]);
+        Debug.Log(boundries[1]);
+        Debug.Log(boundries[2]);
+        Debug.Log(boundries[3]);
 
         return boundries;
     }
