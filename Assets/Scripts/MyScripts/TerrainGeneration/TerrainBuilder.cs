@@ -40,17 +40,21 @@ public class TerrainBuilder : MonoBehaviour
 	float offsetY = 100;
 
 
+	RandomGenerator random;
+
 	void Start()
 	{
+		random = GetComponent<RandomGenerator>();
 	}
 
 
 	public void Generate() {
 		GenerateTexture();
 
-		offsetX = GetComponent<RandomGenerator>().Next(0, int.MaxValue);
-		offsetY = GetComponent<RandomGenerator>().Next(0, int.MaxValue);
-		Debug.Log(offsetX);
+
+		offsetX = random.Next(0, 0.999f);
+		offsetY = random.Next(0, 0.999f);
+		//Debug.Log(offsetX);
 
 
 		MeshBuilder builder = new MeshBuilder();
@@ -80,6 +84,7 @@ public class TerrainBuilder : MonoBehaviour
 		GetComponent<MeshFilter>().mesh.RecalculateNormals();
 
 		GetComponent<MeshCollider>().sharedMesh = GetComponent<MeshFilter>().mesh;
+		GetComponent<MeshRenderer>().material.mainTexture = perlinNoiseTexture;
 	}
 
 
@@ -87,7 +92,7 @@ public class TerrainBuilder : MonoBehaviour
 		Color pixelColor = perlinNoiseTexture.GetPixel(x, y);
 		float pixelHeight = pixelColor.r * height;
 
-		
+	
 
 		return pixelHeight;
 		
@@ -97,6 +102,7 @@ public class TerrainBuilder : MonoBehaviour
 	void GenerateTexture() {
 		perlinNoiseTexture = new Texture2D(tex_width, tex_height);
 
+		//Debug.Log()
 
 		for (int x = 0; x < tex_width; x++) {
 			for (int y = 0; y < tex_height; y++) {
@@ -109,10 +115,13 @@ public class TerrainBuilder : MonoBehaviour
 	}
 
 	Color GetColor(int x, int y) {
-		float xCoor = (float)x / tex_width *scale + offsetX;
-		float yCoor = (float)y / tex_height *scale+ offsetY;
+		float xCoor = ((float)x / tex_width) *scale + offsetX;
+		float yCoor = ((float)y / tex_height) *scale+ offsetY;
+
 
 		float sample = Mathf.PerlinNoise(xCoor, yCoor);
+
+		
 		return new Color(sample, sample, sample);
 	}
 
