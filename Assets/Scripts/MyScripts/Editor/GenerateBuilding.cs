@@ -14,7 +14,6 @@ public class GenerateBuilding : Editor
         base.OnInspectorGUI();
         if (GUILayout.Button("Generate")) {
             removeMesh();
-
             building.Trigger();
         }
 

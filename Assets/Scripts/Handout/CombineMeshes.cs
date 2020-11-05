@@ -7,7 +7,7 @@ using UnityEngine;
 // Note that it identifies materials by name!
 public class CombineMeshes : MonoBehaviour
 {
-	//public KeyCode combineKey = KeyCode.Return;
+	public KeyCode combineKey = KeyCode.Return;
 	//public KeyCode disableRendererKey = KeyCode.F9;
 	//public KeyCode destroyKey = KeyCode.F10;
 	public bool destroyChildren = true;
@@ -25,9 +25,6 @@ public class CombineMeshes : MonoBehaviour
 
 
 	public void Optimize() {
-
-
-
 		Debug.Log("Remove");
 		Initialize();
 		AddChildMeshes(gameObject, Matrix4x4.identity);
@@ -41,23 +38,25 @@ public class CombineMeshes : MonoBehaviour
 
     void Update()
     {
-		//if (Input.GetKeyDown(combineKey)) {
-		//	Debug.Log("Remove");
-		//	Initialize();
-		//	AddChildMeshes(gameObject, Matrix4x4.identity);
-		//	Combine();
-		//	if (destroyChildren) {
-		//		DestroyChildren();
-		//	}
-		//}
-		//if (Input.GetKeyDown(destroyKey)) {
-		//	Debug.Log("Destroying all child objects!");
-		//	DestroyChildren();
-		//}
-		//if (Input.GetKeyDown(disableRendererKey)) {
-		//	Debug.Log("Removing all mesh renderers!");
-		//	DisableRenderers();
-		//}
+        if (Input.GetKeyDown(combineKey))
+        {
+            Debug.Log("Remove");
+            Initialize();
+            AddChildMeshes(gameObject, Matrix4x4.identity);
+            Combine();
+            if (destroyChildren)
+            {
+                DestroyChildren();
+            }
+        }
+        //if (Input.GetKeyDown(destroyKey)) {
+        //	Debug.Log("Destroying all child objects!");
+        //	DestroyChildren();
+        //}
+        //if (Input.GetKeyDown(disableRendererKey)) {
+        //	Debug.Log("Removing all mesh renderers!");
+        //	DisableRenderers();
+        //}
     }
 
 	void Initialize() {
