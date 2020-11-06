@@ -251,7 +251,7 @@ public class Road : Builder
     void SplitRoad(float time, bool left =true) {
         StreetParameters newStreetParameters = new StreetParameters(streetParameters);
 
-        newStreetParameters.streetLength = newStreetParameters.GetStreetLength()*0.6f;
+        newStreetParameters.streetLength = newStreetParameters.GetStreetLength()*0.3f;
         newStreetParameters.startPosition = streetParameters.startPosition + vectorDif.normalized * time;
 
         float degreesFromRoadNormal = random.Next(-45,45);
@@ -272,9 +272,9 @@ public class Road : Builder
 
     public void RemoveChildren()
     {
-        for (int i = 0; i < transform.childCount; i++)
+        while (transform.childCount != 0)
         {
-            Destroy(transform.GetChild(i).gameObject);
+            DestroyImmediate(transform.GetChild(0).gameObject);
         }
     }
 }
