@@ -154,8 +154,7 @@ public class Road : Builder
             if (buildingsToLeft) {
                 if (!roadToLeft || Mathf.Abs(timeSplitLeft - distancePassed) >= streetParameters.intersectionsSize)
                 {
-                    if (PredifinedBuldings.Count <= 0)
-                    {
+                   
                         GameObject building = Instantiate(buildingPrefab, child.transform);
 
                         building.GetComponent<RandomGenerator>().seed = random.Next(int.MaxValue);
@@ -169,12 +168,7 @@ public class Road : Builder
 
                         building.GetComponent<Buildings>().buildingParameters = new BuildingParameters(this.buildingParameters);
                         building.GetComponent<Buildings>().Trigger();
-                    }
-                    else { 
-                    
-                    
-                    
-                    }
+                   
 
                   
                 }
@@ -183,8 +177,7 @@ public class Road : Builder
             if (buildingsToRight) {
                 if ( !roadToRight || Mathf.Abs(timeSplitLeft - distancePassed) >= streetParameters.intersectionsSize )
                 {
-                    if (PredifinedBuldings.Count <= 0)
-                    {
+                   
                         GameObject building = Instantiate(buildingPrefab, child.transform);
                         building.GetComponent<RandomGenerator>().seed = random.Next(int.MaxValue);
                         building.transform.position = objectPosition - perpendicular * streetParameters.roadWidth / 2;
@@ -197,11 +190,7 @@ public class Road : Builder
 
                         building.GetComponent<Buildings>().buildingParameters = new BuildingParameters(this.buildingParameters);
                         building.GetComponent<Buildings>().Trigger();
-                    }
-                    else { 
-                    
-                    }
-
+                  
                    
                 }
             }
@@ -243,6 +232,8 @@ public class Road : Builder
         curve.AddKey(0, 0);
         curve.MoveKey(0, new Keyframe(0, 0, 0, 0));
         curve.MoveKey(1, new Keyframe(vectorDif.magnitude, 0, 0, 0));
+
+        random = GetComponent<RandomGenerator>();
 
         float randomX = random.Next(curve[0].time, curve[curve.length - 1].time);
         float randomY = random.Next(-streetParameters.curvitureDepth, streetParameters.curvitureDepth);

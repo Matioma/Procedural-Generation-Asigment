@@ -159,8 +159,9 @@ public class CityBuilder : Builder
         buildRoad();
     }
     void RemoveChildren() {
-        for (int i = 0; i < transform.childCount; i++) {
-            Destroy(transform.GetChild(i).gameObject);
+        while (transform.childCount != 0)
+        {
+            DestroyImmediate(transform.GetChild(0).gameObject);
         }
     }
 
