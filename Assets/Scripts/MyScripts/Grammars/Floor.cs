@@ -29,9 +29,9 @@ public class Floor : Shape
     
     private void Start()
     {
-        GetComponent<Buildings>()?.Trigger();
+        //GetComponent<Buildings>()?.Trigger();
 
-        Generate();
+        //Generate();
      
     }
 
@@ -64,7 +64,7 @@ public class Floor : Shape
     {
         GameObject wall;
 
-        while (index.x != 0 || index.y != 0)
+        do
         {
             wall = SpawnPrefab(wallPrefab);
             wall.transform.localPosition = new Vector3(index.x, 0, index.y);
@@ -76,11 +76,13 @@ public class Floor : Shape
             wallComponent.WidthRemaining = computeWallWidth();
             wall.GetComponent<RandomGenerator>().seed = GetComponent<RandomGenerator>().Next(0,int.MaxValue);
 
+            //if (index.x != 0 || index.y != 0) {
+                wallComponent.Generate();
+            //}
+           
 
-            wallComponent.Generate();
 
-
-        }
+        } while (index.x != 0 || index.y != 0) ;
     }
 
     bool indexInBounds(Vector2Int index) {
