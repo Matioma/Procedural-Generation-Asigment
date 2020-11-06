@@ -50,12 +50,13 @@ public class RoofTop : Shape
     private void Awake()
     {
         grid = GetComponent<GridInfo>();
-        random = GetComponent<RandomGenerator>();
+       
     }
 
 
     private GameObject ChooseRightPrefab(int value)
     {
+        random = GetComponent<RandomGenerator>();
         int index=0;
 
         switch (value) {
@@ -213,9 +214,10 @@ public class RoofTop : Shape
     }
 
     int[,] newFloorPlan() {
+       
+    
 
 
-        
         int[,] floorPlan = new int[grid.getArray().GetLength(0), grid.getArray().GetLength(1)];
         Array.Copy(grid.getArray(), floorPlan, grid.getArray().Length);
         bool needsAFloor = false;
@@ -246,12 +248,15 @@ public class RoofTop : Shape
     }
     public void Initialize(int[,] dataArray)
     {
+        grid = GetComponent<GridInfo>();
+
         grid.Initialize(dataArray.GetLength(1), dataArray.GetLength(0));
         grid.FillTheData(dataArray);
     }
 
 
     public void Generate() {
+        random = GetComponent<RandomGenerator>();
         //Debug.Log("Generated");
         DeleteGenerated();
         if (random != null)
@@ -282,7 +287,7 @@ public class RoofTop : Shape
                     roofBlock.transform.name = "i[" + i + "]; j[" + j + "]";
 
                     MeshRenderer meshRenderer = roofBlock.GetComponentInChildren<MeshRenderer>();
-                    var materialList = meshRenderer.materials;
+                    var materialList = meshRenderer.sharedMaterials;
 
 
 
@@ -299,7 +304,7 @@ public class RoofTop : Shape
                         materialList[3] = roofMaterials;
                     }
                    
-                    meshRenderer.materials = materialList;
+                    meshRenderer.sharedMaterials = materialList;
 
                     roofBlock.transform.localPosition = new Vector3(j, 0, i);
 

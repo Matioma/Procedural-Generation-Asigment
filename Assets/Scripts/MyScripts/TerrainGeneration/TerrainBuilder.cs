@@ -44,7 +44,7 @@ public class TerrainBuilder : MonoBehaviour
 
 	void Start()
 	{
-		random = GetComponent<RandomGenerator>();
+		//random = GetComponent<RandomGenerator>();
 	}
 
 
@@ -52,13 +52,10 @@ public class TerrainBuilder : MonoBehaviour
 		GenerateTexture();
 
 
-		offsetX = random.Next(0, 0.999f);
-		offsetY = random.Next(0, 0.999f);
-		//Debug.Log(offsetX);
-
+		offsetX = GetComponent<RandomGenerator>().Next(0, 0.999f);
+		offsetY = GetComponent<RandomGenerator>().Next(0, 0.999f);
 
 		MeshBuilder builder = new MeshBuilder();
-		//builder.Clear();
 
 		float xOffset = (float)width / resolutionX;
 		float zOffset = (float)width / resolutionZ;
@@ -80,11 +77,11 @@ public class TerrainBuilder : MonoBehaviour
 			}
 		}
 		
-		GetComponent<MeshFilter>().mesh = builder.CreateMesh();
-		GetComponent<MeshFilter>().mesh.RecalculateNormals();
+		GetComponent<MeshFilter>().sharedMesh = builder.CreateMesh();
+		GetComponent<MeshFilter>().sharedMesh.RecalculateNormals();
 
-		GetComponent<MeshCollider>().sharedMesh = GetComponent<MeshFilter>().mesh;
-		GetComponent<MeshRenderer>().material.mainTexture = perlinNoiseTexture;
+		GetComponent<MeshCollider>().sharedMesh = GetComponent<MeshFilter>().sharedMesh;
+		//GetComponent<MeshRenderer>().material.mainTexture = perlinNoiseTexture;
 	}
 
 

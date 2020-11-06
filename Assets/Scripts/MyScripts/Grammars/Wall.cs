@@ -45,7 +45,7 @@ public class Wall : Shape
 
     private void Awake()
     {
-        random = GetComponent<RandomGenerator>();
+        
     }
 
 
@@ -72,6 +72,7 @@ public class Wall : Shape
 
     protected override void Execute()
     {
+        random = GetComponent<RandomGenerator>();
         if (WidthRemaining <= 0)
         {
            
@@ -105,7 +106,7 @@ public class Wall : Shape
         var woodMaterials = Root.GetComponent<Wall>().woodMaterials;
 
         foreach (var meshRenderer in meshRenderers) {
-            var materials = meshRenderer.materials;
+            var materials = meshRenderer.sharedMaterials;
 
 
             for (int i = 0; i < materials.Length; i++) {
@@ -146,7 +147,7 @@ public class Wall : Shape
             //{
             //    materials[3] = newMaterials[1];
             //}
-            meshRenderer.materials = materials;
+            meshRenderer.sharedMaterials = materials;
         }
         
 

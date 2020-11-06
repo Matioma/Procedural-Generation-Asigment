@@ -33,9 +33,12 @@ public class WallParameters : MonoBehaviour
 
     private void Awake()
     {
-        random = GetComponent<RandomGenerator>();
+        
     }
     public GameObject GetWallPiece() {
+        if(random ==null)
+            random = GetComponent<RandomGenerator>();
+
         if (walls ==null && walls.Length == 0) {
             Debug.LogError("Wall types array is empty");
             return null;

@@ -31,12 +31,12 @@ public class GenerateBuilding : Editor
             var render = building.GetComponent<MeshRenderer>();
             if (render)
             {
-                Destroy(render);
+                DestroyImmediate(render);
             }
             var meshFillter = building.GetComponent<MeshFilter>();
             if (render)
             {
-                Destroy(meshFillter);
+                DestroyImmediate(meshFillter);
             }
         }
     }

@@ -52,6 +52,9 @@ public class Floor : Shape
 
         this.width = floorPlan.GetLength(0);
         this.depth = floorPlan.GetLength(1);
+
+        //GetComponent<Buildings>()?.Trigger();
+        Generate();
     }
     
  

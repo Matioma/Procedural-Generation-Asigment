@@ -94,7 +94,7 @@ public class CombineMeshes : MonoBehaviour
 			
 			// For each submesh, copy triangles to the right new submesh:
 			for (int sm=0;sm<mesh.subMeshCount;sm++) {
-				Material origMat = renderer.materials[sm];
+				Material origMat = renderer.sharedMaterials[sm];
 
 				if (!materials.ContainsKey(origMat.name)) { // Create a new material and submesh for the combined mesh
 					materials[origMat.name]=origMat; // Maybe: Clone?
@@ -146,7 +146,7 @@ public class CombineMeshes : MonoBehaviour
 		newMesh.subMeshCount=materials.Count;
 
 		MeshFilter filter = gameObject.AddComponent<MeshFilter>();
-		filter.mesh = newMesh;
+		filter.sharedMesh = newMesh;
 
 		MeshRenderer renderer = gameObject.AddComponent<MeshRenderer>();
 
@@ -169,7 +169,7 @@ public class CombineMeshes : MonoBehaviour
 
 	void DestroyChildren() {
 		for (int ci = 0; ci<transform.childCount; ci++) {
-			Destroy(transform.GetChild(ci).gameObject);
+			DestroyImmediate(transform.GetChild(ci).gameObject);
 		}
 	}
 

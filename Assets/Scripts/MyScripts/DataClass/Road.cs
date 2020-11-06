@@ -47,6 +47,10 @@ public class Road : Builder
     float timeSplitRight;
 
 
+
+    List<GameObject> PredifinedBuldings;
+
+
     public bool SetHasBuildingsOnLeft{
         set {
             buildingsToLeft = value;
@@ -148,50 +152,57 @@ public class Road : Builder
             Vector3 objectPosition = streetParameters.startPosition + vectorDif.normalized * distancePassed+ perpendicular * curve.Evaluate(distancePassed);
 
             if (buildingsToLeft) {
-                if(!roadToLeft  || Mathf.Abs(timeSplitLeft - distancePassed) >= streetParameters.intersectionsSize )
+                if (!roadToLeft || Mathf.Abs(timeSplitLeft - distancePassed) >= streetParameters.intersectionsSize)
                 {
-                    GameObject building = Instantiate(buildingPrefab, child.transform);
+                    if (PredifinedBuldings.Count <= 0)
+                    {
+                        GameObject building = Instantiate(buildingPrefab, child.transform);
+
+                        building.GetComponent<RandomGenerator>().seed = random.Next(int.MaxValue);
+                        building.transform.position = objectPosition + perpendicular * streetParameters.roadWidth / 2;
+
+
+                        Vector3 nextPosition = streetParameters.startPosition + vectorDif.normalized * distancePassed + perpendicular * curve.Evaluate(distancePassed + 0.001f);
+                        Vector3 relativePosition = nextPosition - building.transform.position;
+                        Vector3 directionVector = Vector3.Cross(relativePosition, Vector3.up).normalized;
+                        building.transform.rotation = Quaternion.LookRotation(-directionVector, Vector3.up);
+
+                        building.GetComponent<Buildings>().buildingParameters = new BuildingParameters(this.buildingParameters);
+                        building.GetComponent<Buildings>().Trigger();
+                    }
+                    else { 
                     
-
-                    //Vector3 objectPosition =new Vector3( curve.Evaluate(distancePassed)
-                    
-
-
-
-
                     
                     
-                    //building.transform.LookAt()
-                    building.GetComponent<RandomGenerator>().seed = random.Next(int.MaxValue);
-                    building.transform.position = objectPosition + perpendicular * streetParameters.roadWidth / 2;
+                    }
 
-
-                    Vector3 nextPosition = streetParameters.startPosition + vectorDif.normalized * distancePassed + perpendicular * curve.Evaluate(distancePassed+0.001f);
-                    Vector3 relativePosition = nextPosition - building.transform.position;
-                    Vector3 directionVector = Vector3.Cross(relativePosition, Vector3.up).normalized;
-                    building.transform.rotation = Quaternion.LookRotation(-directionVector, Vector3.up);
-
-                    building.GetComponent<Buildings>().buildingParameters = new BuildingParameters(this.buildingParameters);
-                    building.GetComponent<Buildings>().Trigger();
+                  
                 }
             }
             //Building on Right
             if (buildingsToRight) {
                 if ( !roadToRight || Mathf.Abs(timeSplitLeft - distancePassed) >= streetParameters.intersectionsSize )
                 {
-                    GameObject building = Instantiate(buildingPrefab, child.transform);
-                    building.GetComponent<RandomGenerator>().seed = random.Next(int.MaxValue);
-                    building.transform.position = objectPosition - perpendicular * streetParameters.roadWidth / 2;
+                    if (PredifinedBuldings.Count <= 0)
+                    {
+                        GameObject building = Instantiate(buildingPrefab, child.transform);
+                        building.GetComponent<RandomGenerator>().seed = random.Next(int.MaxValue);
+                        building.transform.position = objectPosition - perpendicular * streetParameters.roadWidth / 2;
 
 
-                    Vector3 nextPosition = streetParameters.startPosition + vectorDif.normalized * distancePassed + perpendicular * curve.Evaluate(distancePassed + 0.001f);
-                    Vector3 relativePosition = nextPosition - building.transform.position;
-                    Vector3 directionVector = Vector3.Cross(relativePosition, Vector3.up).normalized;
-                    building.transform.rotation = Quaternion.LookRotation(directionVector, Vector3.up);
+                        Vector3 nextPosition = streetParameters.startPosition + vectorDif.normalized * distancePassed + perpendicular * curve.Evaluate(distancePassed + 0.001f);
+                        Vector3 relativePosition = nextPosition - building.transform.position;
+                        Vector3 directionVector = Vector3.Cross(relativePosition, Vector3.up).normalized;
+                        building.transform.rotation = Quaternion.LookRotation(directionVector, Vector3.up);
 
+                        building.GetComponent<Buildings>().buildingParameters = new BuildingParameters(this.buildingParameters);
+                        building.GetComponent<Buildings>().Trigger();
+                    }
+                    else { 
+                    
+                    }
 
-                    building.GetComponent<Buildings>().buildingParameters = new BuildingParameters(this.buildingParameters);
-                    building.GetComponent<Buildings>().Trigger();
+                   
                 }
             }
         }
