@@ -9,8 +9,12 @@ public static  class  OptimizeScene
     public static void MergeMeshes() {
         Debug.Log("Merge");
 
-        CombineMeshes[] combineMeshes = Resources.FindObjectsOfTypeAll<CombineMeshes>();
-        foreach(var mesh in combineMeshes) {
+        CombineMeshes[] combineMeshes = Selection.activeTransform.gameObject.GetComponentsInChildren<CombineMeshes>();
+
+        //Debug.Log(combineMeshes.Length);
+
+        foreach (var mesh in combineMeshes)
+        {
             mesh.Optimize();
         }
         //Debug.Log(combineMeshes.Length);
