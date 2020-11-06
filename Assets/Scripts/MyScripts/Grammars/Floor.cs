@@ -64,7 +64,7 @@ public class Floor : Shape
     {
         GameObject wall;
 
-        do
+        while (index.x != 0 || index.y != 0)
         {
             wall = SpawnPrefab(wallPrefab);
             wall.transform.localPosition = new Vector3(index.x, 0, index.y);
@@ -80,7 +80,7 @@ public class Floor : Shape
             wallComponent.Generate();
 
 
-        } while (index.x != 0 || index.y != 0);
+        }
     }
 
     bool indexInBounds(Vector2Int index) {

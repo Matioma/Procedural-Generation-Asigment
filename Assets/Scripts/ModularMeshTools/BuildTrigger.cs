@@ -11,10 +11,10 @@ namespace Demo {
 		void Start() {
 			Root=GetComponent<Shape>();
 			
-			if (BuildOnStart) {
-				Build();
+			//if (BuildOnStart) {
+			//	Build();
 				
-			}
+			//}
 		}
 
 		void Update() {

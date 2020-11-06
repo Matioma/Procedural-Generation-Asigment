@@ -40,6 +40,12 @@ public class Buildings : Shape
         resetFloorPlan();
     }
 
+    void RemoveChildren() {
+        while (transform.childCount != 0)
+        {
+            DestroyImmediate(transform.GetChild(0).gameObject);
+        }
+    }
 
     /// <summary>
     /// Trigger Building
@@ -65,7 +71,10 @@ public class Buildings : Shape
         if (Root != null)
         {
             UpdateRandomValues();
-            Generate();
+            RemoveChildren();
+            Execute();
+            
+            //Generate();
         }
     }
 
